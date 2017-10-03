@@ -781,6 +781,35 @@ Use case resumes at step 2.
 [appendix]
 == Glossary
 
+1) Version
+	A way to categorize the current state of a software as it is developed and released.
+	One has to note that there is no industry standard for how a version number should be formatted.
+	Therefore, different companies/developers have different style of formatting version number.
+
+2) Backward compatible 
+	Current version of the AddressBook is able to run previous version of the AddressBook successfully. 
+	
+3) Reformat
+	The process of erasing every data and reset it back to its original form. 
+	Usually perform when data is corrupted, or for convenience when there are too many datas to be deleted.
+
+4) Natural Language
+	Refers to the language use by human, such as English, Chinese, Spanish, French etc..
+	It is different from language use by Artificial Intelligence and Computer.
+	
+5) Server
+	A computer created to process request and deliver data to other computers over a local network or the internet.
+	
+6) Server-side data storage
+	Refers to an online storage medium for storing your data. Requires a server to do so, such as Cloud server.
+
+7) Programming Language
+	A vocabulary and set of grammatical rules for instructing a computer or computing device to perform certain task.
+	Some common programming languages are Java, C, C++, Python etc.
+	
+8) Commands
+	Instruction to tell the AddressBook what to do in order to perform specific task, such as storing or deleting a contact.
+
 [[mainstream-os]]
 Mainstream OS
 
