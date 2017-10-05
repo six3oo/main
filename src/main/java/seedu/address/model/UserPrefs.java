@@ -1,7 +1,8 @@
 package seedu.address.model;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
-
+import java.security.MessageDigest;
 import seedu.address.commons.core.GuiSettings;
 
 /**
@@ -12,6 +13,7 @@ public class UserPrefs {
     private GuiSettings guiSettings;
     private String addressBookFilePath = "data/addressbook.xml";
     private String addressBookName = "MyAddressBook";
+    private String password = "";
 
     public UserPrefs() {
         this.setGuiSettings(500, 500, 0, 0);
@@ -45,6 +47,21 @@ public class UserPrefs {
         this.addressBookName = addressBookName;
     }
 
+    public boolean checkPassword(String input) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(input.getBytes());
+            //convert the byte to hex format
+            byte byteData[] = md.digest();
+            StringBuffer buffer = new StringBuffer();
+            for (int i = 0; i < byteData.length; i++) {
+                buffer.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            return password.equals(buffer.toString());
+        } catch (NoSuchAlgorithmException e) {
+            return false;
+        }
+    }
     @Override
     public boolean equals(Object other) {
         if (other == this) {

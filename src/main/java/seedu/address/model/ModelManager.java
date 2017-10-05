@@ -24,6 +24,7 @@ public class ModelManager extends ComponentManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
     private final AddressBook addressBook;
+    private final UserPrefs userPrefs;
     private final FilteredList<ReadOnlyPerson> filteredPersons;
 
     /**
@@ -36,6 +37,7 @@ public class ModelManager extends ComponentManager implements Model {
         logger.fine("Initializing with address book: " + addressBook + " and user prefs " + userPrefs);
 
         this.addressBook = new AddressBook(addressBook);
+        this.userPrefs = userPrefs;
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
     }
 
@@ -48,6 +50,9 @@ public class ModelManager extends ComponentManager implements Model {
         addressBook.resetData(newData);
         indicateAddressBookChanged();
     }
+
+    @Override
+    public UserPrefs getUserPrefs() { return userPrefs;}
 
     @Override
     public ReadOnlyAddressBook getAddressBook() {
