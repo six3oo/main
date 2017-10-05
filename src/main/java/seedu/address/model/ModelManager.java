@@ -86,7 +86,7 @@ public class ModelManager extends ComponentManager implements Model {
 
     @Override
     public void deleteTag(Tag tag) throws PersonNotFoundException, DuplicatePersonException {
-        for (int i = 0; i< addressBook.getPersonList().size(); i++) {
+        for (int i = 0; i < addressBook.getPersonList().size(); i++) {
             ReadOnlyPerson oldPerson = addressBook.getPersonList().get(i);
 
             Person newPerson = new Person(oldPerson);
