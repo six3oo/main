@@ -1,4 +1,4 @@
-= AddressBook Level 4 - Developer Guide
+﻿= AddressBook Level 4 - Developer Guide
 :toc:
 :toc-title:
 :toc-placement: preamble
@@ -775,8 +775,13 @@ Use case resumes at step 2.
 .  Should work on any link:#mainstream-os[mainstream OS] as long as it has Java `1.8.0_60` or higher installed.
 .  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 .  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-
-{More to be added}
+.  Each version of the application should be backwards compatible with contacts created and saved using the previous versions.
+.  Should offer encrypted user passwords for additional security.
+.  The project is not required to handle server-side data storage.
+.  The system should be usable by a user with no prior experience with programming languages.
+.  The system should have a colour scheme that is friendly to colour-blind users.
+.  The system should be fully usable without needing to touch the mouse.
+.  The system should respond within two seconds.
 
 [appendix]
 == Glossary
