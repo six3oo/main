@@ -2,7 +2,6 @@ package seedu.address.model;
 
 import java.util.function.Predicate;
 
-import com.sun.org.apache.bcel.internal.generic.DUP;
 import javafx.collections.ObservableList;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
@@ -39,6 +38,7 @@ public interface Model {
             throws DuplicatePersonException, PersonNotFoundException;
 
     void deleteTag(Tag tag) throws PersonNotFoundException, DuplicatePersonException;
+
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<ReadOnlyPerson> getFilteredPersonList();
 

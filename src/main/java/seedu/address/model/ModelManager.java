@@ -84,6 +84,20 @@ public class ModelManager extends ComponentManager implements Model {
         indicateAddressBookChanged();
     }
 
+    @Override
+    public void deleteTag(Tag tag) throws PersonNotFoundException, DuplicatePersonException {
+        for (int i = 0; i < addressBook.getPersonList().size(); i++) {
+            ReadOnlyPerson oldPerson = addressBook.getPersonList().get(i);
+
+            Person newPerson = new Person(oldPerson);
+            Set<Tag> newTags = newPerson.getTags();
+            newTags.remove(tag);
+            newPerson.setTags(newTags);
+
+            addressBook.updatePerson(oldPerson, newPerson);
+        }
+    }
+
     //=========== Filtered Person List Accessors =============================================================
 
     /**
@@ -117,20 +131,6 @@ public class ModelManager extends ComponentManager implements Model {
         ModelManager other = (ModelManager) obj;
         return addressBook.equals(other.addressBook)
                 && filteredPersons.equals(other.filteredPersons);
-    }
-
-    @Override
-    public void deleteTag(Tag tag) throws PersonNotFoundException, DuplicatePersonException {
-        for(int i=0; i<addressBook.getPersonList().size();i++){
-            ReadOnlyPerson oldPerson = addressBook.getPersonList().get(i);
-
-            Person newPerson = new Person(oldPerson);
-            Set<Tag> newTags = newPerson.getTags();
-            newTags.remove(tag);
-            newPerson.setTags(newTags);
-
-            addressBook.updatePerson(oldPerson,newPerson);
-        }
     }
 
 }
