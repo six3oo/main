@@ -789,22 +789,22 @@ Version
 
 Backward compatible
 
-	Current version of the AddressBook is able to run previous version of the AddressBook successfully. 
-	
+	Current version of the AddressBook is able to run previous version of the AddressBook successfully.
+
 Reformat
 
-	The process of erasing every data and reset it back to its original form. 
+	The process of erasing every data and reset it back to its original form.
 	Usually perform when data is corrupted, or for convenience when there are too many datas to be deleted.
 
 Natural Language
 
 	Refers to the language use by human, such as English, Chinese, Spanish, French etc..
 	It is different from language use by Artificial Intelligence and Computer.
-	
+
 Server
 
 	A computer created to process request and deliver data to other computers over a local network or the internet.
-	
+
 Server-side data storage
 
 	Refers to an online storage medium for storing your data. Requires a server to do so, such as Cloud server.
@@ -813,7 +813,7 @@ Programming Language
 
 	A vocabulary and set of grammatical rules for instructing a computer or computing device to perform certain task.
 	Some common programming languages are Java, C, C++, Python etc.
-	
+
 Commands
 
 	Instruction to tell the AddressBook what to do in order to perform specific task, such as storing or deleting a contact.
