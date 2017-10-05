@@ -13,13 +13,13 @@ import java.util.Random;
 /**
  * An UI component that displays information of a {@code Person}.
  */
-public class PersonCard extends UiPart<Region> {
+public class PersonCard extends UiPart<Region>{
 
     private static final String FXML = "PersonListCard.fxml";
     private static String[] Colors = {"red", "yellow", "blue", "orange", "brown", "green", "pink", "black", "grey"};
     private static HashMap<String, String> tagColors = new HashMap<String, String>();
     private static Random random = new Random();
-
+    
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
      * As a consequence, UI elements' variable names cannot be set to such keywords
@@ -45,7 +45,7 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private FlowPane tags;
 
-    public PersonCard(ReadOnlyPerson person, int displayedIndex) {
+    public PersonCard(ReadOnlyPerson person, int displayedIndex){
         super(FXML);
         this.person = person;
         id.setText(displayedIndex + ". ");
@@ -65,7 +65,7 @@ public class PersonCard extends UiPart<Region> {
      * Binds the individual UI elements to observe their respective {@code Person} properties
      * so that they will be notified of any changes.
      */
-    private void bindListeners(ReadOnlyPerson person) {
+    private void bindListeners(ReadOnlyPerson person){
         name.textProperty().bind(Bindings.convert(person.nameProperty()));
         phone.textProperty().bind(Bindings.convert(person.phoneProperty()));
         address.textProperty().bind(Bindings.convert(person.addressProperty()));
@@ -77,9 +77,9 @@ public class PersonCard extends UiPart<Region> {
         });
     }
 
-    private void initTags(ReadOnlyPerson person) {
+    private void initTags(ReadOnlyPerson person){
         //person.getTags().forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
-        person.getTags().forEach(tag -> {
+        person.getTags().forEach(tag ->{
             Label tagLabel = new Label(tag.tagName);
             tagLabel.setStyle("-fx-background-color: " + getColorForTag(tag.tagName)); //-fx-background-color is a .css attribute
             tags.getChildren().add(tagLabel);
@@ -87,14 +87,14 @@ public class PersonCard extends UiPart<Region> {
     }
 
     @Override
-    public boolean equals(Object other) {
+    public boolean equals(Object other){
         // short circuit if same object
-        if (other == this) {
+        if (other == this){
             return true;
         }
 
         // instanceof handles nulls
-        if (!(other instanceof PersonCard)) {
+        if (!(other instanceof PersonCard)){
             return false;
         }
 
