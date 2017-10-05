@@ -13,7 +13,7 @@ import java.util.Random;
 /**
  * An UI component that displays information of a {@code Person}.
  */
-public class PersonCard extends UiPart<Region>{
+public class PersonCard extends UiPart<Region> {
 
     private static final String FXML = "PersonListCard.fxml";
     private static String[] Colors = {"red", "yellow", "blue", "orange", "brown", "green", "pink", "black", "grey"};
@@ -81,7 +81,7 @@ public class PersonCard extends UiPart<Region>{
         //person.getTags().forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
         person.getTags().forEach(tag -> {
             Label tagLabel = new Label(tag.tagName);
-            tagLabel.setStyle("-fx-background-color: " + getColorForTag(tag.tagName)); //-fx-background-color is a .css attribute
+            tagLabel.setStyle("-fx-background-color: " + getColorForTag(tag.tagName));
             tags.getChildren().add(tagLabel);
         });
     }
