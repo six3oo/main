@@ -720,21 +720,41 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 
 [width="59%",cols="22%,<23%,<25%,<30%",options="header",]
 |=======================================================================
-|Priority |As a ... |I want to ... |So that I can...
+|Priority |As a ... |I want to ... |So that I...
 |`* * *` |new user |see usage instructions |refer to instructions when I forget how to use the App
-
 |`* * *` |user |add a new person |
-
 |`* * *` |user |delete a person |remove entries that I no longer need
-
 |`* * *` |user |find a person by name |locate details of persons without having to go through the entire list
-
 |`* *` |user |hide link:#private-contact-detail[private contact details] by default |minimize chance of someone else seeing them by accident
-
 |`*` |user with many persons in the address book |sort persons by name |locate a person easily
+|`**` |user |add photos to contacts |can recognise the name easily
+|`***` |user |click a link to access files sent to me by a contact |do not have to search my email/dropbox for it.
+|`*` |user |copy the details of my contacts to a message or email |can share a contact with other contacts easily
+|`**` |user |set a reminder that will prompt me about upcoming events with the contact |will not forget significant events
+|`***` |user |import contacts from other addressbook apps |do not have to re-enter each contact manually
+|`**` |user |see the map of contact's address if they share it |can find my way there more easily
+|`**` |user |set up an online profile |can change my number and other people can still contact me
+|`***` |user |add contacts to a favourites list |can access those contacts more easily
+|`**` |user |view the contacts that I have recently contacted |can view people whom I have recently contacted but not saved their number
+|`***` |user |access their social media profile through the addressbook |do not have to search for their profile
+|`***` |user |check my commands history |can recall what I did
+|`***` |user |undo my previous commands |can revert my mistakes
+|`***` |user |hide private contact details |prevent someone else from seeing them by accident
+|`***` |user |keep track of multiple phone numbers from different countries |do not have multiple entries for the same person
+|`**` |user |keep my preferences of listing contacts |do not have to set the options again
+|`***` |user |sign in with email/password |can stop others from access my addressbook
+|`***` |user |list all the contacts with a command |can view the entire contacts at once
+|`**` |user |send messages/emails to contacts within the addressbook |do not have to leave the addressbook to send messages/emails
+|`***` |user |block certain contacts from sending messages or viewing my profile |will not be disturbedby spammers
+|`***` |user |reformat with a command and a password |can clear all contacts faster
+|`**` |user |create shortcuts for long messages |do not need to type everything out
+|`**` |user |indicate my availability by hightlighting my name with certain color on other's people addressbook |can show other's my status
+|`**`|user |edit contact's information |can keep my contact details updated
+|`***` |user |add descriptive comments to a contact |am able to keep track of who that person is
+|`**` |user |send commands in natural language |do not have to follow a fix input structure
+|`**` |user |revert to a previous point in history |undo multiple mistakes
+|`**` |user |set an alias for commands or strings |do not have to type everything out
 |=======================================================================
-
-{More to be added}
 
 [appendix]
 == Use Cases
