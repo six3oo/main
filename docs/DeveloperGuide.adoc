@@ -787,7 +787,7 @@ Version
 	One has to note that there is no industry standard for how a version number should be formatted.
 	Therefore, different companies/developers have different style of formatting version number.
 
-Backward compatible 
+Backward compatible
 
 	Current version of the AddressBook is able to run previous version of the AddressBook successfully. 
 	
