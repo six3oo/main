@@ -45,7 +45,7 @@ public class PersonCard extends UiPart<Region>{
     @FXML
     private FlowPane tags;
 
-    public PersonCard(ReadOnlyPerson person, int displayedIndex){
+    public PersonCard(ReadOnlyPerson person, int displayedIndex) {
         super(FXML);
         this.person = person;
         id.setText(displayedIndex + ". ");
@@ -53,9 +53,9 @@ public class PersonCard extends UiPart<Region>{
         bindListeners(person);
     }
 
-    private static String getColorForTag(String tagValue){
+    private static String getColorForTag(String tagValue) {
 
-        if(!tagColors.containsKey(tagValue)){
+        if (!tagColors.containsKey(tagValue)) {
             tagColors.put(tagValue, Colors[random.nextInt(Colors.length)]);
         }
         return tagColors.get(tagValue);
@@ -65,7 +65,7 @@ public class PersonCard extends UiPart<Region>{
      * Binds the individual UI elements to observe their respective {@code Person} properties
      * so that they will be notified of any changes.
      */
-    private void bindListeners(ReadOnlyPerson person){
+    private void bindListeners(ReadOnlyPerson person) {
         name.textProperty().bind(Bindings.convert(person.nameProperty()));
         phone.textProperty().bind(Bindings.convert(person.phoneProperty()));
         address.textProperty().bind(Bindings.convert(person.addressProperty()));
@@ -77,9 +77,9 @@ public class PersonCard extends UiPart<Region>{
         });
     }
 
-    private void initTags(ReadOnlyPerson person){
+    private void initTags(ReadOnlyPerson person) {
         //person.getTags().forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
-        person.getTags().forEach(tag ->{
+        person.getTags().forEach(tag -> {
             Label tagLabel = new Label(tag.tagName);
             tagLabel.setStyle("-fx-background-color: " + getColorForTag(tag.tagName)); //-fx-background-color is a .css attribute
             tags.getChildren().add(tagLabel);
@@ -87,14 +87,14 @@ public class PersonCard extends UiPart<Region>{
     }
 
     @Override
-    public boolean equals(Object other){
+    public boolean equals(Object other) {
         // short circuit if same object
-        if (other == this){
+        if (other == this) {
             return true;
         }
 
         // instanceof handles nulls
-        if (!(other instanceof PersonCard)){
+        if (!(other instanceof PersonCard)) {
             return false;
         }
 
