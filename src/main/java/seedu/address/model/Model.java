@@ -38,6 +38,7 @@ public interface Model {
             throws DuplicatePersonException, PersonNotFoundException;
 
     void deleteTag(Tag tag) throws PersonNotFoundException, DuplicatePersonException;
+
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<ReadOnlyPerson> getFilteredPersonList();
 
