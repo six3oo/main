@@ -54,6 +54,9 @@ public class UserPrefs {
      * @return boolean
      */
     public boolean checkPassword(String input) {
+        if (password == "") {
+            return true;
+        }
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             md.update(input.getBytes());
