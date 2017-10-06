@@ -55,7 +55,7 @@ public class UserPrefs {
      */
     public boolean checkPassword(String input) {
         try {
-            MessageDigest md = MessageDigest.getInstance("MD5");fdsf
+            MessageDigest md = MessageDigest.getInstance("MD5");
             md.update(input.getBytes());
             //convert the byte to hex format
             byte[] byteData = md.digest();
