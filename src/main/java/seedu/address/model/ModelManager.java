@@ -52,7 +52,9 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
-    public UserPrefs getUserPrefs() { return userPrefs;}
+    public UserPrefs getUserPrefs() {
+        return userPrefs;
+    }
 
     @Override
     public ReadOnlyAddressBook getAddressBook() {

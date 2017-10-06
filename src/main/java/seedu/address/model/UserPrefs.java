@@ -1,8 +1,9 @@
 package seedu.address.model;
 
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
-import java.security.MessageDigest;
+
 import seedu.address.commons.core.GuiSettings;
 
 /**
@@ -47,13 +48,18 @@ public class UserPrefs {
         this.addressBookName = addressBookName;
     }
 
+    /**
+     * Checks if password is correct
+     * @param input
+     * @return boolean
+     */
     public boolean checkPassword(String input) {
         try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
+            MessageDigest md = MessageDigest.getInstance("MD5");fdsf
             md.update(input.getBytes());
             //convert the byte to hex format
-            byte byteData[] = md.digest();
-            StringBuffer buffer = new StringBuffer();
+            byte[] byteData = md.digest();
+            StringBuilder buffer = new StringBuilder();
             for (int i = 0; i < byteData.length; i++) {
                 buffer.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
             }

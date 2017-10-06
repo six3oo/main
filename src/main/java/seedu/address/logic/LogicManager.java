@@ -36,12 +36,12 @@ public class LogicManager extends ComponentManager implements Logic {
     public CommandResult execute(String commandText) throws CommandException, ParseException {
         CommandResult result;
         if (isLock) {
-            if (isPassword(commandText))
+            if (isPassword(commandText)) {
                 result = new CommandResult("Welcome");
-            else
+            } else {
                 result = new CommandResult("Wrong Password");
-        }
-        else {
+            }
+        } else {
             logger.info("----------------[USER COMMAND][" + commandText + "]");
             try {
                 Command command = addressBookParser.parseCommand(commandText);
@@ -56,12 +56,16 @@ public class LogicManager extends ComponentManager implements Logic {
         return result;
     }
 
+    /**
+     * Check if password is correct and set lock
+     * @param commandText
+     * @return
+     */
     private boolean isPassword(String commandText) {
-        if (model.getUserPrefs().checkPassword(commandText))    {
+        if (model.getUserPrefs().checkPassword(commandText)) {
             isLock = false;
             return true;
-        }
-        else {
+        } else {
             isLock = true;
             return false;
         }
