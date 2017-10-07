@@ -77,7 +77,7 @@ public class PersonCard extends UiPart<Region> {
             initTags(person);
         });
     }
-    
+
     /**
     * Bind a random color to their {@code Person} tag
     */
