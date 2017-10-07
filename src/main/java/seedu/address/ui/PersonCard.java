@@ -77,7 +77,10 @@ public class PersonCard extends UiPart<Region> {
             initTags(person);
         });
     }
-
+    
+    /**
+    * Bind a random color to their {@code Person} tag
+    */
     private void initTags(ReadOnlyPerson person) {
         //person.getTags().forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
         person.getTags().forEach(tag -> {
