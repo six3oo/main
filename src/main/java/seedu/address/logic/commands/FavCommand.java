@@ -26,7 +26,7 @@ public class FavCommand extends UndoableCommand {
 
     private final Index targetIndex;
 
-    public DeleteCommand(Index targetIndex) {
+    public FavCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
     }
 
