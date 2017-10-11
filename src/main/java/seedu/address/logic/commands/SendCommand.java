@@ -1,6 +1,9 @@
 package seedu.address.logic.commands;
 
 
+import java.io.IOException;
+import java.util.List;
+
 import seedu.address.commons.core.EventsCenter;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
@@ -8,8 +11,7 @@ import seedu.address.commons.events.ui.SendMessageEvent;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.person.ReadOnlyPerson;
 
-import java.io.IOException;
-import java.util.List;
+
 
 /**
  * Sends a message to the contact through email
