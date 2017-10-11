@@ -16,6 +16,7 @@ import seedu.address.model.person.exceptions.PersonNotFoundException;
 public class FavCommand extends UndoableCommand {
 
     public static final String COMMAND_WORD = "fave";
+    public static final String COMMAND_ALIAS = "fv";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Adds the person identified by the index number used in the last person listing to a favourites list.\n"
@@ -57,4 +58,5 @@ public class FavCommand extends UndoableCommand {
                 || (other instanceof FavCommand // instanceof handles nulls
                 && this.targetIndex.equals(((FavCommand) other).targetIndex)); // state check
     }
+
 }
