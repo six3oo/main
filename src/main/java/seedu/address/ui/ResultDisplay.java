@@ -44,7 +44,7 @@ public class ResultDisplay extends UiPart<Region>{
             setStyleToDefault();
         }
         //Platform.runLater(() -> displayed.setValue(event.message));
-    }    
+    } 
     private void setStyleToDefault(){resultDisplay.getStyleClass().remove(ERROR_STYLE_CLASS);}
 
     private void setStyleToIndicateCommandFailure(){
