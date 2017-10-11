@@ -4,7 +4,7 @@ import java.util.logging.Logger;
 
 import com.google.common.eventbus.Subscribe;
 
-import javafx.application.Platform;
+//import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
@@ -51,7 +51,7 @@ public class ResultDisplay extends UiPart<Region> {
 
     private void setStyleToIndicateCommandFailure() {
         ObservableList<String> styleClass = resultDisplay.getStyleClass();
-        if(styleClass.contains(ERROR_STYLE_CLASS)) {
+        if (styleClass.contains(ERROR_STYLE_CLASS)) {
             return;
         }
         styleClass.add(ERROR_STYLE_CLASS);
