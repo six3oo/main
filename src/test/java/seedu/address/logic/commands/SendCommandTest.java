@@ -62,7 +62,7 @@ public class SendCommandTest {
 
     private SendCommand prepareCommand(Index index) {
         SendCommand sendCommand = new SendCommand(index);
-        sendCommand.setData(model,null, null);
+        sendCommand.setData(model, null, null);
         return sendCommand;
     }
 
