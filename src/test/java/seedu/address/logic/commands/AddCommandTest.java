@@ -104,6 +104,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public void favPerson(ReadOnlyPerson person) throws DuplicatePersonException {
+            fail("This method should not be called.");
+        }
+
+        @Override
         public void resetData(ReadOnlyAddressBook newData) {
             fail("This method should not be called.");
         }
