@@ -20,7 +20,6 @@ import seedu.address.logic.commands.UndoCommand;
 import seedu.address.model.Model;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
-import seedu.address.model.person.exceptions.PersonNotFoundException;
 
 public class FavCommandSystemTest extends AddressBookSystemTest {
 
@@ -28,8 +27,8 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
             String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, FavCommand.MESSAGE_USAGE);
 
     @Test
-    public void delete() {
-        /* ----------------- Performing delete operation while an unfiltered list is being shown -------------------- */
+    public void fave() {
+        /* ----------------- Performing fave operation while an unfiltered list is being shown -------------------- */
 
         /* Case: add the first person in the list, command with leading spaces and trailing spaces to favourites list ->
          faved */
