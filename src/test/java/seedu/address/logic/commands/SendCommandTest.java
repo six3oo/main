@@ -65,4 +65,5 @@ public class SendCommandTest {
         sendCommand.setData(model,null, null);
         return sendCommand;
     }
+
 }

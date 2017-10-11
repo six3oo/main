@@ -26,5 +26,4 @@ public class SendCommandParser implements Parser<SendCommand> {
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, SendCommand.MESSAGE_USAGE));
         }
     }
-
 }
