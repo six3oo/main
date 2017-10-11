@@ -1,17 +1,21 @@
 package seedu.address.logic.commands;
 
-import static java.util.Objects.requireNonNull;
 
+import seedu.address.commons.core.EventsCenter;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
+import seedu.address.commons.events.ui.SendMessageEvent;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.person.Email;
 import seedu.address.model.person.ReadOnlyPerson;
 
 import java.io.IOException;
 import java.util.List;
 
-public class SendCommand extends UndoableCommand {
+/**
+ * Sends a message to the contact through email
+ */
+
+public class SendCommand extends Command {
 
     public static final String COMMAND_WORD = "send";
     //public static final String COMMAND_ALIAS = "snd";
@@ -21,13 +25,13 @@ public class SendCommand extends UndoableCommand {
                                                             + " by the index number used in the last person listing. ";
 
 
-    public static final String MESSAGE_OPEN_MAIL_SUCCESS = "Opening Mail App...";
+    public static final String MESSAGE_OPEN_MAIL_SUCCESS = "Opened Mail App...";
     public static final String MESSAGE_NO_MAIL = "Contact does not have an email address.";
 
     private final Index index;
 
     /**
-     * @param index of the person in the filtered person list to edit
+     * @param index of the person in the filtered person list to send message to
      */
     public SendCommand(Index index) {
         this.index = index;
@@ -35,7 +39,7 @@ public class SendCommand extends UndoableCommand {
 
 
     @Override
-    public CommandResult executeUndoableCommand() throws CommandException {
+    public CommandResult execute() throws CommandException {
 
         List<ReadOnlyPerson> lastShownList = model.getFilteredPersonList();
 
@@ -56,7 +60,7 @@ public class SendCommand extends UndoableCommand {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        EventsCenter.getInstance().post(new SendMessageEvent());
         return new CommandResult(String.format(MESSAGE_OPEN_MAIL_SUCCESS));
     }
 
