@@ -23,25 +23,52 @@ public class LogicManager extends ComponentManager implements Logic {
     private final CommandHistory history;
     private final AddressBookParser addressBookParser;
     private final UndoRedoStack undoRedoStack;
+    private boolean isLock = true;
 
     public LogicManager(Model model) {
         this.model = model;
         this.history = new CommandHistory();
         this.addressBookParser = new AddressBookParser();
         this.undoRedoStack = new UndoRedoStack();
+        isPassword("password");
     }
 
     @Override
     public CommandResult execute(String commandText) throws CommandException, ParseException {
-        logger.info("----------------[USER COMMAND][" + commandText + "]");
-        try {
-            Command command = addressBookParser.parseCommand(commandText);
-            command.setData(model, history, undoRedoStack);
-            CommandResult result = command.execute();
-            undoRedoStack.push(command);
-            return result;
-        } finally {
-            history.add(commandText);
+        CommandResult result;
+        if (isLock) {
+            if (isPassword(commandText)) {
+                result = new CommandResult("Welcome");
+            } else {
+                result = new CommandResult("Wrong Password");
+            }
+        } else {
+            logger.info("----------------[USER COMMAND][" + commandText + "]");
+            try {
+                Command command = addressBookParser.parseCommand(commandText);
+                command.setData(model, history, undoRedoStack);
+                result = command.execute();
+                undoRedoStack.push(command);
+                return result;
+            } finally {
+                history.add(commandText);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Check if password is correct and set lock
+     * @param commandText
+     * @return
+     */
+    private boolean isPassword(String commandText) {
+        if (model.getUserPrefs().checkPassword(commandText)) {
+            isLock = false;
+            return true;
+        } else {
+            isLock = true;
+            return false;
         }
     }
 
