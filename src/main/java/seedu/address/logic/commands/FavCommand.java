@@ -22,7 +22,7 @@ public class FavCommand extends UndoableCommand {
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Added Person to Favourites: %1$s";
+    public static final String MESSAGE_FAVE_PERSON_SUCCESS = "Added Person to Favourites: %1$s";
 
     private final Index targetIndex;
 
@@ -48,7 +48,7 @@ public class FavCommand extends UndoableCommand {
             assert false : "The target person cannot be already in the favourites list";
         }
 
-        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToFave));
+        return new CommandResult(String.format(MESSAGE_FAVE_PERSON_SUCCESS, personToFave));
     }
 
     @Override
