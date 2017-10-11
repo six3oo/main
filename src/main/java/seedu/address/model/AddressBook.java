@@ -99,10 +99,6 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public void favPerson(ReadOnlyPerson p) throws DuplicatePersonException {
         Person newPerson = new Person(p);
-        syncMasterTagListWith(newPerson);
-        // TODO: the tags master list will be updated even though the below line fails.
-        // This can cause the tags master list to have additional tags that are not tagged to any person
-        // in the person list.
         favourites.add(newPerson);
     }
 
