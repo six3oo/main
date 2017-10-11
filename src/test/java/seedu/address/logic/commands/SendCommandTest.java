@@ -22,11 +22,11 @@ import seedu.address.ui.testutil.EventsCollectorRule;
 
 public class SendCommandTest {
 
-    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
-    private Index index = INDEX_SECOND_PERSON;
-
     @Rule
     public final EventsCollectorRule eventsCollectorRule = new EventsCollectorRule();
+
+    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+    private Index index = INDEX_SECOND_PERSON;
 
     @Test
     public void execute_send_success() throws CommandException {
