@@ -10,36 +10,37 @@ We are a team based in the [School of Computing, National University of Singapor
 == Project Team
 
 === Anton Chua
-image::damithc.jpg[width="150", align="left"]
-{empty}[http://www.comp.nus.edu.sg/~damithch[homepage]] [https://github.com/damithc[github]] [<<johndoe#, portfolio>>]
+image::six3oo.jpg[width="150", align="left"]
+{empty}[https://github.com/six3oo[github]] [<<johndoe#, portfolio>>]
 
-Role: Project Advisor
+Role: Team Lead
+Responsibilities: Model
 
 '''
 
 === Boo Ming Hui
-image::lejolly.jpg[width="150", align="left"]
-{empty}[http://github.com/lejolly[github]] [<<johndoe#, portfolio>>]
+image::minghui94.jpeg[width="150", align="left"]
+{empty}[http://github.com/minghui94[github]] [<<johndoe#, portfolio>>]
 
-Role: Team Lead +
+Role: Developer +
 Responsibilities: UI
 
 '''
 
 === Chia Jiahua
-image::yijinl.jpg[width="150", align="left"]
-{empty}[http://github.com/yijinl[github]] [<<johndoe#, portfolio>>]
+image::jhchia7.jpeg[width="150", align="left"]
+{empty}[http://github.com/jhchia7[github]] [<<johndoe#, portfolio>>]
 
 Role: Developer +
-Responsibilities: Data
+Responsibilities: Logic
 
 '''
 
 === Cheng Wei Hong
-image::m133225.jpg[width="150", align="left"]
-{empty}[http://github.com/m133225[github]] [<<johndoe#, portfolio>>]
+image::moomeowroar.jpg[width="150", align="left"]
+{empty}[http://github.com/moomeowroar[github]] [<<johndoe#, portfolio>>]
 
 Role: Developer +
-Responsibilities: Dev Ops + Threading
+Responsibilities: Storage
 
 '''
