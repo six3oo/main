@@ -10,10 +10,10 @@ We are a team based in the [School of Computing, National University of Singapor
 == Project Team
 
 === Anton Chua
-image::six3oo.jpg[width="150", align="left"]
+image::six3oo.jpeg[width="150", align="left"]
 {empty}[https://github.com/six3oo[github]] [<<johndoe#, portfolio>>]
 
-Role: Team Lead
+Role: Team Lead +
 Responsibilities: Model
 
 '''

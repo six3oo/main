@@ -3,6 +3,7 @@
     background-color: #383838; /* Used in the default.html file */
 }
 
+
 .label {
     -fx-font-size: 11pt;
     -fx-font-family: "Segoe UI Semibold";
@@ -139,6 +140,11 @@
      -fx-background-color: derive(#1d1d1d, 20%);
      -fx-border-color: derive(#1d1d1d, 10%);
      -fx-border-top-width: 1px;
+}
+
+.pwd-field {
+    -fx-background-color: derive(#1d1d1d, 20%);
+    -fx-padding: 20px;
 }
 
 .status-bar {

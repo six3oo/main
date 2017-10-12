@@ -54,7 +54,7 @@ public class UserPrefs {
      * @return boolean
      */
     public boolean checkPassword(String input) {
-        if (password == "") {
+        if (password.equals("")) {
             return true;
         }
         try {
