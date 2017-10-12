@@ -25,7 +25,6 @@ import seedu.address.model.tag.UniqueTagList;
 public class AddressBook implements ReadOnlyAddressBook {
 
     private final UniquePersonList persons;
-    private final UniquePersonList favourites;
     private final UniqueTagList tags;
 
     /*
@@ -37,7 +36,6 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     {
         persons = new UniquePersonList();
-        favourites = new UniquePersonList();
         tags = new UniqueTagList();
     }
 
@@ -97,9 +95,13 @@ public class AddressBook implements ReadOnlyAddressBook {
     /** Adds a person to the favourites list.
      * @throws DuplicatePersonException if the person is already in the favourites list.
      */
-    public void favPerson(ReadOnlyPerson f) throws DuplicatePersonException {
-        Person newPerson = new Person(f);
-        favourites.add(newPerson);
+    public void favPerson(ReadOnlyPerson target, boolean fave)
+            throws DuplicatePersonException, PersonNotFoundException {
+        requireNonNull(target);
+
+        Person favedPerson = new Person(target);
+        favedPerson.setFavourite(fave);
+        persons.setPerson(target, favedPerson);
     }
 
     /**
