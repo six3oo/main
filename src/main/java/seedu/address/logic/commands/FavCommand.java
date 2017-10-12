@@ -19,16 +19,19 @@ public class FavCommand extends UndoableCommand {
     public static final String COMMAND_ALIAS = "fv";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Adds the person identified by the index number used in the last person listing to a favourites list.\n"
-            + "Parameters: INDEX (must be a positive integer)\n"
-            + "Example: " + COMMAND_WORD + " 1";
+            + ": Adds or removes the person identified by the index number used in the last person listing to a favourites list.\n"
+            + "Parameters: INDEX (must be a positive integer), STATUS (must be a boolean variable)\n"
+            + "Example: " + COMMAND_WORD + " 1 true";
 
     public static final String MESSAGE_FAVE_PERSON_SUCCESS = "Added Person to Favourites: %1$s";
+    public static final String MESSSAGE_UNFAVE_PERSON_SUCCESS = "Removed Person from Favourites: %1$s";
 
     private final Index targetIndex;
+    private boolean status;
 
-    public FavCommand(Index targetIndex) {
+    public FavCommand(Index targetIndex, boolean status) {
         this.targetIndex = targetIndex;
+        this.status = status;
     }
 
 
@@ -44,9 +47,11 @@ public class FavCommand extends UndoableCommand {
         ReadOnlyPerson personToFave = lastShownList.get(targetIndex.getZeroBased());
 
         try {
-            model.favPerson(personToFave);
+            model.favPerson(personToFave, status);
         } catch (DuplicatePersonException dpe) {
             assert false : "The target person cannot be already in the favourites list";
+        } catch (PersonNotFoundException pnfe) {
+            assert false : "The target person cannot be found";
         }
 
         return new CommandResult(String.format(MESSAGE_FAVE_PERSON_SUCCESS, personToFave));
