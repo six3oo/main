@@ -73,7 +73,7 @@ public class AddressBookParser {
         case ListCommand.COMMAND_WORD:
             return new ListCommand();
 
-        case HistoryCommand.COMMAND_WORD:
+        case HistoryCommand.COMMAND_WORD: //trailing white space?
             return new HistoryCommand();
 
         case ExitCommand.COMMAND_WORD:
