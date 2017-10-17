@@ -23,26 +23,48 @@ public class LogicManager extends ComponentManager implements Logic {
     private final CommandHistory history;
     private final AddressBookParser addressBookParser;
     private final UndoRedoStack undoRedoStack;
+    private boolean isLock = true;
 
     public LogicManager(Model model) {
         this.model = model;
         this.history = new CommandHistory();
         this.addressBookParser = new AddressBookParser();
         this.undoRedoStack = new UndoRedoStack();
+        isPassword("");
     }
 
     @Override
     public CommandResult execute(String commandText) throws CommandException, ParseException {
+        CommandResult result;
         logger.info("----------------[USER COMMAND][" + commandText + "]");
         try {
             Command command = addressBookParser.parseCommand(commandText);
             command.setData(model, history, undoRedoStack);
-            CommandResult result = command.execute();
+            result = command.execute();
             undoRedoStack.push(command);
             return result;
         } finally {
             history.add(commandText);
         }
+    }
+
+    /**
+     * Check if password is correct and set lock
+     * @param commandText
+     * @return
+     */
+    public boolean isPassword(String password) {
+        if (model.getUserPrefs().checkPassword(password)) {
+            isLock = false;
+            return true;
+        } else {
+            isLock = true;
+            return false;
+        }
+    }
+
+    public boolean isAddressBookLock() {
+        return isLock;
     }
 
     @Override
