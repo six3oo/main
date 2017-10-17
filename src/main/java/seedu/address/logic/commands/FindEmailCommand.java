@@ -3,7 +3,10 @@ package seedu.address.logic.commands;
 
 import seedu.address.model.person.EmailContainsKeywordsPredicate;
 
-
+/**
+ * Finds and lists all persons in address book whose email contains any of the argument keywords.
+ * Keyword matching is case sensitive.
+ */
 public class FindEmailCommand extends Command {
 
     public static final String COMMAND_WORD = "findemail";
