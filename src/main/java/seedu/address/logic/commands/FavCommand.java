@@ -69,5 +69,4 @@ public class FavCommand extends UndoableCommand {
                 || (other instanceof FavCommand // instanceof handles nulls
                 && this.targetIndex.equals(((FavCommand) other).targetIndex)); // state check
     }
-
 }
