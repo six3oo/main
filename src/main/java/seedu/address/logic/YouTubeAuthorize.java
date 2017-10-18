@@ -59,6 +59,7 @@ public final class YouTubeAuthorize {
 
     /**
      * Create an authorized Credential object.
+     * @param classToAuthorize Class to return the API client service to
      * @return an authorized Credential object.
      * @throws IOException
      */
@@ -85,6 +86,7 @@ public final class YouTubeAuthorize {
     /**
      * Build and return an authorized API client service, such as a YouTube
      * Data API client service.
+     * @param classToAuthorize Class to return the API client service to
      * @return an authorized API client service
      * @throws IOException
      */
