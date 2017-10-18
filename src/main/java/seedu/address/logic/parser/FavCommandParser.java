@@ -41,5 +41,4 @@ public class FavCommandParser implements Parser<FavCommand> {
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FavCommand.MESSAGE_USAGE));
         }
     }
-
 }
