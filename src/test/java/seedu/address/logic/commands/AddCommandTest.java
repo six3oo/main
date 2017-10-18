@@ -104,7 +104,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public void favPerson(ReadOnlyPerson person, boolean status) 
+        public void favPerson(ReadOnlyPerson person, boolean status)
             throws DuplicatePersonException, PersonNotFoundException {
             fail("This method should not be called.");
         }
