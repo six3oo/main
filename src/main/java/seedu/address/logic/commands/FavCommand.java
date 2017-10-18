@@ -19,8 +19,10 @@ public class FavCommand extends UndoableCommand {
     public static final String COMMAND_ALIAS = "fv";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Adds or removes the person identified by the index number used in the last person listing to a favourites list.\n"
-            + "Parameters: INDEX (must be a positive integer), STATUS (must be a boolean variable, e.g. 'true' or 'false')\n"
+            + ": Adds or removes the person identified by the index number"
+            + " used in the last person listing to a favourites list.\n"
+            + "Parameters: INDEX (must be a positive integer)," 
+            + " STATUS (must be a boolean variable, e.g. 'true' or 'false')\n"
             + "Example: " + COMMAND_WORD + " 1 true";
 
     public static final String MESSAGE_FAVE_PERSON_SUCCESS = "Added Person to Favourites: %1$s";
@@ -54,11 +56,9 @@ public class FavCommand extends UndoableCommand {
             assert false : "The target person cannot be found";
         }
 
-        if (status == true){
+        if (status == true) {
             return new CommandResult(String.format(MESSAGE_FAVE_PERSON_SUCCESS, personToFave));
-        }
-
-        else {
+        }else {
             return new CommandResult(String.format(MESSAGE_UNFAVE_PERSON_SUCCESS, personToFave));
         }
     }
