@@ -58,7 +58,7 @@ public class FavCommand extends UndoableCommand {
             return new CommandResult(String.format(MESSAGE_FAVE_PERSON_SUCCESS, personToFave));
         }
 
-        else if(status == false){
+        else {
             return new CommandResult(String.format(MESSAGE_UNFAVE_PERSON_SUCCESS, personToFave));
         }
     }
