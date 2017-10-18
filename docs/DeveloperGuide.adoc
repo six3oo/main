@@ -1,4 +1,4 @@
-﻿= AddressBook Level 4 - Developer Guide
+= AddressBook Level 4 - Developer Guide
 :toc:
 :toc-title:
 :toc-placement: preamble
@@ -344,6 +344,37 @@ image::UndoRedoActivityDiagram.png[width="200"]
 **Pros:** We do not need to maintain a separate stack, and just reuse what is already in the codebase. +
 **Cons:** Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as `HistoryManager` now needs to do two different things. +
 // end::undoredo[]
+
+=== Profile Command (enhanced select command)
+
+At its current form, the select command shows the Google results of the contact’s name. With the application targeting a more specific group of users, YouTubers, the team believes that the select command can be better used to display the profile of the YouTuber instead. The select command opens the profile of the contact selected. The profile of the contacts displays various dynamic and static information. The static (manually changed by user) information is entered by the user at time of adding contact (refer to add command). The dynamic information is updated automatically by the application using the YouTube Data API.
+
+==== Dynamic information:
+Dynamic information is information retrieved from the YouTube servers every time the user views the profile of the contact. +
+*Dynamic information includes:*
+
+. Channel name
+. Channel thumbnail
+. Channel description
+. Subscriber count
+. Total view count
+
+==== Profile GUI
+Displayed at the top are the dynamic information about the channel, that the contact is affiliated with, as stated above. Displayed at the bottom would be the static information of the individual contact.
+
+==== Planned extensions for the feature
+The ability for the user to choose which data to display for their contacts would be implemented in future updates to increase customisability. Until then, the team has chosen what we believe are categories which YouTubers track and celebrate achievements in, for each other. This is done, after careful deliberation and consideration. Subscriber count was chosen to monitor progress towards the various YouTube Play Buttons. Video view count is the indicator of the number of people they have reached and is an important factor in channel success.
+
+==== Design Considerations
+
+**Aspect:** The usage of YouTuber channel ID or username to retrieve channel information +
+**Alternative 1 (current choice):** Use YouTube channel ID. +
+**Pros:** There is a unique ID for each YouTube channel. +
+**Cons:** User would need to copy and paste the uniquely generated channel ID as it would be very inconvenient to type in each individual character. +
+**Alternative 2:** Use YouTube Username +
+**Pros:** Might be more intuitive for the user and easier to type in. +
+**Cons:** There are so many channels with the same highly sought after names (sans the bigger channels). Although it will be easier to type in for the user as most channel names are easy to read, the users might mistake the channel title for the channel username, resulting in the wrong channel being saved. +
+
 
 === Logging
 
