@@ -24,7 +24,7 @@ public class FavCommand extends UndoableCommand {
             + "Example: " + COMMAND_WORD + " 1 true";
 
     public static final String MESSAGE_FAVE_PERSON_SUCCESS = "Added Person to Favourites: %1$s";
-    public static final String MESSSAGE_UNFAVE_PERSON_SUCCESS = "Removed Person from Favourites: %1$s";
+    public static final String MESSAGE_UNFAVE_PERSON_SUCCESS = "Removed Person from Favourites: %1$s";
 
     private final Index targetIndex;
     private boolean status;
