@@ -19,7 +19,7 @@ import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.youtube.YouTube;
 import com.google.api.services.youtube.YouTubeScopes;
 
-public final class YouTubeAuthorize<T> {
+public final class YouTubeAuthorize {
 
 
     /** Application name. */
