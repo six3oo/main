@@ -20,6 +20,7 @@ import seedu.address.logic.commands.UndoCommand;
 import seedu.address.model.Model;
 import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
+import seedu.address.model.person.exceptions.PersonNotFoundException;
 
 public class FavCommandSystemTest extends AddressBookSystemTest {
 
@@ -112,11 +113,11 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
         /* Case: mixed case command word -> rejected */
         assertCommandFailure("fAVe 1", MESSAGE_UNKNOWN_COMMAND);
     }
-
+    /*
     /**
      * Removes the {@code ReadOnlyPerson} at the specified {@code index} in {@code model}'s address book.
      * @return the removed person
-     */
+     *
     private ReadOnlyPerson removePerson(Model model, Index index) {
         ReadOnlyPerson targetPerson = getPerson(model, index);
         try {
@@ -127,6 +128,8 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
         return targetPerson;
     }
 
+    */
+
     /**
      * Adds the {@code ReadOnlyPerson} at the specified {@code index} in {@code model}'s address book to the
      * address book's favourites list.
@@ -135,9 +138,11 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
     private ReadOnlyPerson favPerson(Model model, Index index) {
         ReadOnlyPerson targetPerson = getPerson(model, index);
         try {
-            model.favPerson(targetPerson);
+            model.favPerson(targetPerson, true);
         } catch (DuplicatePersonException dpe) {
             throw new AssertionError("targetPerson is already in the favourites list.");
+        } catch (PersonNotFoundException pnfe) {
+            throw new AssertionError("targetPerson does not exist.");
         }
         return targetPerson;
     }
