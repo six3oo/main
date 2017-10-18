@@ -22,7 +22,7 @@ public class FavCommandParserTest {
 
     @Test
     public void parse_validArgs_returnsFavCommand() {
-        assertParseSuccess(parser, "1", new FavCommand(INDEX_FIRST_PERSON));
+        assertParseSuccess(parser, "1 true", new FavCommand(INDEX_FIRST_PERSON, true));
     }
 
     @Test
