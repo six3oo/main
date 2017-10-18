@@ -2,18 +2,16 @@ package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
-import seedu.address.commons.core.index.Index;
-import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.FavCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-
-import java.util.ArrayList;
+import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.commons.core.index.Index;
 
 /**
  * Parses input arguments and creates a new FavCommand object
  */
 public class FavCommandParser implements Parser<FavCommand> {
-    public boolean status;
+    private boolean status;
     private String[] argArray;
 
     /**
@@ -24,11 +22,9 @@ public class FavCommandParser implements Parser<FavCommand> {
     public FavCommand parse(String args) throws ParseException {
         try {
             argArray = args.split("\\s+");
-            if (argArray[1] == "true"){
+            if (argArray[1] == "true") {
                 status = true;
-            }
-
-            else if (argArray[1] == "false"){
+            } else if (argArray[1] == "false") {
                 status = false;
             }
             Index index = ParserUtil.parseIndex(argArray[0]);
