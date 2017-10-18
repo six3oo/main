@@ -30,31 +30,22 @@ public class LogicManager extends ComponentManager implements Logic {
         this.history = new CommandHistory();
         this.addressBookParser = new AddressBookParser();
         this.undoRedoStack = new UndoRedoStack();
-        isPassword("password");
+        isPassword("");
     }
 
     @Override
     public CommandResult execute(String commandText) throws CommandException, ParseException {
         CommandResult result;
-        if (isLock) {
-            if (isPassword(commandText)) {
-                result = new CommandResult("Welcome");
-            } else {
-                result = new CommandResult("Wrong Password");
-            }
-        } else {
-            logger.info("----------------[USER COMMAND][" + commandText + "]");
-            try {
-                Command command = addressBookParser.parseCommand(commandText);
-                command.setData(model, history, undoRedoStack);
-                result = command.execute();
-                undoRedoStack.push(command);
-                return result;
-            } finally {
-                history.add(commandText);
-            }
+        logger.info("----------------[USER COMMAND][" + commandText + "]");
+        try {
+            Command command = addressBookParser.parseCommand(commandText);
+            command.setData(model, history, undoRedoStack);
+            result = command.execute();
+            undoRedoStack.push(command);
+            return result;
+        } finally {
+            history.add(commandText);
         }
-        return result;
     }
 
     /**
@@ -62,14 +53,18 @@ public class LogicManager extends ComponentManager implements Logic {
      * @param commandText
      * @return
      */
-    private boolean isPassword(String commandText) {
-        if (model.getUserPrefs().checkPassword(commandText)) {
+    public boolean isPassword(String password) {
+        if (model.getUserPrefs().checkPassword(password)) {
             isLock = false;
             return true;
         } else {
             isLock = true;
             return false;
         }
+    }
+
+    public boolean isAddressBookLock() {
+        return isLock;
     }
 
     @Override
