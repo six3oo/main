@@ -54,7 +54,13 @@ public class FavCommand extends UndoableCommand {
             assert false : "The target person cannot be found";
         }
 
-        return new CommandResult(String.format(MESSAGE_FAVE_PERSON_SUCCESS, personToFave));
+        if (status == true){
+            return new CommandResult(String.format(MESSAGE_FAVE_PERSON_SUCCESS, personToFave));
+        }
+
+        else if(status == false){
+            return new CommandResult(String.format(MESSAGE_UNFAVE_PERSON_SUCCESS, personToFave));
+        }
     }
 
     @Override
