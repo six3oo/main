@@ -32,6 +32,7 @@ public class FavCommandTest {
         ReadOnlyPerson personToFave = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
         FavCommand favCommand = prepareCommand(INDEX_FIRST_PERSON);
 
+
         String expectedMessage = String.format(FavCommand.MESSAGE_FAVE_PERSON_SUCCESS, personToFave);
 
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
@@ -59,7 +60,6 @@ public class FavCommandTest {
 
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
         expectedModel.favPerson(personToFave);
-
 
         assertCommandSuccess(favCommand, model, expectedMessage, expectedModel);
     }
@@ -100,12 +100,11 @@ public class FavCommandTest {
     }
 
     /**
-     * Returns a {@code DeleteCommand} with the parameter {@code index}.
+     * Returns a {@code FavCommand} with the parameter {@code index}.
      */
     private FavCommand prepareCommand(Index index) {
         FavCommand favCommand = new FavCommand(index);
         favCommand.setData(model, new CommandHistory(), new UndoRedoStack());
         return favCommand;
     }
-
 }
