@@ -35,7 +35,7 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
         /* Case: add the first person in the list, command with leading spaces and trailing spaces to favourites list ->
          faved */
         Model expectedModel = getModel();
-        String command = "     " + FavCommand.COMMAND_WORD + "      " + INDEX_FIRST_PERSON.getOneBased() 
+        String command = "     " + FavCommand.COMMAND_WORD + "      " + INDEX_FIRST_PERSON.getOneBased()
         + "       " + "true";
         ReadOnlyPerson favedPerson = favPerson(expectedModel, INDEX_FIRST_PERSON, true);
         String expectedResultMessage = String.format(MESSAGE_FAVE_PERSON_SUCCESS, favedPerson);
@@ -163,7 +163,7 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
         String expectedResultMessage = String.format(MESSAGE_FAVE_PERSON_SUCCESS, favedPerson);
 
         assertCommandSuccess(
-                FavCommand.COMMAND_WORD + " " + toFave.getOneBased() + " " + "true", 
+                FavCommand.COMMAND_WORD + " " + toFave.getOneBased() + " " + "true",
             expectedModel, expectedResultMessage);
     }
 
@@ -178,7 +178,7 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
         String expectedResultMessage = String.format(MESSAGE_UNFAVE_PERSON_SUCCESS, unFavedPerson);
 
         assertCommandSuccess(
-                FavCommand.COMMAND_WORD + " " + toUnFave.getOneBased() + " " + "false", 
+                FavCommand.COMMAND_WORD + " " + toUnFave.getOneBased() + " " + "false",
             expectedModel, expectedResultMessage);
     }
 
