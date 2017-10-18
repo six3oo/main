@@ -35,7 +35,7 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
          faved */
         Model expectedModel = getModel();
         String command = "     " + FavCommand.COMMAND_WORD + "      " + INDEX_FIRST_PERSON.getOneBased() + "       ";
-        ReadOnlyPerson favedPerson = favPerson(expectedModel, INDEX_FIRST_PERSON);
+        ReadOnlyPerson favedPerson = favPerson(expectedModel, INDEX_FIRST_PERSON, true);
         String expectedResultMessage = String.format(MESSAGE_FAVE_PERSON_SUCCESS, favedPerson);
         assertCommandSuccess(command, expectedModel, expectedResultMessage);
 
@@ -51,7 +51,7 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
 
         /* Case: redo faving the last person in the list -> last person added to favourites again */
         command = RedoCommand.COMMAND_WORD;
-        removePerson(modelBeforeFavingLast, lastPersonIndex);
+        favPerson(modelBeforeFavingLast, lastPersonIndex, true);
         expectedResultMessage = RedoCommand.MESSAGE_SUCCESS;
         assertCommandSuccess(command, modelBeforeFavingLast, expectedResultMessage);
 
@@ -75,7 +75,7 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
         command = FavCommand.COMMAND_WORD + " " + invalidIndex;
         assertCommandFailure(command, MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
 
-        /* --------------------- Performing delete operation while a person card is selected ------------------------ */
+        /* --------------------- Performing fave operation while a person card is selected ------------------------ */
 
         /* Case: delete the selected person -> person list panel selects the person before the deleted person */
         showAllPersons();
@@ -84,7 +84,7 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
         Index expectedIndex = Index.fromZeroBased(selectedIndex.getZeroBased() - 1);
         selectPerson(selectedIndex);
         command = FavCommand.COMMAND_WORD + " " + selectedIndex.getOneBased();
-        favedPerson = favPerson(expectedModel, selectedIndex);
+        favedPerson = favPerson(expectedModel, selectedIndex, true);
         expectedResultMessage = String.format(MESSAGE_FAVE_PERSON_SUCCESS, favedPerson);
         assertCommandSuccess(command, expectedModel, expectedResultMessage, expectedIndex);
 
@@ -127,7 +127,6 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
         }
         return targetPerson;
     }
-
     */
 
     /**
@@ -135,10 +134,10 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
      * address book's favourites list.
      * @return the added person
      */
-    private ReadOnlyPerson favPerson(Model model, Index index) {
+    private ReadOnlyPerson favPerson(Model model, Index index, boolean status) {
         ReadOnlyPerson targetPerson = getPerson(model, index);
         try {
-            model.favPerson(targetPerson, true);
+            model.favPerson(targetPerson, status);
         } catch (DuplicatePersonException dpe) {
             throw new AssertionError("targetPerson is already in the favourites list.");
         } catch (PersonNotFoundException pnfe) {
