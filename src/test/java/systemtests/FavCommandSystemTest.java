@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.logic.commands.FavCommand.MESSAGE_FAVE_PERSON_SUCCESS;
+import static seedu.address.logic.commands.FavCommand.MESSAGE_UNFAVE_PERSON_SUCCESS;
 import static seedu.address.testutil.TestUtil.getLastIndex;
 import static seedu.address.testutil.TestUtil.getMidIndex;
 import static seedu.address.testutil.TestUtil.getPerson;
@@ -34,7 +35,7 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
         /* Case: add the first person in the list, command with leading spaces and trailing spaces to favourites list ->
          faved */
         Model expectedModel = getModel();
-        String command = "     " + FavCommand.COMMAND_WORD + "      " + INDEX_FIRST_PERSON.getOneBased() + "       ";
+        String command = "     " + FavCommand.COMMAND_WORD + "      " + INDEX_FIRST_PERSON.getOneBased() + "       " + "true";
         ReadOnlyPerson favedPerson = favPerson(expectedModel, INDEX_FIRST_PERSON, true);
         String expectedResultMessage = String.format(MESSAGE_FAVE_PERSON_SUCCESS, favedPerson);
         assertCommandSuccess(command, expectedModel, expectedResultMessage);
@@ -42,9 +43,9 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
         /* Case: Adding the last person in the list to favourites -> faved */
         Model modelBeforeFavingLast = getModel();
         Index lastPersonIndex = getLastIndex(modelBeforeFavingLast);
-        assertCommandSuccess(lastPersonIndex);
+        assertAddCommandSuccess(lastPersonIndex);
 
-        /* Case: undo faving the last person in the list -> last person restored */
+        /* Case: Undo faving the last person in the list -> last person restored */
         command = UndoCommand.COMMAND_WORD;
         expectedResultMessage = UndoCommand.MESSAGE_SUCCESS;
         assertCommandSuccess(command, modelBeforeFavingLast, expectedResultMessage);
@@ -57,7 +58,11 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
 
         /* Case: Add the middle person in the list to favourites list -> faved */
         Index middlePersonIndex = getMidIndex(getModel());
-        assertCommandSuccess(middlePersonIndex);
+        assertAddCommandSuccess(middlePersonIndex);
+
+        /* Case: Remove the middle person in the list from the favourites list -> unfaved */
+        Index middlePersonIndex1 = getMidIndex(getModel());
+        assertRemoveCommandSuccess(middlePersonIndex1);
 
         /* ------------------ Performing fave operation while a filtered list is being shown ---------------------- */
 
@@ -65,7 +70,7 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
         showPersonsWithName(KEYWORD_MATCHING_MEIER);
         Index index = INDEX_FIRST_PERSON;
         assertTrue(index.getZeroBased() < getModel().getFilteredPersonList().size());
-        assertCommandSuccess(index);
+        assertAddCommandSuccess(index);
 
         /* Case: filtered person list, fave index within bounds of address book but out of bounds of person list
          * -> rejected
@@ -147,17 +152,31 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
     }
 
     /**
-     * Deletes the person at {@code toDelete} by creating a default {@code DeleteCommand} using {@code toDelete} and
+     * Faves the person at {@code toFave} by creating a default {@code FavCommand} using {@code toFave} and
      * performs the same verification as {@code assertCommandSuccess(String, Model, String)}.
-     * @see DeleteCommandSystemTest#assertCommandSuccess(String, Model, String)
+     * @see FavCommandSystemTest#assertCommandSuccess(String, Model, String)
      */
-    private void assertCommandSuccess(Index toFave) {
+    private void assertAddCommandSuccess(Index toFave) {
         Model expectedModel = getModel();
-        ReadOnlyPerson favedPerson = favPerson(expectedModel, toFave);
+        ReadOnlyPerson favedPerson = favPerson(expectedModel, toFave, true);
         String expectedResultMessage = String.format(MESSAGE_FAVE_PERSON_SUCCESS, favedPerson);
 
         assertCommandSuccess(
-                FavCommand.COMMAND_WORD + " " + toFave.getOneBased(), expectedModel, expectedResultMessage);
+                FavCommand.COMMAND_WORD + " " + toFave.getOneBased() + " " + "true", expectedModel, expectedResultMessage);
+    }
+
+    /**
+     * Unfaves the person at {@code toUnFave} by creating a default {@code FavCommand} using {@code toUnFave} and
+     * performs the same verification as {@code assertCommandSuccess(String, Model, String)}.
+     * @see FavCommandSystemTest#assertCommandSuccess(String, Model, String)
+     */
+    private void assertRemoveCommandSuccess(Index toUnFave) {
+        Model expectedModel = getModel();
+        ReadOnlyPerson unFavedPerson = favPerson(expectedModel, toUnFave, false);
+        String expectedResultMessage = String.format(MESSAGE_UNFAVE_PERSON_SUCCESS, unFavedPerson);
+
+        assertCommandSuccess(
+                FavCommand.COMMAND_WORD + " " + toUnFave.getOneBased() + " " + "false", expectedModel, expectedResultMessage);
     }
 
     /**
