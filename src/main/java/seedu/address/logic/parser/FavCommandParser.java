@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class FavCommandParser implements Parser<FavCommand> {
     public boolean status;
-    public String[] argArray;
+    private String[] argArray;
 
     /**
      * Parses the given {@code String} of arguments in the context of the FavCommand
