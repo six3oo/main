@@ -24,16 +24,19 @@ public class FavCommandParser implements Parser<FavCommand> {
     public FavCommand parse(String args) throws ParseException {
         try {
             argArray = args.split("\\s+");
-            if (argArray[2] == "true"){
+            if (argArray[1] == "true"){
                 status = true;
             }
 
-            else if (argArray[2] == "false"){
+            else if (argArray[1] == "false"){
                 status = false;
             }
-            Index index = ParserUtil.parseIndex(argArray[1]);
+            Index index = ParserUtil.parseIndex(argArray[0]);
             return new FavCommand(index, status);
         } catch (IllegalValueException ive) {
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FavCommand.MESSAGE_USAGE));
+        } catch (ArrayIndexOutOfBoundsException aioobe) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FavCommand.MESSAGE_USAGE));
         }
