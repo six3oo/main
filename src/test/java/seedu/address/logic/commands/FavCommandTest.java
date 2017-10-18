@@ -30,7 +30,7 @@ public class FavCommandTest {
     @Test
     public void execute_validIndexUnfilteredList_success() throws Exception {
         ReadOnlyPerson personToFave = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
-        FavCommand favCommand = prepareCommand(INDEX_FIRST_PERSON);
+        FavCommand favCommand = prepareCommand(INDEX_FIRST_PERSON, true);
 
 
         String expectedMessage = String.format(FavCommand.MESSAGE_FAVE_PERSON_SUCCESS, personToFave);
@@ -42,9 +42,23 @@ public class FavCommandTest {
     }
 
     @Test
+    public void execute_remove_validIndexUnfilteredList_success() throws Exception {
+        ReadOnlyPerson personToFave = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        FavCommand favCommand = prepareCommand(INDEX_FIRST_PERSON, false);
+
+
+        String expectedMessage = String.format(FavCommand.MESSAGE_UNFAVE_PERSON_SUCCESS, personToFave);
+
+        ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
+        expectedModel.favPerson(personToFave, false);
+
+        assertCommandSuccess(favCommand, model, expectedMessage, expectedModel);
+    }
+
+    @Test
     public void execute_invalidIndexUnfilteredList_throwsCommandException() throws Exception {
         Index outOfBoundIndex = Index.fromOneBased(model.getFilteredPersonList().size() + 1);
-        FavCommand favCommand = prepareCommand(outOfBoundIndex);
+        FavCommand favCommand = prepareCommand(outOfBoundIndex, true);
 
         assertCommandFailure(favCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
@@ -54,7 +68,7 @@ public class FavCommandTest {
         showFirstPersonOnly(model);
 
         ReadOnlyPerson personToFave = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
-        FavCommand favCommand = prepareCommand(INDEX_FIRST_PERSON);
+        FavCommand favCommand = prepareCommand(INDEX_FIRST_PERSON, true);
 
         String expectedMessage = String.format(FavCommand.MESSAGE_FAVE_PERSON_SUCCESS, personToFave);
 
@@ -72,21 +86,21 @@ public class FavCommandTest {
         // ensures that outOfBoundIndex is still in bounds of address book list
         assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getPersonList().size());
 
-        FavCommand favCommand = prepareCommand(outOfBoundIndex);
+        FavCommand favCommand = prepareCommand(outOfBoundIndex, true);
 
         assertCommandFailure(favCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
 
     @Test
     public void equals() {
-        FavCommand favFirstCommand = new FavCommand(INDEX_FIRST_PERSON);
-        FavCommand favSecondCommand = new FavCommand(INDEX_SECOND_PERSON);
+        FavCommand favFirstCommand = new FavCommand(INDEX_FIRST_PERSON, true);
+        FavCommand favSecondCommand = new FavCommand(INDEX_SECOND_PERSON, true);
 
         // same object -> returns true
         assertTrue(favFirstCommand.equals(favFirstCommand));
 
         // same values -> returns true
-        FavCommand favFirstCommandCopy = new FavCommand(INDEX_FIRST_PERSON);
+        FavCommand favFirstCommandCopy = new FavCommand(INDEX_FIRST_PERSON, true);
         assertTrue(favFirstCommand.equals(favFirstCommandCopy));
 
         // different types -> returns false
@@ -102,8 +116,8 @@ public class FavCommandTest {
     /**
      * Returns a {@code FavCommand} with the parameter {@code index}.
      */
-    private FavCommand prepareCommand(Index index) {
-        FavCommand favCommand = new FavCommand(index);
+    private FavCommand prepareCommand(Index index, boolean status) {
+        FavCommand favCommand = new FavCommand(index, status);
         favCommand.setData(model, new CommandHistory(), new UndoRedoStack());
         return favCommand;
     }
