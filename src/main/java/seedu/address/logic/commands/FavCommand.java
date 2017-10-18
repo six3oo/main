@@ -21,7 +21,7 @@ public class FavCommand extends UndoableCommand {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Adds or removes the person identified by the index number"
             + " used in the last person listing to a favourites list.\n"
-            + "Parameters: INDEX (must be a positive integer)," 
+            + "Parameters: INDEX (must be a positive integer),"
             + " STATUS (must be a boolean variable, e.g. 'true' or 'false')\n"
             + "Example: " + COMMAND_WORD + " 1 true";
 
