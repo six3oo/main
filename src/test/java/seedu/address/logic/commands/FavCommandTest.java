@@ -36,7 +36,7 @@ public class FavCommandTest {
         String expectedMessage = String.format(FavCommand.MESSAGE_FAVE_PERSON_SUCCESS, personToFave);
 
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
-        expectedModel.favPerson(personToFave);
+        expectedModel.favPerson(personToFave,true);
 
         assertCommandSuccess(favCommand, model, expectedMessage, expectedModel);
     }
@@ -73,7 +73,7 @@ public class FavCommandTest {
         String expectedMessage = String.format(FavCommand.MESSAGE_FAVE_PERSON_SUCCESS, personToFave);
 
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
-        expectedModel.favPerson(personToFave);
+        expectedModel.favPerson(personToFave, true);
 
         assertCommandSuccess(favCommand, model, expectedMessage, expectedModel);
     }
