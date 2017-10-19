@@ -218,6 +218,29 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
+=== Lock Screen
+The Lock Screen loads first before the Main Window. The status and logic of unlocking the application resides inside `LogicManager`.
+
+`LogicManager` contains boolean variable `isLock` to keep track of the application's lock status.
+Assuming that there is a password set in the preference file, on launch `isLock` will be set to `true`, and the `LockScreen` will be loaded onto the `Stage`.
+
+[NOTE]
+If there is not password set in the preference file `isLock` will be set to false and the `LockScreen` will not be loaded onto the `Stage`.
+
+Upon entering a password, the entered password will be checked using the `isPassword` method which resides in `LogicManager`.
+`isPassword` method then calls the `checkPassword` method inside `UserPrefs` as  `UserPrefs` reads the password from the preference file.
+The entered password is converted to a MD5 hash string using `convertToMD5` method inside `UserPrefs` before comparing the passwords.
+Similarly, a password will be converted to MD5 hash string before storing in the preference file.
+
+In order to change the password, a new command `changepwd` is implemented.
+----
+changepwd [new_password] [old_password]
+----
+Suppose that the user uses the application for the first time, there will be no password set in the preference file.
+Using the same `changepwd` command the user can set the password by leaving the [old_password] field empty.
+
+Upon successful unlocking of the application, the lock screen will call `loadMainWindow()` which creates a new `MainWindow` and loads it into the `Stage`, replacing the existing `LockScreen`.
+
 // tag::undoredo[]
 === Undo/Redo mechanism
 

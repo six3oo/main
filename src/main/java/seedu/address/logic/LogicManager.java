@@ -1,5 +1,6 @@
 package seedu.address.logic;
 
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
@@ -46,6 +47,15 @@ public class LogicManager extends ComponentManager implements Logic {
         } finally {
             history.add(commandText);
         }
+    }
+
+    public String liveHelp(String commandText) {
+        String finalString = "";
+        ArrayList<String> result = addressBookParser.filterCommand(commandText);
+        for (String string: result) {
+            finalString += string + "\n";
+        }
+        return finalString;
     }
 
     /**

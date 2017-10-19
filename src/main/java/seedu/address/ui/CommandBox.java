@@ -42,13 +42,12 @@ public class CommandBox extends UiPart<Region> {
      * Handles the key press event, {@code keyEvent}.
      */
     @FXML
-    private void handleKeyPress(KeyEvent keyEvent) {
+    private void handleKeyReleased(KeyEvent keyEvent) {
         switch (keyEvent.getCode()) {
         case UP:
             // As up and down buttons will alter the position of the caret,
             // consuming it causes the caret's position to remain unchanged
             keyEvent.consume();
-
             navigateToPreviousInput();
             break;
         case DOWN:
@@ -56,7 +55,11 @@ public class CommandBox extends UiPart<Region> {
             navigateToNextInput();
             break;
         default:
-            // let JavaFx handle the keypress
+            if (commandTextField.getText().equals("")) {
+                raise(new NewResultAvailableEvent("", false));
+                break;
+            }
+            raise(new NewResultAvailableEvent(logic.liveHelp(commandTextField.getText()), false));
         }
     }
 
