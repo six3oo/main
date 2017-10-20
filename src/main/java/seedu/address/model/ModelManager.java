@@ -83,6 +83,13 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
+    public synchronized void favPerson(ReadOnlyPerson person, boolean fave)
+            throws PersonNotFoundException, DuplicatePersonException {
+        addressBook.favPerson(person, fave);
+        indicateAddressBookChanged();
+    }
+
+    @Override
     public void updatePerson(ReadOnlyPerson target, ReadOnlyPerson editedPerson)
             throws DuplicatePersonException, PersonNotFoundException {
         requireAllNonNull(target, editedPerson);
