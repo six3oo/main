@@ -218,6 +218,60 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
+// tag::FindEmailCommand[]
+=== FindEmailCommand
+This enhancement is aiming to make the searches more powerful. +
+To find a person on the AddressBook, user is no longer restricted to just name search. User can now search for a person using Email. +
+To use this command, user just need to type in `“findemail”` follow by a white space, and typing in the email of the person the user is trying to find. +
+
+The implementation of the find email command consist of 3 new classes, namely `FindEmailCommand.java`, `EmailContainsKeywordsPredicate.java` and `FindEmailCommandParser.java.` `FindEmailCommand.java` and `FindEmailCommandParser.java` resides in the logic component, while `EmailsContainKeywordsPredicate.java` resides in the model component. +
+
+
+Figure 1 +
+
+**Functions of classes in FindEmailCommand** +
+
+**1)**	FindEmailCommand.java: This class search and list the persons in address book whose email contains any of the argument keyword. This class extends the abstract class Command. +
+
+**2)**	EmailContainsKeyWordsPredicate.java: This class test that a person’s email matches any of the keyword given. This class implements Predicate<ReadOnlyPerson> interface. +
+
+**3)**	FindEmailCommandParser.java: This class parses input arguments and creates a new FindEmailCommand object. +
+
+**Implementations of Find Email Command** +
+The `FindEmailCommand` are implemented this way:
+[source,java]
+----
+public class FindEmailCommand extends Command{
+    @Override
+    public CommandResult execute() {
+	//command logic
+    }
+}
+----
+
+The `EmailContainsKeywordsPredicate.java` class is implemented this way:
+[source,java]
+----
+public class EmailContainsKeywordsPredicate implements Predicate<ReadOnlyPerson> {
+    @Override
+    public boolean test(ReadOnlyPerson person) {
+        //test logic
+    }
+
+----
+
+Lastly, the `FindEmailCommandParser.java` is implemented this way:
+[source,java]
+----
+public class FindEmailCommandParser {
+
+    public FindEmailCommand parse(String args) throws ParseException {
+        //parser logic
+    }
+}
+----
+
+
 // tag::undoredo[]
 === Undo/Redo mechanism
 
