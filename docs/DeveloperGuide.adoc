@@ -986,25 +986,50 @@ Use case resumes at step 2.
 [appendix]
 == Glossary
 
-Version
-
-	A way to categorize the current state of a software as it is developed and released.
-	One has to note that there is no industry standard for how a version number should be formatted.
-	Therefore, different companies/developers have different style of formatting version number.
-
 Backward compatible
 
 	Current version of the AddressBook is able to run previous version of the AddressBook successfully.
 
-Reformat
+Commands
 
-	The process of erasing every data and reset it back to its original form.
-	Usually perform when data is corrupted, or for convenience when there are too many datas to be deleted.
+	Instruction to tell the AddressBook what to do in order to perform specific task, such as storing or deleting a contact.
+
+
+[[dynamic-information]]
+Dynamic information
+
+    Refers to information that is automatically retrieved from the YouTube servers and updated every time the user views the profile of the contact.
+
+[[mainstream-os]]
+Mainstream OS
+
+....
+Windows, Linux, Unix, OS-X
+....
+
 
 Natural Language
 
 	Refers to the language use by human, such as English, Chinese, Spanish, French etc..
 	It is different from language use by Artificial Intelligence and Computer.
+
+
+[[private-contact-detail]]
+Private contact detail
+
+....
+A contact detail that is not meant to be shared with others
+....
+
+Programming Language
+
+	A vocabulary and set of grammatical rules for instructing a computer or computing device to perform certain task.
+	Some common programming languages are Java, C, C++, Python etc.
+
+Reformat
+
+	The process of erasing every data and reset it back to its original form.
+	Usually perform when data is corrupted, or for convenience when there are too many datas to be deleted.
 
 Server
 
@@ -1014,28 +1039,24 @@ Server-side data storage
 
 	Refers to an online storage medium for storing your data. Requires a server to do so, such as Cloud server.
 
-Programming Language
+Version
 
-	A vocabulary and set of grammatical rules for instructing a computer or computing device to perform certain task.
-	Some common programming languages are Java, C, C++, Python etc.
+	A way to categorize the current state of a software as it is developed and released.
+	One has to note that there is no industry standard for how a version number should be formatted.
+	Therefore, different companies/developers have different style of formatting version number.
 
-Commands
 
-	Instruction to tell the AddressBook what to do in order to perform specific task, such as storing or deleting a contact.
 
-[[mainstream-os]]
-Mainstream OS
 
-....
-Windows, Linux, Unix, OS-X
-....
 
-[[private-contact-detail]]
-Private contact detail
 
-....
-A contact detail that is not meant to be shared with others
-....
+
+
+
+
+
+
+
 
 [appendix]
 == Product Survey
