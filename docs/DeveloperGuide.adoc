@@ -807,7 +807,8 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 |=======================================================================
 |Priority |As a ... |I want to ... |So that I...
 |`* * *` |new user |see usage instructions. |refer to instructions when I forget how to use the App.
-|`* * *` |user |add a new person. |
+|`* * *` |user |see information of the YouTube channel of the contact along with the rest of their contact information |can easily refer to information on their YouTube channel when looking at their contact information and vice versa.
+|`* * *` |user |add a person. |save the contact information of my contacts.
 |`* * *` |user |delete a person. |remove entries that I no longer need.
 |`* * *` |user |find a person by name. |locate details of persons without having to go through the entire list
 |`* * *` |user |click a link to access files sent to me by a contact. |do not have to search my email/dropbox for it.
@@ -833,7 +834,7 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 |`* *` |user |send messages/emails to contacts within the addressbook. |do not have to leave the addressbook to send messages/emails.
 |`* *` |user |create shortcuts for long messages. |do not need to type everything out.
 |`* *` |user |indicate my availability by hightlighting my name with certain color on other's people addressbook. |can show other's my status.
-|`* *`|user |edit contact's information. |can keep my contact details updated.
+|`* *` |user |edit contact's information. |can keep my contact details updated.
 |`* *` |user |send commands in natural language. |do not have to follow a fix input structure.
 |`* *` |user |revert to a previous point in history. |undo multiple mistakes.
 |`* *` |user |set an alias for commands or strings. |do not have to type everything out.
