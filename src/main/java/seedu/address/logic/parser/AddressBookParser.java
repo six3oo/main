@@ -3,7 +3,6 @@ package seedu.address.logic.parser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
-import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -112,6 +111,12 @@ public class AddressBookParser {
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }
+
+    /**
+     * Searches for all commands that contains the input text
+     * @param text
+     * @return ArrayList of command words
+     */
 
     public ArrayList<String> filterCommand(String text) {
         ArrayList<String> result = new ArrayList<String>();

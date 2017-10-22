@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
 import seedu.address.commons.core.LogsCenter;
@@ -55,11 +56,15 @@ public class CommandBox extends UiPart<Region> {
             navigateToNextInput();
             break;
         default:
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                break;
+            }
             if (commandTextField.getText().equals("")) {
                 raise(new NewResultAvailableEvent("", false));
                 break;
             }
             raise(new NewResultAvailableEvent(logic.liveHelp(commandTextField.getText()), false));
+
         }
     }
 

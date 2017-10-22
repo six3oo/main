@@ -49,6 +49,12 @@ public class LogicManager extends ComponentManager implements Logic {
         }
     }
 
+    /**
+     * Retrieves all available commands according to user input
+     * @param commandText
+     * @return output of available commands as a String
+     */
+
     public String liveHelp(String commandText) {
         String finalString = "";
         ArrayList<String> result = addressBookParser.filterCommand(commandText);
