@@ -226,7 +226,7 @@ To use this command, user just need to type in `“findemail”` follow by a whi
 
 The implementation of the find email command consist of 3 new classes, namely `FindEmailCommand.java`, `EmailContainsKeywordsPredicate.java` and `FindEmailCommandParser.java.` `FindEmailCommand.java` and `FindEmailCommandParser.java` resides in the logic component, while `EmailsContainKeywordsPredicate.java` resides in the model component. +
 
-
+image::FindEmailDiagram.png[width="800"]
 Figure 1 +
 
 **Functions of classes in FindEmailCommand** +
