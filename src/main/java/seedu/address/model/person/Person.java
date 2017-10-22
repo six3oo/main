@@ -22,6 +22,7 @@ public class Person implements ReadOnlyPerson {
     private ObjectProperty<Phone> phone;
     private ObjectProperty<Email> email;
     private ObjectProperty<Address> address;
+    private boolean favourite;
 
     private ObjectProperty<UniqueTagList> tags;
 
@@ -36,6 +37,7 @@ public class Person implements ReadOnlyPerson {
         this.address = new SimpleObjectProperty<>(address);
         // protect internal tags from changes in the arg list
         this.tags = new SimpleObjectProperty<>(new UniqueTagList(tags));
+        this.favourite = false;
     }
 
     /**
@@ -100,6 +102,10 @@ public class Person implements ReadOnlyPerson {
     @Override
     public Address getAddress() {
         return address.get();
+    }
+
+    public void setFavourite(boolean fav) {
+        this.favourite = fav;
     }
 
     /**

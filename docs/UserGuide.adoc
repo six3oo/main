@@ -1,4 +1,4 @@
-= AddressBook Level 4 - User Guide
+﻿= AddressBook Level 4 - User Guide
 :toc:
 :toc-title:
 :toc-placement: preamble
@@ -131,6 +131,27 @@ Deletes the 2nd person in the address book.
 * `find Betsy` +
 `delete 1` +
 Deletes the 1st person in the results of the `find` command.
+
+=== Adding a person to your favourites list : `fave`
+
+Adds the specified person from the address book to the favourites list. +
+Format: `fave INDEX`
+
+****
+* Adds the person at the specified `INDEX` to the favourites list.
+* The index refers to the index number shown in the most recent listing.
+* The index *must be a positive integer* 1, 2, 3, ...
+****
+
+Examples:
+
+* `list` +
+`fave 2` +
+Adds the 2nd person in the address book to the favourites list.
+* `find Betsy` +
+`fave 1` +
+Adds the 1st person in the results of the `find` command to the favourites list.
+
 
 === Selecting a person : `select`
 
