@@ -22,7 +22,7 @@ public class FindTagCommandParser implements Parser<FindTagCommand> {
     @Override
     public FindTagCommand parse(String userInput) throws ParseException {
         String trimmedInput = userInput.trim();
-        if(trimmedInput.isEmpty()){
+        if (trimmedInput.isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindTagCommand.MESSAGE_USAGE));
         }
 
