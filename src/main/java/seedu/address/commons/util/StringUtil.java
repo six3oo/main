@@ -1,13 +1,13 @@
 package seedu.address.commons.util;
 
-import seedu.address.model.tag.Tag;
-
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Collection;
 
 import static seedu.address.commons.util.AppUtil.checkArgument;
 import static java.util.Objects.requireNonNull;
+
+import seedu.address.model.tag.Tag;
 
 /**
  * Helper functions for handling strings.
