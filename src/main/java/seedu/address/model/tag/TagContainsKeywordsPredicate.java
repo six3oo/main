@@ -20,7 +20,7 @@ public class TagContainsKeywordsPredicate implements Predicate<ReadOnlyPerson> {
     @Override
     public boolean test(ReadOnlyPerson readOnlyPerson) {
 
-        return keywords.stream().anyMatch(keyword -> 
+        return keywords.stream().anyMatch(keyword ->
         StringUtil.containsTagIgnoreCase(readOnlyPerson.getTags(), keyword)); //getTags() is a set of Tag
     }
 
