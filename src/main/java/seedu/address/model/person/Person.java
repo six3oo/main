@@ -22,6 +22,7 @@ public class Person implements ReadOnlyPerson {
     private ObjectProperty<Phone> phone;
     private ObjectProperty<Email> email;
     private ObjectProperty<Address> address;
+    private ObjectProperty<ChannelId> channelId;
     private boolean favourite;
 
     private ObjectProperty<UniqueTagList> tags;
@@ -29,12 +30,13 @@ public class Person implements ReadOnlyPerson {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Email email, Address address, ChannelId channelId, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = new SimpleObjectProperty<>(name);
         this.phone = new SimpleObjectProperty<>(phone);
         this.email = new SimpleObjectProperty<>(email);
         this.address = new SimpleObjectProperty<>(address);
+        this.channelId = new SimpleObjectProperty<>(channelId);
         // protect internal tags from changes in the arg list
         this.tags = new SimpleObjectProperty<>(new UniqueTagList(tags));
         this.favourite = false;
@@ -45,7 +47,7 @@ public class Person implements ReadOnlyPerson {
      */
     public Person(ReadOnlyPerson source) {
         this(source.getName(), source.getPhone(), source.getEmail(), source.getAddress(),
-                source.getTags());
+                source.getChannelId(), source.getTags());
     }
 
     public void setName(Name name) {
@@ -104,6 +106,20 @@ public class Person implements ReadOnlyPerson {
         return address.get();
     }
 
+    public void setChannelId(ChannelId channelId) {
+        this.channelId.set(requireNonNull(channelId));
+    }
+
+    @Override
+    public ObjectProperty<ChannelId> channelIdProperty() {
+        return channelId;
+    }
+
+    @Override
+    public ChannelId getChannelId() {
+        return channelId.get();
+    }
+
     public void setFavourite(boolean fav) {
         this.favourite = fav;
     }
@@ -138,7 +154,7 @@ public class Person implements ReadOnlyPerson {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, phone, email, address, channelId, tags);
     }
 
     @Override
