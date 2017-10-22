@@ -112,6 +112,40 @@ Returns `john` and `John Doe`
 * `find Betsy Tim John` +
 Returns any person having names `Betsy`, `Tim`, or `John`
 
+=== Locating persons by Email: `findemail`
+
+Finds persons whose email contain any of the given keywords. +
+Format: `findemail KEYWORD@[domain].com`
+
+****
+* The search is case sensitive.
+* Only the email is search.
+* Only the full email will be matched.
+****
+
+Examples:
+
+* `findemail` `bob@example.com` +
+Returns contact with the email `bob@example.com`
+
+
+=== Locating persons by tag: `findtag`
+
+Finds persons whose tag contain any of the given keywords. +
+Format: `findtag KEYWORD`
+
+****
+* The search is case insensitive.
+* Only the tag is search.
+* Only full words will be matched.
+* Contacts with similar tag will be shown on the list.
+****
+
+Examples:
+
+* `findtag friends` +
+Return contact(s) with the 'friends' tag.
+
 === Deleting a person : `delete`
 
 Deletes the specified person from the address book. +
