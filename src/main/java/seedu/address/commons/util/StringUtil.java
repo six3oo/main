@@ -2,12 +2,12 @@ package seedu.address.commons.util;
 
 import seedu.address.model.tag.Tag;
 
-import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.AppUtil.checkArgument;
-
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Collection;
+
+import static seedu.address.commons.util.AppUtil.checkArgument;
+import static java.util.Objects.requireNonNull;
 
 /**
  * Helper functions for handling strings.
@@ -43,7 +43,8 @@ public class StringUtil {
         }
         return false;
     }
-        /**
+        
+    /**
      * Returns true if the {@code tags} contains the {@code word}.
      *   Ignores case, but a full word match is required.
      *   <br>examples:<pre>
@@ -64,9 +65,9 @@ public class StringUtil {
 
         String[] temp = word.split("\\s+");
 
-        for(Tag tag : tags) { //iterate through the set of tags
-            for(String tagName : temp) {
-                if(tagName.equalsIgnoreCase(tag.tagName)) {
+        for (Tag tag : tags) { //iterate through the set of tags
+            for (String tagName : temp) {
+                if (tagName.equalsIgnoreCase(tag.tagName)) {
                     return true;
                 }
             }
