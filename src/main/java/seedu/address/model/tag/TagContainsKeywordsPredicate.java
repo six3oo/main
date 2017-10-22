@@ -13,14 +13,15 @@ public class TagContainsKeywordsPredicate implements Predicate<ReadOnlyPerson> {
 
     private final List<String> keywords;
 
-    public TagContainsKeywordsPredicate(List<String> keywords){
+    public TagContainsKeywordsPredicate(List<String> keywords) {
         this.keywords = keywords;
     }
 
     @Override
     public boolean test(ReadOnlyPerson readOnlyPerson) {
 
-        return keywords.stream().anyMatch(keyword -> StringUtil.containsTagIgnoreCase(readOnlyPerson.getTags(), keyword)); //getTags() is a set of Tag
+        return keywords.stream().anyMatch(keyword -> 
+        StringUtil.containsTagIgnoreCase(readOnlyPerson.getTags(), keyword)); //getTags() is a set of Tag
     }
 
     @Override
