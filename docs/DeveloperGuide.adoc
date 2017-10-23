@@ -1,4 +1,4 @@
-= AddressBook Level 4 - Developer Guide
+= TABCC (The Address Book for Content Creators) - Developer Guide
 :toc:
 :toc-title:
 :toc-placement: preamble
@@ -10,7 +10,7 @@ ifdef::env-github[]
 :note-caption: :information_source:
 endif::[]
 ifdef::env-github,env-browser[:outfilesuffix: .adoc]
-:repoURL: https://github.com/se-edu/addressbook-level4/tree/master
+:repoURL: https://github.com/CS2103AUG2017-T15-B1/main/tree/master
 
 By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
 
@@ -226,8 +226,8 @@ To use this command, user just need to type in `“findemail”` follow by a whi
 
 The implementation of the find email command consist of 3 new classes, namely `FindEmailCommand.java`, `EmailContainsKeywordsPredicate.java` and `FindEmailCommandParser.java.` `FindEmailCommand.java` and `FindEmailCommandParser.java` resides in the logic component, while `EmailsContainKeywordsPredicate.java` resides in the model component. +
 
-
-Figure 1 +
+image::FindEmailDiagram.png[width="800"]
+Figure 3.1.1 +
 
 **Functions of classes in FindEmailCommand** +
 
@@ -399,33 +399,37 @@ image::UndoRedoActivityDiagram.png[width="200"]
 **Cons:** Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as `HistoryManager` now needs to do two different things. +
 // end::undoredo[]
 
-=== Profile Command (enhanced select command)
+=== Enhanced select command (Shows profile)
 
-At its current form, the select command shows the Google results of the contact’s name. With the application targeting a more specific group of users, YouTubers, the team believes that the select command can be better used to display the profile of the YouTuber instead. The select command opens the profile of the contact selected. The profile of the contacts displays various dynamic and static information. The static (manually changed by user) information is entered by the user at time of adding contact (refer to add command). The dynamic information is updated automatically by the application using the YouTube Data API.
+In its initial form, the select command shows the Google results of the contact’s name. With the application targeting a more specific group of users, YouTubers, the team believes that the select command can be better used to display the profile of the YouTuber instead. The select command opens the profile of the contact selected. The profile of the contacts displays various dynamic and static information. The static (manually changed by user) information is entered by the user at time of adding contact (refer to add command). The dynamic information is updated automatically by the application using the YouTube Data API.
 
 ==== Dynamic information:
-Dynamic information is information retrieved from the YouTube servers every time the user views the profile of the contact. +
+link:#dynamic-information[Dynamic information] is information retrieved from the YouTube servers every time the user views the profile of the contact. +
 *Dynamic information includes:*
 
-. Channel name
+. Channel title
 . Channel thumbnail
 . Channel description
 . Subscriber count
 . Total view count
 
 ==== Profile GUI
-Displayed at the top are the dynamic information about the channel, that the contact is affiliated with, as stated above. Displayed at the bottom would be the static information of the individual contact.
+Displayed at the top are the dynamic information about the channel, that the contact is affiliated with, as stated above. Displayed at the bottom would be the static information of the individual contact (Figure 3.3.2.1). +
+
+
+image::profile_ui.png[width="600"]
+_Figure 3.3.2.1 : Positions of the different categories of information_
 
 ==== Planned extensions for the feature
 The ability for the user to choose which data to display for their contacts would be implemented in future updates to increase customisability. Until then, the team has chosen what we believe are categories which YouTubers track and celebrate achievements in, for each other. This is done, after careful deliberation and consideration. Subscriber count was chosen to monitor progress towards the various YouTube Play Buttons. Video view count is the indicator of the number of people they have reached and is an important factor in channel success.
 
 ==== Design Considerations
 
-**Aspect:** The usage of YouTuber channel ID or username to retrieve channel information +
+**Aspect:** The usage of YouTuber channel ID or username to retrieve channel information. +
 **Alternative 1 (current choice):** Use YouTube channel ID. +
 **Pros:** There is a unique ID for each YouTube channel. +
 **Cons:** User would need to copy and paste the uniquely generated channel ID as it would be very inconvenient to type in each individual character. +
-**Alternative 2:** Use YouTube Username +
+**Alternative 2:** Use YouTube Username. +
 **Pros:** Might be more intuitive for the user and easier to type in. +
 **Cons:** There are so many channels with the same highly sought after names (sans the bigger channels). Although it will be easier to type in for the user as most channel names are easy to read, the users might mistake the channel title for the channel username, resulting in the wrong channel being saved. +
 
@@ -807,7 +811,8 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 |=======================================================================
 |Priority |As a ... |I want to ... |So that I...
 |`* * *` |new user |see usage instructions. |refer to instructions when I forget how to use the App.
-|`* * *` |user |add a new person. |
+|`* * *` |user |see information of the YouTube channel of the contact along with the rest of their contact information |can easily refer to information on their YouTube channel when looking at their contact information and vice versa.
+|`* * *` |user |add a person. |save the contact information of my contacts.
 |`* * *` |user |delete a person. |remove entries that I no longer need.
 |`* * *` |user |find a person by name. |locate details of persons without having to go through the entire list
 |`* * *` |user |click a link to access files sent to me by a contact. |do not have to search my email/dropbox for it.
@@ -833,7 +838,7 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 |`* *` |user |send messages/emails to contacts within the addressbook. |do not have to leave the addressbook to send messages/emails.
 |`* *` |user |create shortcuts for long messages. |do not need to type everything out.
 |`* *` |user |indicate my availability by hightlighting my name with certain color on other's people addressbook. |can show other's my status.
-|`* *`|user |edit contact's information. |can keep my contact details updated.
+|`* *` |user |edit contact's information. |can keep my contact details updated.
 |`* *` |user |send commands in natural language. |do not have to follow a fix input structure.
 |`* *` |user |revert to a previous point in history. |undo multiple mistakes.
 |`* *` |user |set an alias for commands or strings. |do not have to type everything out.
@@ -985,25 +990,50 @@ Use case resumes at step 2.
 [appendix]
 == Glossary
 
-Version
-
-	A way to categorize the current state of a software as it is developed and released.
-	One has to note that there is no industry standard for how a version number should be formatted.
-	Therefore, different companies/developers have different style of formatting version number.
-
 Backward compatible
 
 	Current version of the AddressBook is able to run previous version of the AddressBook successfully.
 
-Reformat
+Commands
 
-	The process of erasing every data and reset it back to its original form.
-	Usually perform when data is corrupted, or for convenience when there are too many datas to be deleted.
+	Instruction to tell the AddressBook what to do in order to perform specific task, such as storing or deleting a contact.
+
+
+[[dynamic-information]]
+Dynamic information
+
+    Refers to information that is automatically retrieved from the YouTube servers and updated every time the user views the profile of the contact.
+
+[[mainstream-os]]
+Mainstream OS
+
+....
+Windows, Linux, Unix, OS-X
+....
+
 
 Natural Language
 
 	Refers to the language use by human, such as English, Chinese, Spanish, French etc..
 	It is different from language use by Artificial Intelligence and Computer.
+
+
+[[private-contact-detail]]
+Private contact detail
+
+....
+A contact detail that is not meant to be shared with others
+....
+
+Programming Language
+
+	A vocabulary and set of grammatical rules for instructing a computer or computing device to perform certain task.
+	Some common programming languages are Java, C, C++, Python etc.
+
+Reformat
+
+	The process of erasing every data and reset it back to its original form.
+	Usually perform when data is corrupted, or for convenience when there are too many datas to be deleted.
 
 Server
 
@@ -1013,28 +1043,24 @@ Server-side data storage
 
 	Refers to an online storage medium for storing your data. Requires a server to do so, such as Cloud server.
 
-Programming Language
+Version
 
-	A vocabulary and set of grammatical rules for instructing a computer or computing device to perform certain task.
-	Some common programming languages are Java, C, C++, Python etc.
+	A way to categorize the current state of a software as it is developed and released.
+	One has to note that there is no industry standard for how a version number should be formatted.
+	Therefore, different companies/developers have different style of formatting version number.
 
-Commands
 
-	Instruction to tell the AddressBook what to do in order to perform specific task, such as storing or deleting a contact.
 
-[[mainstream-os]]
-Mainstream OS
 
-....
-Windows, Linux, Unix, OS-X
-....
 
-[[private-contact-detail]]
-Private contact detail
 
-....
-A contact detail that is not meant to be shared with others
-....
+
+
+
+
+
+
+
 
 [appendix]
 == Product Survey
