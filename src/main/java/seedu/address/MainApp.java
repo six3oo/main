@@ -35,6 +35,8 @@ import seedu.address.storage.XmlAddressBookStorage;
 import seedu.address.ui.Ui;
 import seedu.address.ui.UiManager;
 
+//import static seedu.address.ui.UiManager.FILE_OPS_ERROR_DIALOG_STAGE_TITLE;
+
 /**
  * The main entry point to the application.
  */
@@ -71,7 +73,6 @@ public class MainApp extends Application {
         logic = new LogicManager(model);
 
         ui = new UiManager(logic, config, userPrefs);
-
         initEventsCenter();
     }
 

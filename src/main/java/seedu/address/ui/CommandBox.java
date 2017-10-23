@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
 import seedu.address.commons.core.LogsCenter;
@@ -42,13 +43,12 @@ public class CommandBox extends UiPart<Region> {
      * Handles the key press event, {@code keyEvent}.
      */
     @FXML
-    private void handleKeyPress(KeyEvent keyEvent) {
+    private void handleKeyReleased(KeyEvent keyEvent) {
         switch (keyEvent.getCode()) {
         case UP:
             // As up and down buttons will alter the position of the caret,
             // consuming it causes the caret's position to remain unchanged
             keyEvent.consume();
-
             navigateToPreviousInput();
             break;
         case DOWN:
@@ -56,7 +56,15 @@ public class CommandBox extends UiPart<Region> {
             navigateToNextInput();
             break;
         default:
-            // let JavaFx handle the keypress
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                break;
+            }
+            if (commandTextField.getText().equals("")) {
+                raise(new NewResultAvailableEvent("", false));
+                break;
+            }
+            raise(new NewResultAvailableEvent(logic.liveHelp(commandTextField.getText()), false));
+
         }
     }
 

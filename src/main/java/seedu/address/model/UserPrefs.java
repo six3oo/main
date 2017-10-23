@@ -57,19 +57,7 @@ public class UserPrefs {
         if (password.equals("")) {
             return true;
         }
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            md.update(input.getBytes());
-            //convert the byte to hex format
-            byte[] byteData = md.digest();
-            StringBuilder buffer = new StringBuilder();
-            for (int i = 0; i < byteData.length; i++) {
-                buffer.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
-            }
-            return password.equals(buffer.toString());
-        } catch (NoSuchAlgorithmException e) {
-            return false;
-        }
+        return password.equals(convertToMD5(input));
     }
     @Override
     public boolean equals(Object other) {
@@ -99,6 +87,42 @@ public class UserPrefs {
         sb.append("\nLocal data file location : " + addressBookFilePath);
         sb.append("\nAddressBook name : " + addressBookName);
         return sb.toString();
+    }
+
+    /**
+     * To change password
+     * @param oldPwd old password
+     * @param newPwd new password
+     * @return success or fail
+     */
+    public boolean changePwd(String oldPwd, String newPwd) {
+        if (checkPassword(oldPwd)) {
+            password = convertToMD5(newPwd);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Convert String to MD5 Hash
+     * @param input String to be converted
+     * @return MD5 hash as a string
+     */
+    private String convertToMD5(String input) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(input.getBytes());
+            //convert the byte to hex format
+            byte[] byteData = md.digest();
+            StringBuilder buffer = new StringBuilder();
+            for (int i = 0; i < byteData.length; i++) {
+                buffer.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            return buffer.toString();
+        } catch (NoSuchAlgorithmException e) {
+            return "";
+        }
     }
 
 }
