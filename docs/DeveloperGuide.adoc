@@ -295,6 +295,47 @@ public class FindEmailCommandParser {
 }
 ----
 
+// tag::FavCommand[]
+=== FavCommand
+This enhancement allows users to add or remove people to and fro a favourites list. +
+To use this command, user just need to type in `fave <index of targeted person> <true/false>`. +
+`true` will add the targeted person to the favourites, while `false` removes the person. +
+The implementation of the fave command consists of 2 new classes, namely `FavCommand.java`, `FavCommandParser.java.` +
+Both these classes reside in the Logic component.
+
+`<CLASS DIAGRAM TO COME IN V1.4>` +
+Figure 3.3.1 +
+
+**Functions of classes in FavCommand** +
+
+**1)**	FavCommand.java: This class sets the `favourite` boolean variable in a target `Person` as either `true` or `false`. This class extends the abstract class Command. +
+
+**2)**	FavCommandParser.java: This class parses input arguments and creates a new FavCommand object. +
+
+**Implementations of Fave Command** +
+The `FavCommand` is implemented this way:
+[source,java]
+----
+public class FavCommand extends Command{
+    @Override
+    public CommandResult executeUndoableCommand() {
+	//command logic
+    }
+}
+
+----
+
+The `FavCommandParser.java` is implemented this way:
+[source,java]
+----
+public class FavParser {
+
+    public FindEmailCommand parse(String args) throws ParseException {
+        //parser logic
+    }
+}
+----
+
 // tag::undoredo[]
 === Undo/Redo mechanism
 
