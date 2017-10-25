@@ -18,19 +18,18 @@ public class FavCommandParser implements Parser<FavCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public FavCommand parse(String args) throws ParseException {
-        boolean status = false;
-        String[] argArray;
         try {
-            argArray = ParserUtil.parseByDelimiter(args, " ");
-            Index index = ParserUtil.parseIndex(argArray[0]);
+            boolean status = false;
+            String[] argArray = args.split("\\s+");
+            Index index = ParserUtil.parseIndex(argArray[1]);
+            if (argArray[2] == "true") {
+                status = true;
+            }
             return new FavCommand(index, status);
-        } catch (IllegalValueException | ArrayIndexOutOfBoundsException ivaie) {
+        } catch (IllegalValueException | ArrayIndexOutOfBoundsException ive) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FavCommand.MESSAGE_USAGE));
-        } /*catch (ArrayIndexOutOfBoundsException aioobe) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FavCommand.MESSAGE_USAGE));
-        }*/
+        }
     }
 
 }
