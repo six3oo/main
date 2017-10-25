@@ -19,15 +19,15 @@ public class FavCommandParser implements Parser<FavCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public FavCommand parse(String args) throws ParseException {
+        args = args.trim();
         try {
             String[] argArray = args.split("\\s+");
-            Index index = ParserUtil.parseIndex(argArray[1]);
-            System.out.print("|"+argArray[2]+"|"+"\n");
+            Index index = ParserUtil.parseIndex(argArray[0]);
 
-            if (argArray[2].equals("true")) {
+            if (argArray[1].equals("true")) {
                 status = true;
             }
-            else if (argArray[2].equals("false")) {
+            else if (argArray[1].equals("false")) {
                 status = false;
             }
             return new FavCommand(index, status);
