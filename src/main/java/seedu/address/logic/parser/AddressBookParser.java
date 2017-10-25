@@ -7,24 +7,11 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import seedu.address.logic.commands.AddCommand;
+import seedu.address.logic.commands.*;
 import seedu.address.logic.commands.ChangePwdCommand;
-import seedu.address.logic.commands.ClearCommand;
-import seedu.address.logic.commands.Command;
-import seedu.address.logic.commands.DeleteCommand;
-import seedu.address.logic.commands.EditCommand;
-import seedu.address.logic.commands.ExitCommand;
-import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.FindEmailCommand;
 import seedu.address.logic.commands.FindTagCommand;
-import seedu.address.logic.commands.HelpCommand;
-import seedu.address.logic.commands.HistoryCommand;
-import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.ProfileCommand;
-import seedu.address.logic.commands.RedoCommand;
-import seedu.address.logic.commands.SelectCommand;
-import seedu.address.logic.commands.SendCommand;
-import seedu.address.logic.commands.UndoCommand;
 
 import seedu.address.logic.parser.exceptions.ParseException;
 
@@ -70,6 +57,10 @@ public class AddressBookParser {
         case DeleteCommand.COMMAND_WORD:
         case DeleteCommand.COMMAND_ALIAS:
             return new DeleteCommandParser().parse(arguments);
+
+        case FavCommand.COMMAND_WORD:
+        case FavCommand.COMMAND_ALIAS:
+            return new FavCommandParser().parse(arguments);
 
         case ClearCommand.COMMAND_WORD:
         case ClearCommand.COMMAND_ALIAS:
@@ -145,6 +136,9 @@ public class AddressBookParser {
         }
         if (DeleteCommand.COMMAND_WORD.contains(text)) {
             result.add(DeleteCommand.COMMAND_WORD);
+        }
+        if (FavCommand.COMMAND_WORD.contains(text)) {
+            result.add(FavCommand.COMMAND_WORD);
         }
         if (ClearCommand.COMMAND_WORD.contains(text)) {
             result.add(ClearCommand.COMMAND_WORD);
