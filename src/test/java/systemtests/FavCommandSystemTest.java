@@ -1,7 +1,7 @@
 package systemtests;
 
-import static org.junit.Assert.assertTrue;
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
+//import static org.junit.Assert.assertTrue;
+//import static seedu.address.commons.core.Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.logic.commands.FavCommand.MESSAGE_FAVE_PERSON_SUCCESS;
 import static seedu.address.logic.commands.FavCommand.MESSAGE_UNFAVE_PERSON_SUCCESS;
@@ -9,7 +9,7 @@ import static seedu.address.testutil.TestUtil.getLastIndex;
 import static seedu.address.testutil.TestUtil.getMidIndex;
 import static seedu.address.testutil.TestUtil.getPerson;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
-import static seedu.address.testutil.TypicalPersons.KEYWORD_MATCHING_MEIER;
+//import static seedu.address.testutil.TypicalPersons.KEYWORD_MATCHING_MEIER;
 
 import org.junit.Test;
 
@@ -35,7 +35,8 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
         /* Case: add the first person in the list, command with leading spaces and trailing spaces to favourites list ->
          faved */
         Model expectedModel = getModel();
-        String command = "     " + FavCommand.COMMAND_WORD + "      " + INDEX_FIRST_PERSON.getOneBased() + "       " + "true";
+        String command = "     " + FavCommand.COMMAND_WORD + "      " + INDEX_FIRST_PERSON.getOneBased() + "       "
+                + "true";
         ReadOnlyPerson favedPerson = favPerson(expectedModel, INDEX_FIRST_PERSON, true);
         String expectedResultMessage = String.format(MESSAGE_FAVE_PERSON_SUCCESS, favedPerson);
         assertCommandSuccess(command, expectedModel, expectedResultMessage);
@@ -166,7 +167,8 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
         String expectedResultMessage = String.format(MESSAGE_FAVE_PERSON_SUCCESS, favedPerson);
 
         assertCommandSuccess(
-                FavCommand.COMMAND_WORD + " " + toFave.getOneBased() + " " + "true", expectedModel, expectedResultMessage);
+                FavCommand.COMMAND_WORD + " " + toFave.getOneBased() + " "
+                        + "true", expectedModel, expectedResultMessage);
     }
 
     /**
@@ -180,7 +182,8 @@ public class FavCommandSystemTest extends AddressBookSystemTest {
         String expectedResultMessage = String.format(MESSAGE_UNFAVE_PERSON_SUCCESS, unFavedPerson);
 
         assertCommandSuccess(
-                FavCommand.COMMAND_WORD + " " + toUnFave.getOneBased() + " " + "false", expectedModel, expectedResultMessage);
+                FavCommand.COMMAND_WORD + " " + toUnFave.getOneBased() + " "
+                        + "false", expectedModel, expectedResultMessage);
     }
 
     /**

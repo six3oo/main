@@ -36,13 +36,13 @@ public class FavCommandTest {
         String expectedMessage = String.format(FavCommand.MESSAGE_FAVE_PERSON_SUCCESS, personToFave);
 
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
-        expectedModel.favPerson(personToFave,true);
+        expectedModel.favPerson(personToFave, true);
 
         assertCommandSuccess(favCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
-    public void execute_remove_validIndexUnfilteredList_success() throws Exception {
+    public void execute_validIndexUnfilteredList_removeSuccess() throws Exception {
         ReadOnlyPerson personToFave = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
         FavCommand favCommand = prepareCommand(INDEX_FIRST_PERSON, false);
 
@@ -62,7 +62,7 @@ public class FavCommandTest {
 
         assertCommandFailure(favCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
-/*
+    /*
     @Test
     public void execute_validIndexFilteredList_success() throws Exception {
         showFirstPersonOnly(model);
@@ -77,7 +77,7 @@ public class FavCommandTest {
 
         assertCommandSuccess(favCommand, model, expectedMessage, expectedModel);
     }
-*/
+    */
     @Test
     public void execute_invalidIndexFilteredList_throwsCommandException() {
         showFirstPersonOnly(model);

@@ -26,7 +26,7 @@ public class FavCommandParserTest {
     }
 
     @Test
-    public void parse_validArgs_remove_returnsFavCommand() {
+    public void parse_validArgs_removeReturnsFavCommand() {
         assertParseSuccess(parser, "1 false", new FavCommand(INDEX_FIRST_PERSON, false));
     }
 
