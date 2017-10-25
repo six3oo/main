@@ -84,6 +84,18 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
+     * Sets the {@code ChannelId} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withChannelId(String channelId) {
+        try {
+            ParserUtil.parseChannelId(Optional.of(channelId)).ifPresent(descriptor::setChannelId);
+        } catch (IllegalValueException ive) {
+            throw new IllegalArgumentException("channel ID is expected to be unique.");
+        }
+        return this;
+    }
+
+    /**
      * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code EditPersonDescriptor}
      * that we are building.
      */
