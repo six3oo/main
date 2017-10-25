@@ -11,6 +11,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
  * Parses input arguments and creates a new FavCommand object
  */
 public class FavCommandParser implements Parser<FavCommand> {
+    private boolean status;
 
     /**
      * Parses the given {@code String} of arguments in the context of the FavCommand
@@ -19,11 +20,15 @@ public class FavCommandParser implements Parser<FavCommand> {
      */
     public FavCommand parse(String args) throws ParseException {
         try {
-            boolean status = false;
             String[] argArray = args.split("\\s+");
             Index index = ParserUtil.parseIndex(argArray[1]);
-            if (argArray[2] == "true") {
+            System.out.print("|"+argArray[2]+"|"+"\n");
+
+            if (argArray[2].equals("true")) {
                 status = true;
+            }
+            else if (argArray[2].equals("false")) {
+                status = false;
             }
             return new FavCommand(index, status);
         } catch (IllegalValueException | ArrayIndexOutOfBoundsException ive) {
