@@ -11,8 +11,6 @@ import seedu.address.logic.parser.exceptions.ParseException;
  * Parses input arguments and creates a new FavCommand object
  */
 public class FavCommandParser implements Parser<FavCommand> {
-    public boolean status;
-    private String[] argArray;
 
     /**
      * Parses the given {@code String} of arguments in the context of the FavCommand
@@ -20,6 +18,8 @@ public class FavCommandParser implements Parser<FavCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public FavCommand parse(String args) throws ParseException {
+        boolean status;
+        String[] argArray;
         try {
             argArray = args.split("\\s+");
             if (argArray[1] == "true"){
