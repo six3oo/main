@@ -30,6 +30,10 @@ public class FavCommandParser implements Parser<FavCommand> {
             else if (argArray[1].equals("false")) {
                 status = false;
             }
+            else {
+                throw new ParseException(
+                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, FavCommand.MESSAGE_USAGE));
+            }
             return new FavCommand(index, status);
         } catch (IllegalValueException | ArrayIndexOutOfBoundsException ive) {
             throw new ParseException(
