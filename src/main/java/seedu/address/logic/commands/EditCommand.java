@@ -44,7 +44,7 @@ public class EditCommand extends UndoableCommand {
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
-            + "[" + PREFIX_CHANNEL_ID + "CHANNEL ID"
+            + "[" + PREFIX_CHANNEL_ID + "CHANNEL ID] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
@@ -224,8 +224,13 @@ public class EditCommand extends UndoableCommand {
             return getName().equals(e.getName())
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
-                    && getAddress().equals(e.getAddress())
+                    && getEmail().equals(e.getEmail())
+                    //&& getAddress().equals(e.getAddress())
+                    //&& getChannelId().equals(e.getChannelId())
                     && getTags().equals(e.getTags());
         }
+
+
+
     }
 }
