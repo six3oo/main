@@ -295,6 +295,47 @@ public class FindEmailCommandParser {
 }
 ----
 
+// tag::FavCommand[]
+=== FavCommand
+This enhancement allows users to add or remove people to and fro a favourites list. +
+To use this command, user just need to type in `fave <index of targeted person> <true/false>`. +
+`true` will add the targeted person to the favourites, while `false` removes the person. +
+The implementation of the fave command consists of 2 new classes, namely `FavCommand.java`, `FavCommandParser.java.` +
+Both these classes reside in the Logic component.
+
+`<CLASS DIAGRAM TO COME IN V1.4>` +
+Figure 3.3.1 +
+
+**Functions of classes in FavCommand** +
+
+**1)**	FavCommand.java: This class sets the `favourite` boolean variable in a target `Person` as either `true` or `false`. This class extends the abstract class Command. +
+
+**2)**	FavCommandParser.java: This class parses input arguments and creates a new FavCommand object. +
+
+**Implementations of Fave Command** +
+The `FavCommand` is implemented this way:
+[source,java]
+----
+public class FavCommand extends Command{
+    @Override
+    public CommandResult executeUndoableCommand() {
+	//command logic
+    }
+}
+
+----
+
+The `FavCommandParser.java` is implemented this way:
+[source,java]
+----
+public class FavParser {
+
+    public FindEmailCommand parse(String args) throws ParseException {
+        //parser logic
+    }
+}
+----
+
 // tag::undoredo[]
 === Undo/Redo mechanism
 
@@ -456,6 +497,78 @@ The ability for the user to choose which data to display for their contacts woul
 **Pros:** Might be more intuitive for the user and easier to type in. +
 **Cons:** There are so many channels with the same highly sought after names (sans the bigger channels). Although it will be easier to type in for the user as most channel names are easy to read, the users might mistake the channel title for the channel username, resulting in the wrong channel being saved. +
 
+=======
+=== Favourites mechanism
+
+The Favourites mechanism is facilitated by a 'favourite' boolean variable, which resides inside `Person`. It flags each 'Person' object as either a favourite, or not one.
+
+----
+public class FavCommand extends UndoableCommand {
+    @Override
+    public CommandResult executeUndoableCommand() {
+        try {
+            model.favPerson(personToFave, status);
+            } catch (DuplicatePersonException dpe) {
+                assert false : "The target person cannot be already in the favourites list";
+            } catch (PersonNotFoundException pnfe) {
+                assert false : "The target person cannot be found";
+            }
+
+        if (status == true){
+            return new CommandResult(String.format(MESSAGE_FAVE_PERSON_SUCCESS, personToFave));
+        }
+
+        else {
+            return new CommandResult(String.format(MESSAGE_UNFAVE_PERSON_SUCCESS, personToFave));
+        }
+
+    }
+}
+----
+
+Suppose that the user has just launched the application for the first time. All 'Person' models will have 'false' as their 'favourite' boolean variable..
+
+The user executes a new `FavCommand`, `1 true`, to mark the first person on the displayed list as a favourite. Should he then execute 'fave 1 false', that first person will no longer be marked as a favourite.
+
+[NOTE]
+If a command fails its execution, the person's 'favourite' boolean variable will not change.
+
+[NOTE]
+If the person is already marked as a favourite, and the person attempts to mark it as a favourite, the command will throw an error. However, if the person is not a favourite and the user marks the person as not a favourite, the command will be successful.
+
+[NOTE]
+FavCommand is an UndoableCommand.
+
+==== Design Considerations
+
+**Aspect:** Implementation of `UndoableCommand` +
+**Alternative 1 (current choice):** Add new class `FavCommand()` +
+**Pros:** Will have similar structure to other commands, and preserve consistency in implementation. +
+**Cons:** Many new classes will have to be created to support this class, e.g. parsers, tests etc. +
+**Alternative 2:** Just add a favourite tag alias` +
+**Pros:** Little to no effort to implement. +
+**Cons:** Future functionality based on the favourites list will be harder to implement.
+
+---
+
+**Aspect:** How undo & redo executes +
+**Alternative 1 (current choice):** Modifies a variable in the Person model. +
+**Pros:** Automatically saved, easy to access data. +
+**Cons:** Adds additional memory requirements to each Person model. +
+**Alternative 2:** Add a tag called 'favourite' to target Person. +
+**Pros:** No new classes needed, easy to implement. +
+**Cons:** Difficult to build additional functionality based on favourites list.
+
+---
+
+**Aspect:** Make FavCommand() Undoable +
+**Alternative 1 (current choice):** FavCommand() is Undoable. +
+**Pros:** Easy to quickly revert mistakes. +
+**Cons:** User might think that undo also applies when the list is modified (undoing filtering for example), only to realize that it does not do that, after executing `undo`. +
+**Alternative 2:** FavCommand() is not Undoable +
+**Pros:** Might be more intuitive for the user. +
+**Cons:** Much longer command will need to be entered to revert any mistake.
+// end::favCommand[]
 
 === Logging
 
