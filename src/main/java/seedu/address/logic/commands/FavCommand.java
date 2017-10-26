@@ -17,6 +17,7 @@ public class FavCommand extends UndoableCommand {
 
     public static final String COMMAND_WORD = "fave";
     public static final String COMMAND_ALIAS = "fv";
+    public static final String COMMAND_HELP = "fave INDEX BOOLEAN";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Adds or removes the person identified by the index number used in the last person listing to a "

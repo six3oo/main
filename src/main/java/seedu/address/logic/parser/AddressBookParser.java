@@ -140,46 +140,49 @@ public class AddressBookParser {
     public ArrayList<String> filterCommand(String text) {
         ArrayList<String> result = new ArrayList<String>();
         if (AddCommand.COMMAND_WORD.contains(text)) {
-            result.add(AddCommand.COMMAND_WORD);
+            result.add(AddCommand.COMMAND_HELP);
         }
         if (ChangePwdCommand.COMMAND_WORD.contains(text)) {
-            result.add(ChangePwdCommand.COMMAND_WORD);
+            result.add(ChangePwdCommand.COMMAND_HELP);
         }
         if (EditCommand.COMMAND_WORD.contains(text)) {
-            result.add(EditCommand.COMMAND_WORD);
+            result.add(EditCommand.COMMAND_HELP);
         }
         if (DeleteCommand.COMMAND_WORD.contains(text)) {
-            result.add(DeleteCommand.COMMAND_WORD);
+            result.add(DeleteCommand.COMMAND_HELP);
         }
         if (FavCommand.COMMAND_WORD.contains(text)) {
-            result.add(FavCommand.COMMAND_WORD);
+            result.add(FavCommand.COMMAND_HELP);
         }
         if (ClearCommand.COMMAND_WORD.contains(text)) {
-            result.add(ClearCommand.COMMAND_WORD);
+            result.add(ClearCommand.COMMAND_HELP);
         }
         if (FindCommand.COMMAND_WORD.contains(text)) {
-            result.add(FindCommand.COMMAND_WORD);
+            result.add(FindCommand.COMMAND_HELP);
         }
         if (ListCommand.COMMAND_WORD.contains(text)) {
-            result.add(ListCommand.COMMAND_WORD);
+            result.add(ListCommand.COMMAND_HELP);
         }
         if (HistoryCommand.COMMAND_WORD.contains(text)) {
-            result.add(HistoryCommand.COMMAND_WORD);
+            result.add(HistoryCommand.COMMAND_HELP);
         }
         if (HelpCommand.COMMAND_WORD.contains(text)) {
-            result.add(HelpCommand.COMMAND_WORD);
+            result.add(HelpCommand.COMMAND_HELP);
         }
         if (UndoCommand.COMMAND_WORD.contains(text)) {
-            result.add(UndoCommand.COMMAND_WORD);
+            result.add(UndoCommand.COMMAND_HELP);
         }
         if (ExitCommand.COMMAND_WORD.contains(text)) {
-            result.add(ExitCommand.COMMAND_WORD);
+            result.add(ExitCommand.COMMAND_HELP);
         }
         if (SendCommand.COMMAND_WORD.contains(text)) {
-            result.add(SendCommand.COMMAND_WORD);
+            result.add(SendCommand.COMMAND_HELP);
         }
         if (RedoCommand.COMMAND_WORD.contains(text)) {
-            result.add(RedoCommand.COMMAND_WORD);
+            result.add(RedoCommand.COMMAND_HELP);
+        }
+        if (SelectCommand.COMMAND_WORD.contains(text)) {
+            result.add(SelectCommand.COMMAND_HELP);
         }
         return result;
     }

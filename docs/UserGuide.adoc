@@ -126,7 +126,9 @@ Format: `findemail KEYWORD@[domain].com`
 Examples:
 
 * `findemail` `bob@example.com` +
-Returns contact with the email `bob@example.com`
+Returns contact with the email `bob@example.com` +
+
+image::findemail.png[width = "800"]
 
 
 === Locating persons by tag: `findtag`
@@ -144,7 +146,9 @@ Format: `findtag KEYWORD`
 Examples:
 
 * `findtag friends` +
-Return contact(s) with the 'friends' tag.
+Return contact(s) with the 'friends' tag. +
+
+image::findtag.png[width = "800"]
 
 === Deleting a person : `delete`
 
@@ -343,6 +347,7 @@ There is no need to save manually.
 * *Add* `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...` +
 e.g. `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
 * *Clear* : `clear`
+* *Changepwd* : `changepwd NEW_PASSWORD OLD_PASSWORD`
 * *Delete* : `delete INDEX` +
 e.g. `delete 3`
 * *Edit* : `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]...` +

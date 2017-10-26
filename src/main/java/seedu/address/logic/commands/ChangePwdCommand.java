@@ -11,9 +11,10 @@ public class ChangePwdCommand extends Command {
 
     public static final String COMMAND_WORD = "changepwd";
     public static final String COMMAND_ALIAS = "cpwd";
+    public static final String COMMAND_HELP = "changepwd NEW_PASSWORD OLD_PASSWORD";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Changes password. \n"
-            + COMMAND_WORD + " [new_password] [old_password]";
+            + COMMAND_WORD + " <new_password> <old_password>";
 
 
     public static final String MESSAGE_NO_SETTINGS = "No available settings.";
