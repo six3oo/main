@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.services.youtube.YouTube;
 import com.google.api.services.youtube.model.Channel;
 import com.google.api.services.youtube.model.ChannelListResponse;
@@ -14,7 +13,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.YouTubeAuthorize;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.person.ReadOnlyPerson;
-import seedu.address.ui.UiPart;
+
 
 /**
  * Selects a person identified using it's last displayed index from the address book and prints information
