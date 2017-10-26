@@ -30,6 +30,7 @@ public class ResultDisplay extends UiPart<Region> {
 
     public ResultDisplay() {
         super(FXML);
+        resultDisplay.setVisible(false);
         resultDisplay.textProperty().bind(displayed);
         registerAsAnEventHandler(this);
     }
@@ -38,6 +39,11 @@ public class ResultDisplay extends UiPart<Region> {
     private void handleNewResultAvailableEvent(NewResultAvailableEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
         displayed.setValue(event.message);
+        if (event.message.equals("")) {
+            resultDisplay.setVisible(false);
+        } else {
+            resultDisplay.setVisible(true);
+        }
 
         if (event.isError) {
             setStyleToIndicateCommandFailure();
