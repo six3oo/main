@@ -152,7 +152,7 @@ public class AddressBookParser {
             result.add(DeleteCommand.COMMAND_HELP);
         }
         if (FavCommand.COMMAND_WORD.contains(text)) {
-            result.add(FavCommand.COMMAND_WORD);
+            result.add(FavCommand.COMMAND_HELP);
         }
         if (ClearCommand.COMMAND_WORD.contains(text)) {
             result.add(ClearCommand.COMMAND_HELP);
