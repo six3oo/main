@@ -14,6 +14,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.YouTubeAuthorize;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.person.ReadOnlyPerson;
+import seedu.address.ui.UiPart;
 
 /**
  * Selects a person identified using it's last displayed index from the address book and prints information
@@ -61,33 +62,44 @@ public class ProfileCommand extends Command {
             e.printStackTrace();
         }
 
+
+        HashMap<String, String> parameters = new HashMap<>();
+        parameters.put("part", "statistics,snippet");
+        parameters.put("id", targetChannelId);
+
+        YouTube.Channels.List channelsListByIdRequest = null;
         try {
-            HashMap<String, String> parameters = new HashMap<>();
-            parameters.put("part", "statistics,snippet");
-            parameters.put("id", targetChannelId);
-
-            YouTube.Channels.List channelsListByIdRequest = youtube.channels().list(parameters.get("part").toString());
-            if (parameters.containsKey("id") && parameters.get("id") != "") {
-                channelsListByIdRequest.setId(parameters.get("id").toString());
-            }
-
-            ChannelListResponse response = channelsListByIdRequest.execute();
-            Channel channel = response.getItems().get(0);
-            System.out.println(channel.getSnippet().getTitle());
-            System.out.println(channel.getSnippet().getDescription());
-            System.out.println(channel.getStatistics().getSubscriberCount() + " Subscribers");
-            System.out.println(channel.getStatistics().getViewCount() + " Total view count");
-
-
-        } catch (GoogleJsonResponseException e) {
+            channelsListByIdRequest = youtube.channels().list(parameters.get("part").toString());
+        } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("There was a service error: "
-                    + e.getDetails().getCode() + " : " + e.getDetails().getMessage());
-        } catch (Throwable t) {
-            t.printStackTrace();
+        }
+        if (parameters.containsKey("id") && parameters.get("id") != "") {
+            channelsListByIdRequest.setId(parameters.get("id").toString());
         }
 
-        return new CommandResult(String.format(MESSAGE_SELECT_PROFILE_PERSON_SUCCESS, targetIndex.getOneBased()));
+        ChannelListResponse response = null;
+        try {
+            response = channelsListByIdRequest.execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Channel channel = response.getItems().get(0);
+        System.out.println(channel.getSnippet().getTitle());
+        System.out.println(channel.getSnippet().getDescription());
+        System.out.println(channel.getStatistics().getSubscriberCount() + " Subscribers");
+        System.out.println(channel.getStatistics().getViewCount() + " Total view count");
+
+
+        String channelTitle = channel.getSnippet().getTitle();
+        String channelDescription = channel.getSnippet().getDescription();
+        String channelSubCount = channel.getStatistics().getSubscriberCount() + " Subscribers";
+        String channelViewCount = channel.getStatistics().getViewCount() + " Total view count";
+
+        String showUser = channelTitle + "\n" + channelDescription + "\n" + channelSubCount + "\n"
+                + channelViewCount + "\n";
+
+
+        return new CommandResult(String.format(showUser, targetIndex.getOneBased()));
 
     }
 
