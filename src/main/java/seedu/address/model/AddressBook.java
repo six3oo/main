@@ -92,7 +92,7 @@ public class AddressBook implements ReadOnlyAddressBook {
         persons.add(newPerson);
     }
 
-    /** Adds a person to the favourites list.
+    /** Adds or removes a person to the favourites list.
      * @throws DuplicatePersonException if the person is already in the favourites list.
      */
     public void favPerson(ReadOnlyPerson target, boolean fave)
