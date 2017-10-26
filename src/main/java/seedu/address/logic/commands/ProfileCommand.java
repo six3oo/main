@@ -24,6 +24,7 @@ public class ProfileCommand extends Command {
 
     public static final String COMMAND_WORD = "profile";
     public static final String COMMAND_ALIAS = "p";
+    public static final String COMMAND_HELP = "profile INDEX";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Selects the person identified by the index number used in the last person listing.\n"

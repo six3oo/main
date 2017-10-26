@@ -20,6 +20,7 @@ public class SendCommand extends Command {
 
     public static final String COMMAND_WORD = "send";
     public static final String COMMAND_ALIAS = "snd";
+    public static final String COMMAND_HELP = "send INDEX";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":Opens up third-party communication application with"
                                                             + " the information of the person identified"

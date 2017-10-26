@@ -3,15 +3,18 @@ package seedu.address.logic.parser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.AddCommand;
+import seedu.address.logic.commands.ChangePwdCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.ExitCommand;
+import seedu.address.logic.commands.FavCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.FindEmailCommand;
 import seedu.address.logic.commands.FindTagCommand;
@@ -23,6 +26,7 @@ import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.SelectCommand;
 import seedu.address.logic.commands.SendCommand;
 import seedu.address.logic.commands.UndoCommand;
+
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -68,6 +72,10 @@ public class AddressBookParser {
         case DeleteCommand.COMMAND_ALIAS:
             return new DeleteCommandParser().parse(arguments);
 
+        case FavCommand.COMMAND_WORD:
+        case FavCommand.COMMAND_ALIAS:
+            return new FavCommandParser().parse(arguments);
+
         case ClearCommand.COMMAND_WORD:
         case ClearCommand.COMMAND_ALIAS:
             return new ClearCommand();
@@ -110,6 +118,10 @@ public class AddressBookParser {
         case SendCommand.COMMAND_ALIAS:
             return new SendCommandParser().parse(arguments);
 
+        case ChangePwdCommand.COMMAND_WORD:
+        case ChangePwdCommand.COMMAND_ALIAS:
+            return new ChangePwdCommandParser().parse(arguments);
+
         case ProfileCommand.COMMAND_WORD:
         case ProfileCommand.COMMAND_ALIAS:
             return new ProfileCommandParser().parse(arguments);
@@ -117,6 +129,59 @@ public class AddressBookParser {
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
+    }
+
+    /**
+     * Searches for all commands that contains the input text
+     * @param text
+     * @return ArrayList of command words
+     */
+
+    public ArrayList<String> filterCommand(String text) {
+        ArrayList<String> result = new ArrayList<String>();
+        if (AddCommand.COMMAND_WORD.contains(text)) {
+            result.add(AddCommand.COMMAND_HELP);
+        }
+        if (ChangePwdCommand.COMMAND_WORD.contains(text)) {
+            result.add(ChangePwdCommand.COMMAND_HELP);
+        }
+        if (EditCommand.COMMAND_WORD.contains(text)) {
+            result.add(EditCommand.COMMAND_HELP);
+        }
+        if (DeleteCommand.COMMAND_WORD.contains(text)) {
+            result.add(DeleteCommand.COMMAND_HELP);
+        }
+        if (FavCommand.COMMAND_WORD.contains(text)) {
+            result.add(FavCommand.COMMAND_HELP);
+        }
+        if (ClearCommand.COMMAND_WORD.contains(text)) {
+            result.add(ClearCommand.COMMAND_HELP);
+        }
+        if (FindCommand.COMMAND_WORD.contains(text)) {
+            result.add(FindCommand.COMMAND_HELP);
+        }
+        if (ListCommand.COMMAND_WORD.contains(text)) {
+            result.add(ListCommand.COMMAND_HELP);
+        }
+        if (HistoryCommand.COMMAND_WORD.contains(text)) {
+            result.add(HistoryCommand.COMMAND_HELP);
+        }
+        if (HelpCommand.COMMAND_WORD.contains(text)) {
+            result.add(HelpCommand.COMMAND_HELP);
+        }
+        if (UndoCommand.COMMAND_WORD.contains(text)) {
+            result.add(UndoCommand.COMMAND_HELP);
+        }
+        if (ExitCommand.COMMAND_WORD.contains(text)) {
+            result.add(ExitCommand.COMMAND_HELP);
+        }
+        if (SendCommand.COMMAND_WORD.contains(text)) {
+            result.add(SendCommand.COMMAND_HELP);
+        }
+        if (RedoCommand.COMMAND_WORD.contains(text)) {
+            result.add(RedoCommand.COMMAND_HELP);
+        }
+        return result;
     }
 
 }

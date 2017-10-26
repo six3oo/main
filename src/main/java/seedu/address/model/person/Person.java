@@ -124,6 +124,11 @@ public class Person implements ReadOnlyPerson {
         this.favourite = fav;
     }
 
+    @Override
+    public boolean getFavourite() {
+        return this.favourite;
+    }
+
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
