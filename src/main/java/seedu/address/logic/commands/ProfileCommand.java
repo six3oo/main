@@ -2,15 +2,18 @@ package seedu.address.logic.commands;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
 import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.services.youtube.YouTube;
 import com.google.api.services.youtube.model.Channel;
 import com.google.api.services.youtube.model.ChannelListResponse;
 
+import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.YouTubeAuthorize;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.person.ReadOnlyPerson;
 
 /**
  * Selects a person identified using it's last displayed index from the address book and prints information
@@ -39,6 +42,16 @@ public class ProfileCommand extends Command {
     @Override
     public CommandResult execute() throws CommandException {
 
+        List<ReadOnlyPerson> lastShownList = model.getFilteredPersonList();
+
+        if (targetIndex.getZeroBased() >= lastShownList.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        }
+
+        ReadOnlyPerson personToView = lastShownList.get(targetIndex.getZeroBased());
+        String targetChannelId = personToView.getChannelId().toString();
+
+
         YouTube youtube = null;
         try {
             youtube = YouTubeAuthorize.getYouTubeService(ProfileCommand.class);
@@ -51,7 +64,7 @@ public class ProfileCommand extends Command {
         try {
             HashMap<String, String> parameters = new HashMap<>();
             parameters.put("part", "statistics,snippet");
-            parameters.put("id", "UC-lHJZR3Gqxm24_Vd_AJ5Yw");
+            parameters.put("id", targetChannelId);
 
             YouTube.Channels.List channelsListByIdRequest = youtube.channels().list(parameters.get("part").toString());
             if (parameters.containsKey("id") && parameters.get("id") != "") {
