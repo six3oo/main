@@ -203,11 +203,11 @@
 }
 
 .context-menu {
-    -fx-background-color: #deded8;
+    -fx-background-color: #6c6454;
 }
 
 .context-menu .label {
-    -fx-text-fill: white;
+    -fx-text-fill: #2e2e2e;
 }
 
 .menu-bar {
@@ -217,7 +217,7 @@
 .menu-bar .label {
     -fx-font-size: 14pt;
     -fx-font-family: "Segoe UI Light";
-    -fx-text-fill: white;
+    -fx-text-fill: #e2e2e;
     -fx-opacity: 0.9;
 }
 
@@ -243,7 +243,7 @@
 }
 
 .button:hover {
-    -fx-background-color: #3a3a3a;
+    -fx-background-color: #3b8c975;
 }
 
 .button:pressed, .button:default:hover:pressed {
