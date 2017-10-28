@@ -1,18 +1,11 @@
 package seedu.address.logic.commands;
 
-import com.google.common.eventbus.EventBus;
 import seedu.address.commons.core.EventsCenter;
 import seedu.address.commons.events.ui.ChangeThemeEvent;
-import seedu.address.commons.events.ui.SendMessageEvent;
 import seedu.address.logic.commands.exceptions.CommandException;
 
-import com.google.common.eventbus.Subscribe;
-
-import java.nio.file.NoSuchFileException;
-
-
 /**
- * Sends a message to the contact through email
+ * Change theme
  */
 
 public class ChangeThemeCommand extends Command {
@@ -31,7 +24,7 @@ public class ChangeThemeCommand extends Command {
     private final String themeName;
 
     /**
-     * @param String Name of setting to change
+     * @param String Name of theme to change
      */
     public ChangeThemeCommand(String themeName) {
         this.themeName = themeName;
@@ -42,6 +35,5 @@ public class ChangeThemeCommand extends Command {
         EventsCenter.getInstance().post(new ChangeThemeEvent(themeName));
         return new CommandResult(MESSAGE_CHANGE_SUCCESS);
     }
-
 
 }
