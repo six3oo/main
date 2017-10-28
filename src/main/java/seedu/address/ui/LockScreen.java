@@ -91,7 +91,7 @@ public class LockScreen extends UiPart<Region> {
     private void initThemeFromSettings() {
         theme = prefs.getGuiSettings().getTheme();
         vBox.getStylesheets().remove(0);
-        vBox.getStylesheets().add("/view/"+theme+".css");
+        vBox.getStylesheets().add("/view/" + theme + ".css");
     }
 
     void loadMainWindow() {

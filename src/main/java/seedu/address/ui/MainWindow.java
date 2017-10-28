@@ -56,8 +56,8 @@ public class MainWindow extends UiPart<Region> {
     @FXML
     private StackPane commandBoxPlaceholder;
 
-    //@FXML
-    //private MenuItem helpMenuItem;
+    @FXML
+    private MenuItem helpMenuItem;
 
     @FXML
     private StackPane personListPanelPlaceholder;
@@ -91,7 +91,7 @@ public class MainWindow extends UiPart<Region> {
         Scene scene = new Scene(getRoot());
         primaryStage.setScene(scene);
 
-        //setAccelerators();
+        setAccelerators();
         registerAsAnEventHandler(this);
         initThemeFromSettings();
     }
@@ -99,16 +99,16 @@ public class MainWindow extends UiPart<Region> {
     private void initThemeFromSettings() {
         theme = prefs.getGuiSettings().getTheme();
         vBox.getStylesheets().remove(0);
-        vBox.getStylesheets().add("/view/"+theme+".css");
+        vBox.getStylesheets().add("/view/" + theme + ".css");
     }
 
     public Stage getPrimaryStage() {
         return primaryStage;
     }
 
-//    private void setAccelerators() {
-//        setAccelerator(helpMenuItem, KeyCombination.valueOf("F1"));
-//    }
+    private void setAccelerators() {
+        setAccelerator(helpMenuItem, KeyCombination.valueOf("F1"));
+    }
 
     /**
      * Sets the accelerator of a MenuItem.
@@ -171,7 +171,7 @@ public class MainWindow extends UiPart<Region> {
     void changeTheme (ChangeThemeEvent event) throws NoSuchFileException {
         theme = event.themeName;
         vBox.getStylesheets().remove(0);
-        vBox.getStylesheets().add("/view/"+event.themeName+".css");
+        vBox.getStylesheets().add("/view/" + event.themeName + ".css");
     }
 
     private void setTitle(String appTitle) {
