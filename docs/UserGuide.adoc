@@ -327,6 +327,11 @@ Format: `clear`
 Changes the password required to access the address book. +
 Format: `changepwd [old_password] [new_password]`
 
+=== Change Theme : `theme`
+
+Changes the theme. Currently only has `light` or `dark` themes +
+Format: `theme [theme_name]`
+
 === Exiting the program : `exit`
 
 Exits the program. +
@@ -358,6 +363,8 @@ e.g. `find James Jake`
 * *Help* : `help`
 * *Select* : `select INDEX` +
 e.g.`select 2`
+* *Theme* : `theme THEME_NAME` +
+e.g. `theme light`
 * *History* : `history`
 * *Undo* : `undo`
 * *Redo* : `redo`
