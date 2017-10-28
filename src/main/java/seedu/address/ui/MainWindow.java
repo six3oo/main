@@ -37,6 +37,7 @@ public class MainWindow extends UiPart<Region> {
     private static final String FXML = "MainWindow.fxml";
     private static final int MIN_HEIGHT = 600;
     private static final int MIN_WIDTH = 450;
+    private String theme = "";
 
     private final Logger logger = LogsCenter.getLogger(this.getClass());
 
@@ -92,6 +93,13 @@ public class MainWindow extends UiPart<Region> {
 
         setAccelerators();
         registerAsAnEventHandler(this);
+        initThemeFromSettings();
+    }
+
+    private void initThemeFromSettings() {
+        theme = prefs.getGuiSettings().getTheme();
+        vBox.getStylesheets().remove(0);
+        vBox.getStylesheets().add("/view/"+theme+".css");
     }
 
     public Stage getPrimaryStage() {
@@ -161,6 +169,7 @@ public class MainWindow extends UiPart<Region> {
 
     @Subscribe
     void changeTheme (ChangeThemeEvent event) throws NoSuchFileException {
+        theme = event.themeName;
         vBox.getStylesheets().remove(0);
         vBox.getStylesheets().add("/view/"+event.themeName+".css");
     }
@@ -199,7 +208,7 @@ public class MainWindow extends UiPart<Region> {
      */
     GuiSettings getCurrentGuiSetting() {
         return new GuiSettings(primaryStage.getWidth(), primaryStage.getHeight(),
-                (int) primaryStage.getX(), (int) primaryStage.getY());
+                (int) primaryStage.getX(), (int) primaryStage.getY(), theme);
     }
 
     /**
