@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.ChangePwdCommand;
+import seedu.address.logic.commands.ChangeThemeCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteCommand;
@@ -122,6 +123,10 @@ public class AddressBookParser {
         case ChangePwdCommand.COMMAND_ALIAS:
             return new ChangePwdCommandParser().parse(arguments);
 
+        case ChangeThemeCommand.COMMAND_WORD:
+        case ChangeThemeCommand.COMMAND_ALIAS:
+            return new ChangeThemeCommandParser().parse(arguments);
+
         case ProfileCommand.COMMAND_WORD:
         case ProfileCommand.COMMAND_ALIAS:
             return new ProfileCommandParser().parse(arguments);
@@ -183,6 +188,9 @@ public class AddressBookParser {
         }
         if (SelectCommand.COMMAND_WORD.contains(text)) {
             result.add(SelectCommand.COMMAND_HELP);
+        }
+        if (ChangeThemeCommand.COMMAND_WORD.contains(text)) {
+            result.add(ChangeThemeCommand.COMMAND_HELP);
         }
         return result;
     }
