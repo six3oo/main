@@ -15,6 +15,7 @@
     <URL value="@Extensions.css" />
   </stylesheets>
 
+<!--
   <MenuBar fx:id="menuBar" VBox.vgrow="NEVER">
     <Menu mnemonicParsing="false" text="File">
       <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
@@ -23,14 +24,14 @@
       <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
     </Menu>
   </MenuBar>
-
-  <StackPane VBox.vgrow="NEVER" fx:id="commandBoxPlaceholder" styleClass="pane-with-border">
+-->
+  <StackPane VBox.vgrow="NEVER" fx:id="commandBoxPlaceholder" styleClass="pane-with-border" minHeight="80" maxHeight="80">
     <padding>
       <Insets top="5" right="10" bottom="5" left="10" />
     </padding>
   </StackPane>
 
-  <StackPane VBox.vgrow="NEVER" fx:id="bottomPlaceholder" styleClass="pane-with-border">
+  <StackPane VBox.vgrow="ALWAYS" fx:id="bottomPlaceholder" styleClass="pane-with-border">
     <SplitPane id="splitPane" fx:id="splitPane" dividerPositions="0.4" VBox.vgrow="ALWAYS">
       <VBox fx:id="personList" minWidth="340" prefWidth="340" SplitPane.resizableWithParent="false">
         <padding>

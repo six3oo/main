@@ -56,8 +56,8 @@ public class MainWindow extends UiPart<Region> {
     @FXML
     private StackPane commandBoxPlaceholder;
 
-    @FXML
-    private MenuItem helpMenuItem;
+    //@FXML
+    //private MenuItem helpMenuItem;
 
     @FXML
     private StackPane personListPanelPlaceholder;
@@ -91,7 +91,7 @@ public class MainWindow extends UiPart<Region> {
         Scene scene = new Scene(getRoot());
         primaryStage.setScene(scene);
 
-        setAccelerators();
+        //setAccelerators();
         registerAsAnEventHandler(this);
         initThemeFromSettings();
     }
@@ -106,9 +106,9 @@ public class MainWindow extends UiPart<Region> {
         return primaryStage;
     }
 
-    private void setAccelerators() {
-        setAccelerator(helpMenuItem, KeyCombination.valueOf("F1"));
-    }
+//    private void setAccelerators() {
+//        setAccelerator(helpMenuItem, KeyCombination.valueOf("F1"));
+//    }
 
     /**
      * Sets the accelerator of a MenuItem.
