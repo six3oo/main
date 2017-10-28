@@ -497,7 +497,7 @@ The ability for the user to choose which data to display for their contacts woul
 **Pros:** Might be more intuitive for the user and easier to type in. +
 **Cons:** There are so many channels with the same highly sought after names (sans the bigger channels). Although it will be easier to type in for the user as most channel names are easy to read, the users might mistake the channel title for the channel username, resulting in the wrong channel being saved. +
 
-=======
+
 === Favourites mechanism
 
 The Favourites mechanism is facilitated by a 'favourite' boolean variable, which resides inside `Person`. It flags each 'Person' object as either a favourite, or not one.
