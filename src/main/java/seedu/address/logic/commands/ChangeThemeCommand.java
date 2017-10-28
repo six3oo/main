@@ -18,7 +18,7 @@ public class ChangeThemeCommand extends Command {
             + COMMAND_WORD + " <THEME_NAME>";
 
 
-    public static final String MESSAGE_NO_THEME = "No available theme.";
+    public static final String MESSAGE_NO_THEME = "Invalid theme.";
     public static final String MESSAGE_CHANGE_SUCCESS = "Theme changed successfully.";
 
     private final String themeName;
