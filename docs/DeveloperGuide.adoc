@@ -1189,33 +1189,3 @@ Version
 	A way to categorize the current state of a software as it is developed and released.
 	One has to note that there is no industry standard for how a version number should be formatted.
 	Therefore, different companies/developers have different style of formatting version number.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-[appendix]
-== Product Survey
-
-*Product Name*
-
-Author: ...
-
-Pros:
-
-* ...
-* ...
-
-Cons:
-
-* ...
-* ...
