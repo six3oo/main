@@ -352,7 +352,7 @@ There is no need to save manually.
 
 [[get-channel-id]]
 *Q*: How do I find the Channel ID of a YouTube channel? +
-*A*: YouTube allows a channel to have link:#https://support.google.com/youtube/answer/6180214?hl=en[multiple URLs].
+*A*: YouTube allows a channel to have link:https://support.google.com/youtube/answer/6180214?hl=en[multiple URLs].
 If the URL of the homepage of a YouTube channel you visit looks like "https://www.youtube.com/channel/UCLMtDePlMyiqv2XC_ByNEVQ", simply copy the characters after "channel/" and you'll get the Channel ID. Otherwise, follow the steps below.
 
 Step 1. Go to the page of any video of the target YouTube channel. +
