@@ -463,12 +463,12 @@ image::UndoRedoActivityDiagram.png[width="200"]
 **Cons:** Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as `HistoryManager` now needs to do two different things. +
 // end::undoredo[]
 
-=== Enhanced select command (Shows profile)
+=== Select command
 
 In its initial form, the select command shows the Google results of the contact’s name. With the application targeting a more specific group of users, YouTubers, the team believes that the select command can be better used to display the profile of the YouTuber instead. The select command opens the profile of the contact selected. The profile of the contacts displays various link:#dynamic-information[dynamic information] which is updated automatically by the application using the YouTube Data API.
 
 ==== Dynamic information:
-Dynamic-information is information retrieved from the YouTube servers every time the user views the profile of the contact. +
+Dynamic information is information retrieved from the YouTube servers every time the user views the profile of the contact. +
 *Categories included in current version:*
 
 . Channel title
@@ -482,7 +482,7 @@ Displayed in the profile are the dynamic information about the channel, that the
 
 
 image::profile_ui.png[width="600"]
-_Figure 3.5.2.1 : Profile graphical user interface_
+_Figure 3.5.2.1 : Graphical User interface for profile_
 
 ==== Planned extensions for the feature
 The ability for the user to choose which data to display for their contacts would be implemented in future updates to increase customisability. Until then, the team has chosen what we believe are categories which YouTubers place emphasis on. +
