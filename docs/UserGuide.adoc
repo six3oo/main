@@ -14,6 +14,14 @@ endif::[]
 
 By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
 
+== Introduction
+TABCC (The Address Book for Content Creators) is an address book application for YouTubers to store contact information of other YouTubers. TABCC makes those contact information accessible and easy to refer to. +
+At the current stage of development, TABCC is only fully compatible with the Windows platform due to a lack of resources. However, the team may consider adding support for other platforms if enough users request for it.
+
+== About
+This document provides both an in-depth guide to each individual command and a summary of commands you can use. +
+If you run into any trouble regarding the usage of this user guide and/or the application, refer to the FAQs section. In the event that the FAQs section does not have a solution to your problem, feel free to post your questions in the forums where the team and other users would be able to help you.
+
 == Quick Start
 
 .  Ensure you have Java version `1.8.0_60` or later installed in your Computer.
