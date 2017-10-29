@@ -22,7 +22,7 @@ By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
 Having any Java 8 version is not enough. +
 This app will not work with earlier versions of Java 8.
 +
-.  Download the latest `addressbook.jar` link:{repoURL}/releases[here].
+.  Download the latest `TABCC.jar` link:{repoURL}/releases[here].
 .  Copy the file to the folder you want to use as the home folder for your Address Book.
 .  Double-click the file to start the app. The GUI should appear in a few seconds.
 +
@@ -33,7 +33,7 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 .  Some example commands you can try:
 
 * *`list`* : lists all contacts
-* **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : adds a contact named `John Doe` to the Address Book.
+* **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 c/UC-lHJZR3Gqxm24_Vd_AJ5Yw` : adds a contact named `John Doe` to the Address Book.
 * **`delete`**`3` : deletes the 3rd contact shown in the current list
 * *`exit`* : exits the app
 
@@ -57,10 +57,11 @@ Format: `help`
 === Adding a person: `add`
 
 Adds a person to the address book +
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS c/UC-lHJZR3Gqxm24_Vd_AJ5Yw [t/TAG]...`
 
 [TIP]
-A person can have any number of tags (including 0)
+A person can have any number of tags (including 0) +
+Check out the FAQs section on link:#get-channel-id[obtaining a YouTuber's Channel ID]
 
 Examples:
 
@@ -75,7 +76,7 @@ Format: `list`
 === Editing a person : `edit`
 
 Edits an existing person in the address book. +
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [c/CHANNELID] [t/TAG]...`
 
 ****
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the last person listing. The index *must be a positive integer* 1, 2, 3, ...
@@ -193,13 +194,15 @@ Adds the 1st person in the results of the `find` command to the favourites list.
 
 === Selecting a person : `select`
 
-Selects the person identified by the index number used in the last person listing. +
+Selects the person identified by the index number used in the last person listing and shows the YouTube profile of the person (Figure 2.10.1). +
 Format: `select INDEX`
+
+image::Ui.png[width=600]
 
 ****
 * Selects the person and shows the profile of the person at the specified `INDEX`.
 * The index refers to the index number shown in the most recent listing.
-* The index *must be a positive integer* `1, 2, 3, ...`
+* Ensure that the index is a *positive integer*: 1, 2, 3, ...
 ****
 
 Examples:
@@ -212,32 +215,32 @@ Selects the 2nd person in the address book.
 Selects the 1st person in the results of the `find` command. +
 
 
-***
+
 
 === Sending a message to a person : `send`
 
-This command will redirect you to third-party communication applications like Windows Mail and WhatsApp `(to-be-implemented)`. This command will automatically fill up the information of your contact in the third party application for you. +
+This command will redirect you to third-party communication applications like Windows Mail and WhatsApp (to-be-implemented). This command will automatically fill up the information of your contact in the third party application for you. +
 Format: `send INDEX`
 
 ==== Steps:
 
-Type `list` to display the list of contacts in TABCC.
+*Step 1.* Type `list` to display the list of contacts in TABCC.
 
 image::listCommand.png[width="400"]
 _Figure 2.9.1.1 : List of contacts_
 
-Type `send 2` to send an email to the second contact in the list. If you have entered the command in the correct format, you should see the Windows Mail application open.
+*Step 2.* Type `send 2` to send an email to the second contact in the list. If you have entered the command in the correct format, you should see the Windows Mail application open.
 
-image::Windows-mail-welcome.png[width="400"]
+image::windows-mail-welcome.png[width="400"]
 _Figure 2.9.1.2 : List of contacts_
 
-If you have already signed in to your email account, skip this step.
+*Step 3.* If you have already signed in to your email account, skip this step.
 If you have not signed in, click on the "Get Started" button (Figure 2.9.1.2) and add your email account. (Figure 2.9.1.3)
 
 image::windows-mail-add.png[width="300"]
 _Figure 2.9.1.3 : Add an account_
 
-If you have reached this step, congratulations! You should be able to see your inbox and an empty mail template with the email of your contact automatically filled out for you. (Figure 2.9.1.4)
+*Step 4.* If you have reached this step, congratulations! You should be able to see your inbox and an empty mail template with the email of your contact automatically filled out for you. (Figure 2.9.1.4)
 Close or minimise the mail application when done to return to AddressBook.
 
 image::windows-mail-send.png[width="800"]
@@ -255,7 +258,7 @@ _Figure 2.9.1.4 : New email_
 * The index *must be a positive integer* `1, 2, 3, ...`
 ====
 
-***
+
 
 === Listing entered commands : `history`
 
@@ -347,6 +350,7 @@ There is no need to save manually.
 *Q*: How do I transfer my data to another Computer? +
 *A*: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.
 
+[[get-channel-id]]
 *Q*: How do I find the Channel ID of a YouTube channel? +
 *A*: YouTube allows a channel to have link:#https://support.google.com/youtube/answer/6180214?hl=en[multiple URLs].
 If the URL of the homepage of a YouTube channel you visit looks like "https://www.youtube.com/channel/UCLMtDePlMyiqv2XC_ByNEVQ", simply copy the characters after "channel/" and you'll get the Channel ID. Otherwise, follow the steps below.
@@ -374,12 +378,15 @@ e.g. `delete 3`
 e.g. `edit 2 n/James Lee e/jameslee@example.com`
 * *Find* : `find KEYWORD [MORE_KEYWORDS]` +
 e.g. `find James Jake`
-* *List* : `list`
 * *Help* : `help`
+* *History* : `history`
+* *List* : `list`
+* *Redo* : `redo`
 * *Select* : `select INDEX` +
 e.g.`select 2`
+* *Send* : `Send INDEX` +
+e.g.`send 2`
 * *Theme* : `theme THEME_NAME` +
 e.g. `theme light`
-* *History* : `history`
 * *Undo* : `undo`
-* *Redo* : `redo`
+
