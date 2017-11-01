@@ -122,7 +122,7 @@ public class Person implements ReadOnlyPerson {
     }
 
     @Override
-    public ObjectProperty<Favourite> faveProperty(){
+    public ObjectProperty<Favourite> faveProperty() {
         return favourite;
     }
 
