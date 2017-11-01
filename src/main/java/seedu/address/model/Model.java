@@ -15,8 +15,6 @@ public interface Model {
     /** {@code Predicate} that always evaluate to true */
     Predicate<ReadOnlyPerson> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
 
-    Predicate<ReadOnlyPerson> PREDICATE_FAVOURITE = readOnlyPerson -> readOnlyPerson.getFavourite();
-
     /** Clears existing backing model and replaces with the provided new data. */
     void resetData(ReadOnlyAddressBook newData);
 
@@ -31,10 +29,6 @@ public interface Model {
 
     /** Adds the given person */
     void addPerson(ReadOnlyPerson person) throws DuplicatePersonException;
-
-    /** Favourites the given person */
-    void favPerson(ReadOnlyPerson person, boolean fave)
-            throws PersonNotFoundException, DuplicatePersonException;
 
     /**
      * Replaces the given person {@code target} with {@code editedPerson}.
