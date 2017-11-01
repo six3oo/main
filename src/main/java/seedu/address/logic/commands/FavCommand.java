@@ -70,7 +70,12 @@ public class FavCommand extends UndoableCommand {
             throw new AssertionError("The target person cannot be missing");
         }
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-        return new CommandResult(String.format(MESSAGE_FAVE_PERSON_SUCCESS, editedPerson));
+        if (faveString.equals("true")) {
+            return new CommandResult(String.format(MESSAGE_FAVE_PERSON_SUCCESS, editedPerson));
+        }
+        else {
+            return new CommandResult(String.format(MESSAGE_UNFAVE_PERSON_SUCCESS, editedPerson));
+        }
     }
 
     /**
