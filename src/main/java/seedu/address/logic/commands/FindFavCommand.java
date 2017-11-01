@@ -1,10 +1,10 @@
 package seedu.address.logic.commands;
 
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.person.IsFavouritePredicate;
 
 /**
- * Finds and lists all persons in address book whose tag contains any of the argument keywords.
- * Keyword matching is case sensitive.
+ * Finds and lists all persons who are favourites.
  */
 public class FindFavCommand extends Command {
 
@@ -18,9 +18,15 @@ public class FindFavCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "Listed all persons";
 
+    private final IsFavouritePredicate predicate;
+
+    public FindFavCommand(IsFavouritePredicate predicate) {
+        this.predicate = predicate;
+    }
+
     @Override
-    public CommandResult execute() {
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-        return new CommandResult(MESSAGE_SUCCESS);
+    public CommandResult execute() throws CommandException {
+        model.updateFilteredPersonList(predicate);
+        return new CommandResult(getMessageForPersonListShownSummary(model.getFilteredPersonList().size()));
     }
 }
