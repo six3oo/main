@@ -121,8 +121,8 @@ public class AddressBookParser {
         case SendCommand.COMMAND_ALIAS:
             return new SendCommandParser().parse(arguments);
 
-            case SortAscendingCommand.COMMAND_WORD:
-                return new SortAscendingCommand();
+        case SortAscendingCommand.COMMAND_WORD:
+        return new SortAscendingCommand();
 
         case ChangePwdCommand.COMMAND_WORD:
         case ChangePwdCommand.COMMAND_ALIAS:
