@@ -29,6 +29,7 @@ import seedu.address.logic.commands.UndoCommand;
 import seedu.address.logic.commands.FindFavCommand;
 
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.person.FavouritePredicate;
 
 /**
  * Parses user input.
@@ -93,7 +94,7 @@ public class AddressBookParser {
 
         case FindFavCommand.COMMAND_WORD:
         case FindFavCommand.COMMAND_ALIAS:
-            return new FindFavCommand();
+            return new FindFavCommandParser().parse(arguments);
 
         case ListCommand.COMMAND_WORD:
         case ListCommand.COMMAND_ALIAS:
