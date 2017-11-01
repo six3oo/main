@@ -27,7 +27,6 @@ public class FindFavCommand extends Command {
 
     @Override
     public CommandResult execute() throws CommandException {
-        System.out.print("M-COMMAND RUN!\n");
         model.updateFilteredPersonList(predicate);
         return new CommandResult(getMessageForPersonListShownSummary(model.getFilteredPersonList().size()));
     }
