@@ -21,6 +21,7 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.ReadOnlyPerson;
+import seedu.address.model.person.Favourite;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -50,8 +51,9 @@ public class AddCommandParser implements Parser<AddCommand> {
             Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS)).get();
             ChannelId channelId = ParserUtil.parseChannelId(argMultimap.getValue(PREFIX_CHANNEL_ID)).get();
             Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
+            Favourite favourite = new Favourite("false");
 
-            ReadOnlyPerson person = new Person(name, phone, email, address, channelId, tagList);
+            ReadOnlyPerson person = new Person(name, phone, email, address, channelId, tagList, favourite);
 
             return new AddCommand(person);
         } catch (IllegalValueException ive) {
