@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+import com.sun.org.apache.regexp.internal.RE;
 import javafx.collections.ObservableList;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.ReadOnlyPerson;
@@ -185,6 +186,10 @@ public class AddressBook implements ReadOnlyAddressBook {
     @Override
     public ObservableList<ReadOnlyPerson> getPersonList() {
         return persons.asObservableList();
+    }
+
+    public ObservableList<ReadOnlyPerson> getPersonListNameSortAscend() {
+        return persons.getSortedNameAscend();
     }
 
     @Override
