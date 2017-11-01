@@ -29,7 +29,6 @@ import seedu.address.logic.commands.UndoCommand;
 import seedu.address.logic.commands.FindFavCommand;
 
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.FavouritePredicate;
 
 /**
  * Parses user input.
