@@ -144,7 +144,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public ObservableList<ReadOnlyPerson> sortNameAscend(){
+        public ObservableList<ReadOnlyPerson> sortNameAscend() {
             fail("This method should not be called.");
             return null;
         }
