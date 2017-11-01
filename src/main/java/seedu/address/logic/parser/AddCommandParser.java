@@ -20,8 +20,8 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
-import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.person.Favourite;
+import seedu.address.model.person.ReadOnlyPerson;
 import seedu.address.model.tag.Tag;
 
 /**

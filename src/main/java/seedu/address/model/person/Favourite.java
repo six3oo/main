@@ -1,10 +1,15 @@
 package seedu.address.model.person;
 
+/**
+ * Represents a Person's favourites status.
+ * Guarantees: immutable
+ */
 public class Favourite {
 
     private boolean favourite;
+
     public Favourite(String faveState) {
-        if (faveState.equals("true")){
+        if (faveState.equals("true")) {
             this.favourite = true;
         }
         else {

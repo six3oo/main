@@ -2,7 +2,10 @@ package seedu.address.model.person;
 
 import java.util.function.Predicate;
 
-public class FavouritePredicate implements Predicate<ReadOnlyPerson>{
+/**
+ * Tests if a {@code ReadOnlyPerson}'s {@code Favourite} is true.
+ */
+public class FavouritePredicate implements Predicate<ReadOnlyPerson> {
 
     @Override
     public boolean test(ReadOnlyPerson readOnlyPerson) {
