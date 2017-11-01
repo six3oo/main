@@ -1,7 +1,7 @@
 package seedu.address.logic.commands;
 
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.person.IsFavouritePredicate;
+import static seedu.address.model.Model.PREDICATE_FAVOURITE;
 
 /**
  * Finds and lists all persons who are favourites.
@@ -16,17 +16,11 @@ public class FindFavCommand extends Command {
             + "Parameters: N/A\n"
             + "Example: " + COMMAND_WORD;
 
-    public static final String MESSAGE_SUCCESS = "Listed all persons";
-
-    private final IsFavouritePredicate predicate;
-
-    public FindFavCommand(IsFavouritePredicate predicate) {
-        this.predicate = predicate;
-    }
+    public static final String MESSAGE_SUCCESS = "Listed favourite persons";
 
     @Override
     public CommandResult execute() throws CommandException {
-        model.updateFilteredPersonList(predicate);
+        model.updateFilteredPersonList(PREDICATE_FAVOURITE);
         return new CommandResult(getMessageForPersonListShownSummary(model.getFilteredPersonList().size()));
     }
 }
