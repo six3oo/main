@@ -18,7 +18,7 @@ import seedu.address.commons.events.ui.ExitAppRequestEvent;
 import seedu.address.commons.util.FxViewUtil;
 import seedu.address.logic.Logic;
 import seedu.address.model.UserPrefs;
-
+//@@author moomeowroar
 /**
  * The Lock Screen Window.
  * Provides a password field to enter the password.
