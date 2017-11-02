@@ -3,7 +3,7 @@ package seedu.address.logic.commands;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.person.FavouritePredicate;
 
-
+//@@author six3oo
 /**
  * Finds and lists all persons who are favourites.
  */
