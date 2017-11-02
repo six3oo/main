@@ -1,24 +1,110 @@
-package seedu.address.ui;
+# moomeowroar
+###### \java\seedu\address\logic\commands\ChangePwdCommand.java
+``` java
+/**
+ * Sends a message to the contact through email
+ */
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.scene.Scene;
-import javafx.scene.control.PasswordField;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import javafx.util.Duration;
+public class ChangePwdCommand extends Command {
 
-import seedu.address.commons.core.Config;
-import seedu.address.commons.events.ui.ExitAppRequestEvent;
-import seedu.address.commons.util.FxViewUtil;
-import seedu.address.logic.Logic;
-import seedu.address.model.UserPrefs;
-//@@author moomeowroar
+    public static final String COMMAND_WORD = "changepwd";
+    public static final String COMMAND_ALIAS = "cpwd";
+    public static final String COMMAND_HELP = "changepwd NEW_PASSWORD OLD_PASSWORD";
+
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Changes password. \n"
+            + COMMAND_WORD + " <new_password> <old_password>";
+
+
+    public static final String MESSAGE_NO_SETTINGS = "No available settings.";
+    public static final String MESSAGE_CHANGE_SUCCESS = "Settings changed successfully.";
+
+    private final String oldPwd;
+    private final String newPwd;
+
+    /**
+     * @param String Name of setting to change
+     */
+    public ChangePwdCommand(String oldPwd, String newPwd) {
+        this.oldPwd = oldPwd;
+        this.newPwd = newPwd;
+    }
+
+    @Override
+    public CommandResult execute() throws CommandException {
+        if (model.getUserPrefs().changePwd(oldPwd, newPwd)) {
+            return new CommandResult(MESSAGE_CHANGE_SUCCESS);
+        }
+        return new CommandResult(MESSAGE_NO_SETTINGS);
+    }
+
+
+}
+```
+###### \java\seedu\address\logic\parser\ChangePwdCommandParser.java
+``` java
+/**
+ * Parses input arguments and creates a new ChangePwdCommand object
+ */
+public class ChangePwdCommandParser implements Parser<ChangePwdCommand> {
+
+    /**
+     * Parses the given {@code String} of arguments in the context of the DeleteCommand
+     * and returns an ChangePwdCommand object for execution.
+     * @throws ParseException if the user input does not conform the expected format
+     */
+    public ChangePwdCommand parse(String args) throws ParseException {
+        try {
+            String[] array = ParserUtil.parseByDelimiter(args, " ");
+            if (array.length == 2) {
+                return new ChangePwdCommand("", array[1]);
+            } else if (array.length == 3) {
+                return new ChangePwdCommand(array[2], array[1]);
+            } else {
+                throw new ParseException(
+                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, ChangePwdCommand.MESSAGE_USAGE));
+            }
+        } catch (IllegalValueException ive) {
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, ChangePwdCommand.MESSAGE_USAGE));
+        }
+    }
+
+}
+```
+###### \java\seedu\address\logic\parser\ChangeThemeCommandParser.java
+``` java
+/**
+ * Parses input arguments and creates a new ChangePwdCommand object
+ */
+public class ChangeThemeCommandParser implements Parser<ChangeThemeCommand> {
+
+    /**
+     * Parses the given {@code String} of arguments in the context of the DeleteCommand
+     * and returns an ChangePwdCommand object for execution.
+     * @throws ParseException if the user input does not conform the expected format
+     */
+    public ChangeThemeCommand parse(String args) throws ParseException {
+        try {
+            String[] array = ParserUtil.parseByDelimiter(args, " ");
+            if (array.length == 2) {
+                if (array[1].equals("light")) {
+                    return new ChangeThemeCommand("LightTheme");
+                } else if (array[1].equals("dark")) {
+                    return new ChangeThemeCommand("DarkTheme");
+                }
+            }
+            throw new ParseException(
+                    String.format(ChangeThemeCommand.MESSAGE_NO_THEME, ChangeThemeCommand.MESSAGE_USAGE));
+        } catch (IllegalValueException ive) {
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, ChangeThemeCommand.MESSAGE_USAGE));
+        }
+    }
+
+}
+```
+###### \java\seedu\address\ui\LockScreen.java
+``` java
 /**
  * The Lock Screen Window.
  * Provides a password field to enter the password.
@@ -197,3 +283,4 @@ public class LockScreen extends UiPart<Region> {
         timelineY.play();
     }
 }
+```

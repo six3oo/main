@@ -1,27 +1,6 @@
-package seedu.address.logic.commands;
-
-import static java.util.Objects.requireNonNull;
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
-
-import java.util.List;
-import java.util.Set;
-
-import seedu.address.commons.core.Messages;
-import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.person.Address;
-import seedu.address.model.person.ChannelId;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Favourite;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.Phone;
-import seedu.address.model.person.ReadOnlyPerson;
-import seedu.address.model.person.exceptions.DuplicatePersonException;
-import seedu.address.model.person.exceptions.PersonNotFoundException;
-import seedu.address.model.tag.Tag;
-
-//@@author six3oo
+# six3oo
+###### \java\seedu\address\logic\commands\FavCommand.java
+``` java
 /**
  * Adds a person identified using it's last displayed index from the address book to the favourites list.
  */
@@ -103,3 +82,79 @@ public class FavCommand extends UndoableCommand {
                 updatedFavs);
     }
 }
+```
+###### \java\seedu\address\logic\commands\FindFavCommand.java
+``` java
+/**
+ * Finds and lists all persons who are favourites.
+ */
+public class FindFavCommand extends Command {
+
+    public static final String COMMAND_WORD = "findfav";
+    public static final String COMMAND_ALIAS = "ffav";
+    public static final String COMMAND_HELP = "findfav";
+
+    public static final String MESSAGE_USAGE = COMMAND_WORD + "Find all persons who are in the favourites list.\n"
+            + "Parameters: N/A\n"
+            + "Example: " + COMMAND_WORD;
+
+    public static final String MESSAGE_SUCCESS = "Listed favourite persons";
+
+    private final FavouritePredicate predicate;
+
+    public FindFavCommand(FavouritePredicate predicate) {
+        this.predicate = predicate;
+    }
+
+    @Override
+    public CommandResult execute() throws CommandException {
+        model.updateFilteredPersonList(predicate);
+        return new CommandResult(getMessageForPersonListShownSummary(model.getFilteredPersonList().size()));
+    }
+}
+```
+###### \java\seedu\address\model\person\Favourite.java
+``` java
+/**
+ * Represents a Person's favourites status.
+ * Guarantees: immutable
+ */
+public class Favourite {
+
+    private boolean favourite;
+
+    public Favourite(String faveState) {
+        if (faveState.equals("true")) {
+            this.favourite = true;
+        }
+        else {
+            this.favourite = false;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(favourite);
+    }
+}
+```
+###### \java\seedu\address\model\person\FavouritePredicate.java
+``` java
+/**
+ * Tests if a {@code ReadOnlyPerson}'s {@code Favourite} is true.
+ */
+public class FavouritePredicate implements Predicate<ReadOnlyPerson> {
+
+    @Override
+    public boolean test(ReadOnlyPerson readOnlyPerson) {
+        boolean result = false;
+        if (readOnlyPerson.getFavourite().toString().equals("true")) {
+            result = true;
+        }
+        else if (readOnlyPerson.getFavourite().toString().equals("false")) {
+            result = false;
+        }
+        return result;
+    }
+}
+```

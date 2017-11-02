@@ -7,6 +7,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.FavCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
+//@author six3oo
 /**
  * Parses input arguments and creates a new FavCommand object
  */
