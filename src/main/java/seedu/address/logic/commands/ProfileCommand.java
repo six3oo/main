@@ -1,12 +1,8 @@
 package seedu.address.logic.commands;
 
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 
-import com.google.api.services.youtube.YouTube;
 import com.google.api.services.youtube.model.Channel;
-import com.google.api.services.youtube.model.ChannelListResponse;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
@@ -50,7 +46,7 @@ public class ProfileCommand extends Command {
 
         ReadOnlyPerson personToView = lastShownList.get(targetIndex.getZeroBased());
         String targetChannelId = personToView.getChannelId().toString();
-        
+
         Channel channel = YouTubeAuthorize.getYouTubeChannel(targetChannelId);
         System.out.println(channel.getSnippet().getTitle());
         System.out.println(channel.getSnippet().getDescription());
