@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 
-//@author jhchia7
+//@@author jhchia7
 
 /**
  * Represents a Person's Channel ID in the address book.
