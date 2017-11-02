@@ -51,4 +51,8 @@ public interface Model {
      */
     void updateFilteredPersonList(Predicate<ReadOnlyPerson> predicate);
 
+    //ObservableList<ReadOnlyPerson> sortNameDescend();
+
+    ObservableList<ReadOnlyPerson> sortNameAscend();
+
 }
