@@ -27,7 +27,7 @@ public class ClearCommandSystemTest extends AddressBookSystemTest {
         command = RedoCommand.COMMAND_WORD;
         expectedResultMessage = RedoCommand.MESSAGE_SUCCESS;
         assertCommandSuccess(command, expectedResultMessage, new ModelManager());
-        
+
     }
 
     /**
