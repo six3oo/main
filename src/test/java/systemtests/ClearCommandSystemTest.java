@@ -1,6 +1,7 @@
 package systemtests;
 
 import org.junit.Test;
+
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.UndoCommand;
