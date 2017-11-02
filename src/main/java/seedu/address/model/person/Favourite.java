@@ -1,5 +1,6 @@
 package seedu.address.model.person;
 
+//@@author six3oo
 /**
  * Represents a Person's favourites status.
  * Guarantees: immutable

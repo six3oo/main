@@ -1,10 +1,6 @@
-package seedu.address.model.person;
-
-import static java.util.Objects.requireNonNull;
-
-import seedu.address.commons.exceptions.IllegalValueException;
-
-//@@author jhchia7
+# jhchia7
+###### \java\seedu\address\model\person\ChannelId.java
+``` java
 
 /**
  * Represents a Person's Channel ID in the address book.
@@ -61,3 +57,4 @@ public class ChannelId {
     }
 
 }
+```
