@@ -15,27 +15,6 @@ public class HelpWindowTest extends AddressBookGuiTest {
 
     @Test
     public void openHelpWindow() {
-        //use accelerator
-        getCommandBox().click();
-        getMainMenu().openHelpWindowUsingAccelerator();
-        assertHelpWindowOpen();
-
-        getResultDisplay().click();
-        getMainMenu().openHelpWindowUsingAccelerator();
-        assertHelpWindowOpen();
-
-        getPersonListPanel().click();
-        getMainMenu().openHelpWindowUsingAccelerator();
-        assertHelpWindowOpen();
-
-        getBrowserPanel().click();
-        getMainMenu().openHelpWindowUsingAccelerator();
-        assertHelpWindowOpen();
-
-        //use menu button
-        getMainMenu().openHelpWindowUsingMenu();
-        assertHelpWindowOpen();
-
         //use command box
         runCommand(HelpCommand.COMMAND_WORD);
         assertHelpWindowOpen();
