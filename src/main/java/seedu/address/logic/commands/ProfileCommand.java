@@ -1,12 +1,8 @@
 package seedu.address.logic.commands;
 
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 
-import com.google.api.services.youtube.YouTube;
 import com.google.api.services.youtube.model.Channel;
-import com.google.api.services.youtube.model.ChannelListResponse;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
@@ -51,38 +47,7 @@ public class ProfileCommand extends Command {
         ReadOnlyPerson personToView = lastShownList.get(targetIndex.getZeroBased());
         String targetChannelId = personToView.getChannelId().toString();
 
-
-        YouTube youtube = null;
-        try {
-            youtube = YouTubeAuthorize.getYouTubeService(ProfileCommand.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-
-        HashMap<String, String> parameters = new HashMap<>();
-        parameters.put("part", "statistics,snippet");
-        parameters.put("id", targetChannelId);
-
-        YouTube.Channels.List channelsListByIdRequest = null;
-        try {
-            channelsListByIdRequest = youtube.channels().list(parameters.get("part").toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if (parameters.containsKey("id") && parameters.get("id") != "") {
-            channelsListByIdRequest.setId(parameters.get("id").toString());
-        }
-
-        ChannelListResponse response = null;
-        try {
-            response = channelsListByIdRequest.execute();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Channel channel = response.getItems().get(0);
+        Channel channel = YouTubeAuthorize.getYouTubeChannel(targetChannelId);
         System.out.println(channel.getSnippet().getTitle());
         System.out.println(channel.getSnippet().getDescription());
         System.out.println(channel.getStatistics().getSubscriberCount() + " Subscribers");
