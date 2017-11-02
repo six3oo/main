@@ -22,8 +22,6 @@ import com.google.api.services.youtube.YouTubeScopes;
 import com.google.api.services.youtube.model.Channel;
 import com.google.api.services.youtube.model.ChannelListResponse;
 
-import seedu.address.ui.BrowserPanel;
-
 /**
  * Return an authorized API client service, such as a YouTube
  * Data API client service to the caller
