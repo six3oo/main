@@ -270,6 +270,17 @@ _Figure 4.11.4 : New email_
 * The index *must be a positive integer* `1, 2, 3, ...`
 ====
 
+=== Sorting the contacts by name (ascending order) : `sortascend`
+This command allows the user to sort the contacts by name, lexicographically ascending. +
+Format `sortascend` +
+Examples: +
+
+image::beforesort.png[width="800"]
+_Figure 4.12.1 : Before sorting_
+
+
+image::aftersort.png[width="800"]
+_Figure 4.12.2 : After sorting_
 
 
 === Listing entered commands : `history`
