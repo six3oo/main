@@ -19,6 +19,8 @@ import seedu.address.commons.events.ui.PersonPanelSelectionChangedEvent;
 import seedu.address.logic.YouTubeAuthorize;
 import seedu.address.model.person.ReadOnlyPerson;
 
+//@@author jhchia7
+
 /**
  * The Browser Panel of the App.
  */
