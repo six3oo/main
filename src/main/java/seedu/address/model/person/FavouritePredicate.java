@@ -13,8 +13,7 @@ public class FavouritePredicate implements Predicate<ReadOnlyPerson> {
         boolean result = false;
         if (readOnlyPerson.getFavourite().toString().equals("true")) {
             result = true;
-        }
-        else if (readOnlyPerson.getFavourite().toString().equals("false")) {
+        } else if (readOnlyPerson.getFavourite().toString().equals("false")) {
             result = false;
         }
         return result;

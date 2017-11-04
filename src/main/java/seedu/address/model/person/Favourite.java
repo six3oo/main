@@ -12,8 +12,7 @@ public class Favourite {
     public Favourite(String faveState) {
         if (faveState.equals("true")) {
             this.favourite = true;
-        }
-        else {
+        } else {
             this.favourite = false;
         }
     }

@@ -19,6 +19,8 @@ import seedu.address.commons.events.ui.PersonPanelSelectionChangedEvent;
 import seedu.address.logic.YouTubeAuthorize;
 import seedu.address.model.person.ReadOnlyPerson;
 
+//@@author jhchia7
+
 /**
  * The Browser Panel of the App.
  */
@@ -68,7 +70,7 @@ public class BrowserPanel extends UiPart<Region> {
         channelTitle.getChildren().add(title);
 
         Text description = new Text("Description:\n" + getChannelDescription());
-        description.setFont(Font.font("Calibri", 15));
+        description.setFont(Font.font("Calibri", 20));
         description.setFill(Color.WHITE);
         channelDescription.getChildren().clear();
         channelDescription.getChildren().add(description);
