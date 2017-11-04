@@ -43,7 +43,7 @@ public class BrowserPanel extends UiPart<Region> {
     @FXML
     private TextFlow viewCount;
     @FXML
-    private TextFlow createDate;
+    private TextFlow videoCount;
 
 
     public BrowserPanel() {
@@ -87,11 +87,11 @@ public class BrowserPanel extends UiPart<Region> {
         viewCount.getChildren().clear();
         viewCount.getChildren().add(viewNumber);
 
-        Text date = new Text("Created: " + getCreateDate());
+        Text date = new Text("Videos: " + getVideoCount());
         date.setFont(Font.font("Calibri", 25));
         date.setFill(Color.WHITE);
-        createDate.getChildren().clear();
-        createDate.getChildren().add(date);
+        videoCount.getChildren().clear();
+        videoCount.getChildren().add(date);
 
         Image thumbnail = getChannelThumbnail();
         channelThumbnail.setImage(thumbnail);
@@ -111,7 +111,7 @@ public class BrowserPanel extends UiPart<Region> {
         channelDescription = null;
         subscriberCount = null;
         viewCount = null;
-        createDate = null;
+        videoCount = null;
 
     }
 
@@ -145,8 +145,8 @@ public class BrowserPanel extends UiPart<Region> {
         return formatNumber(channel.getStatistics().getViewCount().longValue());
     }
 
-    private String getCreateDate() {
-        return channel.getSnippet().getPublishedAt().toStringRfc3339();
+    private String getVideoCount() {
+        return formatNumber(channel.getStatistics().getVideoCount().longValue());
 
     }
 
