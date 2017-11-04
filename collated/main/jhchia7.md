@@ -18,7 +18,6 @@ public class SendCommand extends Command {
 
 
     public static final String MESSAGE_OPEN_MAIL_SUCCESS = "Opened Mail App...";
-    public static final String MESSAGE_NO_MAIL = "Contact does not have an email address.";
 
     private final Index index;
 
@@ -167,7 +166,7 @@ public class BrowserPanel extends UiPart<Region> {
     @FXML
     private TextFlow viewCount;
     @FXML
-    private TextFlow createDate;
+    private TextFlow videoCount;
 
 
     public BrowserPanel() {
@@ -211,15 +210,14 @@ public class BrowserPanel extends UiPart<Region> {
         viewCount.getChildren().clear();
         viewCount.getChildren().add(viewNumber);
 
-        Text date = new Text("Created: " + getCreateDate());
+        Text date = new Text("Videos: " + getVideoCount());
         date.setFont(Font.font("Calibri", 25));
         date.setFill(Color.WHITE);
-        createDate.getChildren().clear();
-        createDate.getChildren().add(date);
+        videoCount.getChildren().clear();
+        videoCount.getChildren().add(date);
 
         Image thumbnail = getChannelThumbnail();
         channelThumbnail.setImage(thumbnail);
-
 
     }
 
@@ -235,7 +233,7 @@ public class BrowserPanel extends UiPart<Region> {
         channelDescription = null;
         subscriberCount = null;
         viewCount = null;
-        createDate = null;
+        videoCount = null;
 
     }
 
@@ -269,8 +267,8 @@ public class BrowserPanel extends UiPart<Region> {
         return formatNumber(channel.getStatistics().getViewCount().longValue());
     }
 
-    private String getCreateDate() {
-        return channel.getSnippet().getPublishedAt().toStringRfc3339();
+    private String getVideoCount() {
+        return formatNumber(channel.getStatistics().getVideoCount().longValue());
 
     }
 
@@ -301,4 +299,26 @@ public class BrowserPanel extends UiPart<Region> {
         loadPersonPage(event.getNewSelection().person);
     }
 }
+```
+###### \resources\view\BrowserPanel.fxml
+``` fxml
+
+<StackPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <ScrollPane style="-fx-background: #383838;" fx:id="profile">
+      <content>
+        <AnchorPane prefHeight="600.0" prefWidth="800.0">
+          <children>
+            <TextFlow fx:id="channelDescription" layoutX="24.0" layoutY="256.0" maxWidth="1.7976931348623157E308" prefHeight="190.0" prefWidth="671.0" stylesheets="@DarkTheme.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="79.0" AnchorPane.topAnchor="280.0" />
+            <ImageView fx:id="channelThumbnail" fitHeight="200.0" fitWidth="200.0" layoutX="33.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0" />
+            <TextFlow fx:id="channelTitle" layoutX="288.0" layoutY="68.0" prefHeight="35.0" prefWidth="432.0" AnchorPane.topAnchor="50.0" />
+            <TextFlow fx:id="subscriberCount" layoutX="288.0" layoutY="50.0" prefHeight="35.0" prefWidth="432.0" AnchorPane.topAnchor="105.0" />
+            <TextFlow fx:id="viewCount" layoutX="288.0" layoutY="159.0" prefHeight="35.0" prefWidth="432.0" AnchorPane.topAnchor="160.0" />
+            <TextFlow fx:id="videoCount" layoutX="288.0" layoutY="215.0" prefHeight="35.0" prefWidth="432.0" />
+          </children>
+        </AnchorPane>
+      </content>
+    </ScrollPane>
+  </children>
+</StackPane>
 ```
