@@ -96,7 +96,6 @@ public class BrowserPanel extends UiPart<Region> {
         Image thumbnail = getChannelThumbnail();
         channelThumbnail.setImage(thumbnail);
 
-
     }
 
 
