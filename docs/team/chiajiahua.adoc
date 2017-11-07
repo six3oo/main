@@ -26,7 +26,7 @@ include::../UserGuide.adoc[tag=selectcommand]
 
 ==== Justification
 
-{Justify the need for, and the current design (i.e. external behavior) of, the feature}
+
 
 ==== Implementation
 
@@ -39,20 +39,29 @@ include::../DeveloperGuide.adoc[tag=selectcommand]
 
 ---
 
-=== Enhancement Proposed: Add command `remark`
+=== Enhancement Proposed: Add command `send`
 
-{Explain similar to the Undo/Redo feature above.}
+#Start of Extract [from: User Guide]#
 
 include::../UserGuide.adoc[tag=sendcommand]
 
+#End of Extract#
+
 === Other contributions
 
+== Contributed to FAQs for user guide
 
+#Start of Extract [from: User Guide]#
 include::../UserGuide.adoc[tag=channelidfaq]
 
-* Updated the GUI color scheme (Pull requests https://github.com[#33], https://github.com[#34])
-* Wrote additional tests to increase coverage from 88% to 92% (Pull requests https://github.com[#36], https://github.com[#38])
+#End of Extract#
 
-== Project: PowerPointLabs
+== Helped test the software of another team
 
-{Optionally (not graded), you may include other projects in your portfolio.}
+During one of the lecture sessions, I was given the opportunity to test the software of one other team. The team allocated to me was T17-B1 and I tested their software Codii. Below are the links to the feedback i provided to the team:
+
+Unable to register account: link:https://github.com/CS2103AUG2017-T17-B1/main/issues/217[Link] +
+Bugs in select command: link:https://github.com/CS2103AUG2017-T17-B1/main/issues/225[Link] +
+Missing methods to move contact to/from whitelist: link:https://github.com/CS2103AUG2017-T17-B1/main/issues/228[Link] +
+
+
