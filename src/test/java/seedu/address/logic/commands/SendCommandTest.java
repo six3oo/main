@@ -20,6 +20,8 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.ui.testutil.EventsCollectorRule;
 
+//@@author jhchia7
+
 public class SendCommandTest {
 
     @Rule
