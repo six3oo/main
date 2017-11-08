@@ -16,7 +16,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.ui.PersonPanelSelectionChangedEvent;
-import seedu.address.logic.YouTubeAuthorize;
+import seedu.address.logic.YouTubeAuthorizer;
 import seedu.address.model.person.ReadOnlyPerson;
 
 //@@author jhchia7
@@ -61,7 +61,7 @@ public class BrowserPanel extends UiPart<Region> {
 
     private void loadPersonPage(ReadOnlyPerson person) throws IOException {
 
-        channel = YouTubeAuthorize.getYouTubeChannel(person.getChannelId().toString());
+        channel = YouTubeAuthorizer.getYouTubeChannel(person.getChannelId().toString(), "statistics,snippet");
 
         Text title = new Text(getChannelTitle());
         title.setFont(Font.font("Calibri", 40));
@@ -75,6 +75,12 @@ public class BrowserPanel extends UiPart<Region> {
         channelDescription.getChildren().clear();
         channelDescription.getChildren().add(description);
 
+        Text videoNumber = new Text("Videos: " + getVideoCount());
+        videoNumber.setFont(Font.font("Calibri", 25));
+        videoNumber.setFill(Color.WHITE);
+        videoCount.getChildren().clear();
+        videoCount.getChildren().add(videoNumber);
+
         Text subNumber = new Text("Subscribers: " + getSubCount());
         subNumber.setFont(Font.font("Calibri", 25));
         subNumber.setFill(Color.WHITE);
@@ -86,12 +92,6 @@ public class BrowserPanel extends UiPart<Region> {
         viewNumber.setFill(Color.WHITE);
         viewCount.getChildren().clear();
         viewCount.getChildren().add(viewNumber);
-
-        Text date = new Text("Videos: " + getVideoCount());
-        date.setFont(Font.font("Calibri", 25));
-        date.setFill(Color.WHITE);
-        videoCount.getChildren().clear();
-        videoCount.getChildren().add(date);
 
         Image thumbnail = getChannelThumbnail();
         channelThumbnail.setImage(thumbnail);
