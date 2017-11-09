@@ -1,5 +1,6 @@
 package seedu.address.logic.commands;
 
+
 //@@author Minghui94
 /**
  * Sort and list out all the contacts in the Address Book
