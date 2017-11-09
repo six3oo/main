@@ -12,13 +12,12 @@ public class SendCommand extends Command {
     public static final String COMMAND_ALIAS = "snd";
     public static final String COMMAND_HELP = "send INDEX";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ":Opens up third-party communication application with"
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Opens up third-party communication application with"
                                                             + " the information of the person identified"
                                                             + " by the index number used in the last person listing. ";
 
 
     public static final String MESSAGE_OPEN_MAIL_SUCCESS = "Opened Mail App...";
-    public static final String MESSAGE_NO_MAIL = "Contact does not have an email address.";
 
     private final Index index;
 
@@ -92,14 +91,7 @@ public class SendCommandParser implements Parser<SendCommand> {
  */
 public class ChannelId {
 
-    public static final String MESSAGE_CHANNEL_ID_CONSTRAINTS =
-            "Person's channel ID can take any values, and it should not be blank";
-
-    /*
-     * The first character of the channel ID must not be a whitespace,
-     * otherwise " " (a blank string) becomes a valid input.
-     */
-    public static final String CHANNEL_ID_VALIDATION_REGEX = "[^\\s].*";
+    public static final String MESSAGE_CHANNEL_ID_INVALID = "Person's Channel ID is invalid.";
 
     public final String value;
 
@@ -111,7 +103,7 @@ public class ChannelId {
     public ChannelId(String channelId) throws IllegalValueException {
         requireNonNull(channelId);
         if (!isValidChannelId(channelId)) {
-            throw new IllegalValueException(MESSAGE_CHANNEL_ID_CONSTRAINTS);
+            throw new IllegalValueException(MESSAGE_CHANNEL_ID_INVALID);
         }
         this.value = channelId;
     }
@@ -120,7 +112,10 @@ public class ChannelId {
      * Returns true if a given string is a valid person channel ID.
      */
     public static boolean isValidChannelId (String test) {
-        return test.matches(CHANNEL_ID_VALIDATION_REGEX);
+        Channel channel = YouTubeAuthorizer.getYouTubeChannel(test, "statistics,snippet");
+        boolean isChannelAvailable = (channel != null);
+        return isChannelAvailable;
+
     }
 
     @Override
@@ -167,7 +162,7 @@ public class BrowserPanel extends UiPart<Region> {
     @FXML
     private TextFlow viewCount;
     @FXML
-    private TextFlow createDate;
+    private TextFlow videoCount;
 
 
     public BrowserPanel() {
@@ -185,7 +180,7 @@ public class BrowserPanel extends UiPart<Region> {
 
     private void loadPersonPage(ReadOnlyPerson person) throws IOException {
 
-        channel = YouTubeAuthorize.getYouTubeChannel(person.getChannelId().toString());
+        channel = YouTubeAuthorizer.getYouTubeChannel(person.getChannelId().toString(), "statistics,snippet");
 
         Text title = new Text(getChannelTitle());
         title.setFont(Font.font("Calibri", 40));
@@ -199,6 +194,12 @@ public class BrowserPanel extends UiPart<Region> {
         channelDescription.getChildren().clear();
         channelDescription.getChildren().add(description);
 
+        Text videoNumber = new Text("Videos: " + getVideoCount());
+        videoNumber.setFont(Font.font("Calibri", 25));
+        videoNumber.setFill(Color.WHITE);
+        videoCount.getChildren().clear();
+        videoCount.getChildren().add(videoNumber);
+
         Text subNumber = new Text("Subscribers: " + getSubCount());
         subNumber.setFont(Font.font("Calibri", 25));
         subNumber.setFill(Color.WHITE);
@@ -211,15 +212,8 @@ public class BrowserPanel extends UiPart<Region> {
         viewCount.getChildren().clear();
         viewCount.getChildren().add(viewNumber);
 
-        Text date = new Text("Created: " + getCreateDate());
-        date.setFont(Font.font("Calibri", 25));
-        date.setFill(Color.WHITE);
-        createDate.getChildren().clear();
-        createDate.getChildren().add(date);
-
         Image thumbnail = getChannelThumbnail();
         channelThumbnail.setImage(thumbnail);
-
 
     }
 
@@ -235,7 +229,7 @@ public class BrowserPanel extends UiPart<Region> {
         channelDescription = null;
         subscriberCount = null;
         viewCount = null;
-        createDate = null;
+        videoCount = null;
 
     }
 
@@ -269,8 +263,8 @@ public class BrowserPanel extends UiPart<Region> {
         return formatNumber(channel.getStatistics().getViewCount().longValue());
     }
 
-    private String getCreateDate() {
-        return channel.getSnippet().getPublishedAt().toStringRfc3339();
+    private String getVideoCount() {
+        return formatNumber(channel.getStatistics().getVideoCount().longValue());
 
     }
 
@@ -301,4 +295,26 @@ public class BrowserPanel extends UiPart<Region> {
         loadPersonPage(event.getNewSelection().person);
     }
 }
+```
+###### \resources\view\BrowserPanel.fxml
+``` fxml
+
+<StackPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <ScrollPane style="-fx-background: #383838;" fx:id="profile">
+      <content>
+        <AnchorPane prefHeight="600.0" prefWidth="800.0">
+          <children>
+            <TextFlow fx:id="channelDescription" layoutX="24.0" layoutY="256.0" maxWidth="1.7976931348623157E308" prefHeight="190.0" prefWidth="671.0" stylesheets="@DarkTheme.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="79.0" AnchorPane.topAnchor="280.0" />
+            <ImageView fx:id="channelThumbnail" fitHeight="200.0" fitWidth="200.0" layoutX="33.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0" />
+            <TextFlow fx:id="channelTitle" layoutX="288.0" layoutY="68.0" prefHeight="35.0" prefWidth="432.0" AnchorPane.topAnchor="50.0" />
+            <TextFlow fx:id="subscriberCount" layoutX="288.0" layoutY="50.0" prefHeight="35.0" prefWidth="432.0" AnchorPane.topAnchor="105.0" />
+            <TextFlow fx:id="viewCount" layoutX="288.0" layoutY="159.0" prefHeight="35.0" prefWidth="432.0" AnchorPane.topAnchor="160.0" />
+            <TextFlow fx:id="videoCount" layoutX="288.0" layoutY="215.0" prefHeight="35.0" prefWidth="432.0" />
+          </children>
+        </AnchorPane>
+      </content>
+    </ScrollPane>
+  </children>
+</StackPane>
 ```
