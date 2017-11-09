@@ -7,6 +7,7 @@ Ming Hui Project Portfolio
 TABCC is an desktop address book application designed mainly for YouTubers. The user interacts with it +
 using CLI, and it has a GUI created using JavaFX. +
  +
+ 
 *Code contributed*: +
 https://github.com/minghui94/main/blob/master/src/main/java/seedu/address/logic/commands/FindEmailCommand.java/[Find Email Command] +
 https://github.com/CS2103AUG2017-T15-B1/main/blob/master/src/main/java/seedu/address/model/person/EmailContainsKeywordsPredicate.java/[Email contains keyword predicate] +
@@ -59,6 +60,7 @@ Return contact(s) with the 'friends' tag. +
 image::findtag.png[width = "800"]
 _Figure 4.7.1 : Find tag_
  +
+ 
 `Sort by Name Command (Ascending)`
 ---------------------------------
 === Sorting the contacts by name (ascending order) : `sortascend`
@@ -68,8 +70,11 @@ Examples: +
 
 image::beforesort.png[width="800"]
 _Figure 4.12.1 : Before sorting_
+
+
 image::aftersort.png[width="800"]
 _Figure 4.12.2 : After sorting_
+ 
 '''
 `Justification`
 --------------
@@ -92,8 +97,9 @@ to look for all the musicians on his/her contact list.
  +
  +
 For example, a user wants to look for his/her friend in the contact list, but the list is in order of when the user added the contact. +
-He/she may spend a long time just to look for his friend's information. By sorting the name, the user would be
+He/she may spend a long time just to look for his friend's information. By sorting the name, the user would be 
 able to know exactly where the contact is located in the list.
+
 '''
 `Implementation`
 ---------------
