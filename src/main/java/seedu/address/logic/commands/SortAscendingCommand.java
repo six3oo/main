@@ -8,7 +8,7 @@ package seedu.address.logic.commands;
  */
 public class SortAscendingCommand extends Command {
 
-public static final String COMMAND_WORD = "sortAscend";
+    public static final String COMMAND_WORD = "sortAscend";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + "List all persons by name "
             + "in ascending alphabetical order.\n ";
