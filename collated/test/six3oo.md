@@ -1,5 +1,5 @@
 # six3oo
-###### \java\seedu\address\logic\parser\FavCommandParserTest.java
+###### /java/seedu/address/logic/parser/FavCommandParserTest.java
 ``` java
 /**
  * As we are only doing white-box testing, our test cases do not cover path variations

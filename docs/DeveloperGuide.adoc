@@ -218,7 +218,7 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
-// tag::Lock Screen[]
+// tag::lock[]
 === Lock Screen
 The Lock Screen loads first before the Main Window. The status and logic of unlocking the application resides inside `LogicManager`.
 
@@ -241,6 +241,7 @@ Suppose that the user uses the application for the first time, there will be no 
 Using the same `changepwd` command the user can set the password by leaving the [old_password] field empty.
 
 Upon successful unlocking of the application, the lock screen will call `loadMainWindow()` which creates a new `MainWindow` and loads it into the `Stage`, replacing the existing `LockScreen`.
+// end::lock[]
 
 // tag::FindEmailCommand[]
 === FindEmailCommand
