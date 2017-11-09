@@ -295,7 +295,7 @@ public class FindEmailCommandParser {
 }
 ----
 
-// tag::Favourites mechanism
+// tag::FavCommand[]
 === FavCommand
 This enhancement allows users to add or remove people to and fro a favourites list. +
 To use this command, user just need to type in `fave <index of targeted person> <true/false>`. +
@@ -313,7 +313,7 @@ Figure 3.3.1 +
 
 **2)**	FavCommandParser.java: This class parses input arguments and creates a new FavCommand object. +
 
-**Implementations of Fave Command** +
+**Implementations of FavCommand** +
 The `FavCommand` is implemented this way:
 [source,java]
 ----
@@ -329,7 +329,7 @@ public class FavCommand extends Command{
 The `FavCommandParser.java` is implemented this way:
 [source,java]
 ----
-public class FavParser {
+public class FavCommandParser {
 
     public FindEmailCommand parse(String args) throws ParseException {
         //parser logic

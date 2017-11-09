@@ -182,6 +182,7 @@ Deletes the 2nd person in the address book.
 `delete 1` +
 Deletes the 1st person in the results of the `find` command.
 
+// tag::favourites
 === Adding or removing a person to/from your favourites list : `fave`
 
 Adds or removes the specified person from the address book to the favourites list. +
