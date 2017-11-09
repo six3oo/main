@@ -171,6 +171,12 @@ public class AddressBookParser {
         if (FindCommand.COMMAND_WORD.contains(array[0])) {
             result.add(FindCommand.COMMAND_HELP);
         }
+        if (FindTagCommand.COMMAND_WORD.contains(array[0])) {
+            result.add(FindTagCommand.COMMAND_HELP);
+        }
+        if (FindEmailCommand.COMMAND_WORD.contains(array[0])) {
+            result.add(FindEmailCommand.COMMAND_HELP);
+        }
         if (ListCommand.COMMAND_WORD.contains(array[0])) {
             result.add(ListCommand.COMMAND_HELP);
         }

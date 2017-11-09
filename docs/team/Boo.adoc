@@ -1,0 +1,201 @@
+
+
+Ming Hui Project Portfolio
+---------------------------
+`Project: TABCC`
+-----------------
+TABCC is an desktop address book application designed mainly for YouTubers. The user interacts with it +
+using CLI, and it has a GUI created using JavaFX. +
+ +
+
+*Code contributed*: +
+https://github.com/minghui94/main/blob/master/src/main/java/seedu/address/logic/commands/FindEmailCommand.java/[Find Email Command] +
+https://github.com/CS2103AUG2017-T15-B1/main/blob/master/src/main/java/seedu/address/model/person/EmailContainsKeywordsPredicate.java/[Email contains keyword predicate] +
+https://github.com/minghui94/main/blob/master/src/main/java/seedu/address/logic/commands/FindTagCommand.java/[Find tag command] +
+https://github.com/CS2103AUG2017-T15-B1/main/blob/master/src/main/java/seedu/address/model/tag/TagContainsKeywordsPredicate.java/[Tags contain keyword predicate] +
+https://github.com/CS2103AUG2017-T15-B1/main/blob/master/src/main/java/seedu/address/logic/commands/SortAscendingCommand.java/[Sort Command (ascending)] +
+ +
+
+`Find Email Command`
+-------------------
+=== Locating persons by Email: `findemail`
+
+Finds persons whose email contain any of the given keywords. +
+Format: `findemail KEYWORD@[domain].com`
+
+****
+* The search is case sensitive.
+* Only the email is search.
+* Only the full email will be matched.
+****
+
+Examples:
+
+* `findemail` `bob@example.com` +
+Returns contact with the email `bob@example.com` +
+
+image::findemail.png[width = "800"]
+_Figure 4.6.1: Find email_
+ +
+
+`Find Tag Command`
+-----------------
+=== Locating persons by tag: `findtag`
+
+Finds persons whose tag contain any of the given keywords. +
+Format: `findtag KEYWORD`
+
+****
+* The search is case insensitive.
+* Only the tag is search.
+* Only full words will be matched.
+* Contacts with similar tag will be shown on the list.
+****
+
+Examples:
+
+* `findtag friends` +
+Return contact(s) with the 'friends' tag. +
+
+image::findtag.png[width = "800"]
+_Figure 4.7.1 : Find tag_
+ +
+
+`Sort by Name Command (Ascending)`
+---------------------------------
+=== Sorting the contacts by name (ascending order) : `sortascend`
+This command allows the user to sort the contacts by name, lexicographically ascending. +
+Format `sortascend` +
+Examples: +
+
+image::beforesort.png[width="800"]
+_Figure 4.12.1 : Before sorting_
+
+
+image::aftersort.png[width="800"]
+_Figure 4.12.2 : After sorting_
+
+'''
+`Justification`
+--------------
+`Find Email Command`: Some user may have very special email but their name may be difficult for a user to remember. +
+
+For example, an English speaking user wants to collaborate with a Japanese YouTuber named Yukiko Ogawa, the name may be difficult for him to remember as Japanese is not be his/her native language. However, the Japanese YouTuber has the email catiscute@example.com, which is a lot easier for the user to remember.
+ +
+ +
+ +
+`Find Tag Command`: This makes the user's life easier as it brings out a list of YouTubers in the same genre range.
+ +
+ +
+For example, a musician wants to collaborate with another musician to make music. However, his/her TABCC contact list +
+has more than a 100 contacts. Rather than spending time looking at each contact, he/she could use the find tag command +
+to look for all the musicians on his/her contact list.
+ +
+ +
+ +
+`Sort Command (ascending)`: Another command to make the user life easier.
+ +
+ +
+For example, a user wants to look for his/her friend in the contact list, but the list is in order of when the user added the contact. +
+He/she may spend a long time just to look for his friend's information. By sorting the name, the user would be
+able to know exactly where the contact is located in the list.
+
+'''
+`Implementation`
+---------------
+// tag::FindEmailCommand[]
+=== FindEmailCommand
+This enhancement is aiming to make the searches more powerful. +
+To find a person on the AddressBook, user is no longer restricted to just name search. User can now search for a person using Email. +
+To use this command, user just need to type in `“findemail”` follow by a white space, and typing in the email of the person the user is trying to find. +
+
+The implementation of the find email command consist of 3 new classes, namely `FindEmailCommand.java`, `EmailContainsKeywordsPredicate.java` and `FindEmailCommandParser.java.` `FindEmailCommand.java` and `FindEmailCommandParser.java` resides in the logic component, while `EmailsContainKeywordsPredicate.java` resides in the model component. +
+
+image::FindEmailDiagram.png[width="800"]
+Figure 3.1.1 +
+
+**Functions of classes in FindEmailCommand** +
+
+**1)**	FindEmailCommand.java: This class search and list the persons in address book whose email contains any of the argument keyword. This class extends the abstract class Command. +
+
+**2)**	EmailContainsKeyWordsPredicate.java: This class test that a person’s email matches any of the keyword given. This class implements Predicate<ReadOnlyPerson> interface. +
+
+**3)**	FindEmailCommandParser.java: This class parses input arguments and creates a new FindEmailCommand object. +
+
+**Implementations of Find Email Command** +
+The `FindEmailCommand` are implemented this way:
+[source,java]
+----
+public class FindEmailCommand extends Command{
+    @Override
+    public CommandResult execute() {
+	//command logic
+    }
+}
+----
+
+The `EmailContainsKeywordsPredicate.java` class is implemented this way:
+[source,java]
+----
+public class EmailContainsKeywordsPredicate implements Predicate<ReadOnlyPerson> {
+    @Override
+    public boolean test(ReadOnlyPerson person) {
+        //test logic
+    }
+}
+----
+
+Lastly, the `FindEmailCommandParser.java` is implemented this way:
+[source,java]
+----
+public class FindEmailCommandParser {
+    public FindEmailCommand parse(String args) throws ParseException {
+        //parser logic
+    }
+}
+----
+
+'''
+`Enhancement Proposed: Collab Command`
+-------------------------------------
+==== Automatically send an pre-wrote email to a person in the contact list: `collab`. +
+This command allows a user to automatically send a pre-crafted email to a person in the contact list. +
+Format: `collab [contact's name]`. +
+Example: +
+****
+* `collab pewdiepie`
+* The email page will open and a message will already be crafted, user just need to click the send button.
+* Sample email: Good day to you [contact's name], this is [user's name] and I would like to do a collaboration with you, +
+please reply to this email if you are interested, thank you.
+* Sample email can be edit by the user.
+****
+
+'''
+`Other contributions`
+---------------------
+**1)** Created the team's organization on GitHub. +
+**2)** Help with correcting some checkstyle error brought up by CI Travis.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
