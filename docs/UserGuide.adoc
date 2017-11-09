@@ -182,25 +182,26 @@ Deletes the 2nd person in the address book.
 `delete 1` +
 Deletes the 1st person in the results of the `find` command.
 
-=== Adding a person to your favourites list : `fave`
+=== Adding or removing a person to/from your favourites list : `fave`
 
-Adds the specified person from the address book to the favourites list. +
-Format: `fave INDEX`
+Adds or removes the specified person from the address book to the favourites list. +
+Format: `fave INDEX BOOLEAN`
 
 ****
-* Adds the person at the specified `INDEX` to the favourites list.
+* Adds or removes the person at the specified `INDEX` to the favourites list.
 * The index refers to the index number shown in the most recent listing.
 * The index *must be a positive integer* 1, 2, 3, ...
+* Adds to favourites if the boolean is `true`, removes if `false`.
 ****
 
 Examples:
 
 * `list` +
-`fave 2` +
+`fave 2 true` +
 Adds the 2nd person in the address book to the favourites list.
 * `find Betsy` +
-`fave 1` +
-Adds the 1st person in the results of the `find` command to the favourites list.
+`fave 1 false` +
+Removes the 1st person in the results of the `find` command from the favourites list.
 
 // tag::selectcommand[]
 === Selecting a person : `select`
