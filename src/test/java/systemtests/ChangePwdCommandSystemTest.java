@@ -1,17 +1,9 @@
 package systemtests;
 
 import org.junit.Test;
-import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.*;
+
+import seedu.address.logic.commands.ChangePwdCommand;
 import seedu.address.model.Model;
-import seedu.address.model.tag.Tag;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static seedu.address.commons.core.Messages.MESSAGE_PERSONS_LISTED_OVERVIEW;
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
-import static seedu.address.testutil.TypicalPersons.*;
 
 public class ChangePwdCommandSystemTest extends AddressBookSystemTest {
     //@@author moomeowroar
@@ -20,7 +12,7 @@ public class ChangePwdCommandSystemTest extends AddressBookSystemTest {
         /* Case: Set password without password
          * -> Password set
          */
-        String command = ChangePwdCommand.COMMAND_WORD + " "+ "password";
+        String command = ChangePwdCommand.COMMAND_WORD + " " + "password";
         Model expectedModel = getModel();
         assertCommandSuccess(command, expectedModel);
     }
