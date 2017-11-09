@@ -78,8 +78,7 @@ public class FavCommand extends UndoableCommand {
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         if (faveString.equals("true")) {
             return new CommandResult(String.format(MESSAGE_FAVE_PERSON_SUCCESS, editedPerson));
-        }
-        else {
+        } else {
             return new CommandResult(String.format(MESSAGE_UNFAVE_PERSON_SUCCESS, editedPerson));
         }
     }

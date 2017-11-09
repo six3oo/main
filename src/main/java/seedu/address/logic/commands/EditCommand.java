@@ -37,7 +37,8 @@ public class EditCommand extends UndoableCommand {
 
     public static final String COMMAND_WORD = "edit";
     public static final String COMMAND_ALIAS = "e";
-    public static final String COMMAND_HELP = "edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…";
+    public static final String COMMAND_HELP = "edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS]"
+                                                + " [c/CHANNEL_ID]" + " [t/TAG]…";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the person identified "
             + "by the index number used in the last person listing. "
@@ -213,7 +214,9 @@ public class EditCommand extends UndoableCommand {
             return Optional.ofNullable(tags);
         }
 
-        public Optional<Favourite> getFavourite() { return Optional.ofNullable(favourite); }
+        public Optional<Favourite> getFavourite() {
+            return Optional.ofNullable(favourite);
+        }
 
         @Override
         public boolean equals(Object other) {
