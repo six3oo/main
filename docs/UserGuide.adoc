@@ -348,10 +348,12 @@ The `redo` command fails as there are no `undo` commands executed previously.
 Clears all entries from the address book. +
 Format: `clear`
 
+// tag::lock[]
 === Change Password : `changepwd`
 
 Changes the password required to access the address book. +
 Format: `changepwd [old_password] [new_password]`
+// end::lock[]
 
 === Change Theme : `theme`
 
