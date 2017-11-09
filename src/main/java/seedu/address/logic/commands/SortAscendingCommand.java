@@ -1,12 +1,14 @@
 package seedu.address.logic.commands;
 
+
+//@@author Minghui94
 /**
  * Sort and list out all the contacts in the Address Book
  * Order is ascending, from W to A
  */
 public class SortAscendingCommand extends Command {
 
-    public final static String COMMAND_WORD = "sortascend";
+public static final String COMMAND_WORD = "sortAscend";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + "List all persons by name "
             + "in ascending alphabetical order.\n ";

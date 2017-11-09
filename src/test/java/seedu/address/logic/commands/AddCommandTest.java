@@ -104,12 +104,6 @@ public class AddCommandTest {
         }
 
         @Override
-        public void favPerson(ReadOnlyPerson person, boolean status)
-            throws DuplicatePersonException, PersonNotFoundException {
-            fail("This method should not be called.");
-        }
-
-        @Override
         public void resetData(ReadOnlyAddressBook newData) {
             fail("This method should not be called.");
         }
@@ -144,7 +138,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public ObservableList<ReadOnlyPerson> sortNameAscend(){
+        public ObservableList<ReadOnlyPerson> sortNameAscend() {
             fail("This method should not be called.");
             return null;
         }

@@ -19,11 +19,11 @@ import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FavCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.FindEmailCommand;
+import seedu.address.logic.commands.FindFavCommand;
 import seedu.address.logic.commands.FindTagCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.HistoryCommand;
 import seedu.address.logic.commands.ListCommand;
-import seedu.address.logic.commands.ProfileCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.SelectCommand;
 import seedu.address.logic.commands.SendCommand;
@@ -93,6 +93,10 @@ public class AddressBookParser {
         case FindTagCommand.COMMAND_WORD:
             return new FindTagCommandParser().parse(arguments);
 
+        case FindFavCommand.COMMAND_WORD:
+        case FindFavCommand.COMMAND_ALIAS:
+            return new FindFavCommandParser().parse(arguments);
+
         case ListCommand.COMMAND_WORD:
         case ListCommand.COMMAND_ALIAS:
             return new ListCommand();
@@ -122,7 +126,7 @@ public class AddressBookParser {
             return new SendCommandParser().parse(arguments);
 
         case SortAscendingCommand.COMMAND_WORD:
-        return new SortAscendingCommand();
+            return new SortAscendingCommand();
 
         case ChangePwdCommand.COMMAND_WORD:
         case ChangePwdCommand.COMMAND_ALIAS:
@@ -131,10 +135,6 @@ public class AddressBookParser {
         case ChangeThemeCommand.COMMAND_WORD:
         case ChangeThemeCommand.COMMAND_ALIAS:
             return new ChangeThemeCommandParser().parse(arguments);
-
-        case ProfileCommand.COMMAND_WORD:
-        case ProfileCommand.COMMAND_ALIAS:
-            return new ProfileCommandParser().parse(arguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

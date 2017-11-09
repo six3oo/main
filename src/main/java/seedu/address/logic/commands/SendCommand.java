@@ -10,7 +10,7 @@ import seedu.address.commons.events.ui.SendMessageEvent;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.person.ReadOnlyPerson;
 
-
+//@@author jhchia7
 
 /**
  * Sends a message to the contact through email
@@ -22,13 +22,12 @@ public class SendCommand extends Command {
     public static final String COMMAND_ALIAS = "snd";
     public static final String COMMAND_HELP = "send INDEX";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ":Opens up third-party communication application with"
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Opens up third-party communication application with"
                                                             + " the information of the person identified"
                                                             + " by the index number used in the last person listing. ";
 
 
     public static final String MESSAGE_OPEN_MAIL_SUCCESS = "Opened Mail App...";
-    public static final String MESSAGE_NO_MAIL = "Contact does not have an email address.";
 
     private final Index index;
 
