@@ -1,0 +1,67 @@
+= Chia Jiahua - Project Portfolio
+ifdef::env-github,env-browser[:outfilesuffix: .adoc]
+:imagesDir: ../images
+:stylesDir: ../stylesheets
+
+== Project: AddressBook - Level 4
+AddressBook - Level 4 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 6 kLoC.
+
+*Code contributed*: [https://github.com/CS2103AUG2017-T15-B1/main/tree/master/collated/main[Functional code]] [https://github.com/CS2103AUG2017-T15-B1/main/tree/master/collated/test[Test code]] {give links to collated code files}
+
+=== Enhancement Added: Select Command
+
+==== External behavior
+
+---
+#Start of Extract [from: User Guide]#
+
+
+
+include::../UserGuide.adoc[tag=selectcommand]
+
+
+#End of Extract#
+
+---
+
+==== Justification
+
+
+
+==== Implementation
+
+---
+#Start of Extract [from: Developer Guide]#
+
+include::../DeveloperGuide.adoc[tag=selectcommand]
+
+#End of Extract#
+
+---
+
+=== Enhancement Proposed: Add command `send`
+
+#Start of Extract [from: User Guide]#
+
+include::../UserGuide.adoc[tag=sendcommand]
+
+#End of Extract#
+
+=== Other contributions
+
+== Contributed to FAQs for user guide
+
+#Start of Extract [from: User Guide]#
+include::../UserGuide.adoc[tag=channelidfaq]
+
+#End of Extract#
+
+== Helped test the software of another team
+
+During one of the lecture sessions, I was given the opportunity to test the software of one other team. The team allocated to me was T17-B1 and I tested their software Codii. Below are the links to the feedback i provided to the team:
+
+Unable to register account: link:https://github.com/CS2103AUG2017-T17-B1/main/issues/217[Link] +
+Bugs in select command: link:https://github.com/CS2103AUG2017-T17-B1/main/issues/225[Link] +
+Missing methods to move contact to/from whitelist: link:https://github.com/CS2103AUG2017-T17-B1/main/issues/228[Link] +
+
+
