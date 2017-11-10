@@ -63,7 +63,7 @@ public class CommandBox extends UiPart<Region> {
             break;
         default:
             if (keyEvent.getCode() == KeyCode.ENTER) {
-                commandWord.setVisible(true);
+                commandWord.setVisible(false);
                 break;
             } else if (keyEvent.getCode() == KeyCode.SPACE || keyEvent.getCode() == KeyCode.BACK_SPACE) {
                 String commandText = logic.getCommandWord(commandTextField.getText());
