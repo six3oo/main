@@ -58,11 +58,20 @@ public class LogicManager extends ComponentManager implements Logic {
 
     public String liveHelp(String commandText) throws IllegalValueException {
         String finalString = "";
-        ArrayList<String> result = addressBookParser.filterCommand(commandText);
+        ArrayList<String> result = addressBookParser.filterCommand(commandText, false);
         for (String string: result) {
             finalString += string + "\n";
         }
         return finalString;
+    }
+
+    public String getCommandWord(String commandText) throws IllegalValueException {
+        ArrayList<String> result = addressBookParser.filterCommand(commandText, true);
+        if (result.isEmpty() || result.size() > 1) {
+            return "nil";
+        } else {
+            return result.get(0);
+        }
     }
 
     /**

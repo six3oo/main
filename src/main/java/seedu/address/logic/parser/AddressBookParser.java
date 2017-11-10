@@ -4,6 +4,7 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -147,62 +148,38 @@ public class AddressBookParser {
      * @return ArrayList of command words
      */
 
-    public ArrayList<String> filterCommand(String text) throws IllegalValueException {
+    public ArrayList<String> filterCommand(String text, boolean isExact) throws IllegalValueException {
         String[] array = ParserUtil.parseByDelimiter(text, " ");
         ArrayList<String> result = new ArrayList<String>();
-        if (AddCommand.COMMAND_WORD.contains(array[0])) {
-            result.add(AddCommand.COMMAND_HELP);
-        }
-        if (ChangePwdCommand.COMMAND_WORD.contains(array[0])) {
-            result.add(ChangePwdCommand.COMMAND_HELP);
-        }
-        if (EditCommand.COMMAND_WORD.contains(array[0])) {
-            result.add(EditCommand.COMMAND_HELP);
-        }
-        if (DeleteCommand.COMMAND_WORD.contains(array[0])) {
-            result.add(DeleteCommand.COMMAND_HELP);
-        }
-        if (FavCommand.COMMAND_WORD.contains(array[0])) {
-            result.add(FavCommand.COMMAND_HELP);
-        }
-        if (ClearCommand.COMMAND_WORD.contains(array[0])) {
-            result.add(ClearCommand.COMMAND_HELP);
-        }
-        if (FindCommand.COMMAND_WORD.contains(array[0])) {
-            result.add(FindCommand.COMMAND_HELP);
-        }
-        if (FindTagCommand.COMMAND_WORD.contains(array[0])) {
-            result.add(FindTagCommand.COMMAND_HELP);
-        }
-        if (FindEmailCommand.COMMAND_WORD.contains(array[0])) {
-            result.add(FindEmailCommand.COMMAND_HELP);
-        }
-        if (ListCommand.COMMAND_WORD.contains(array[0])) {
-            result.add(ListCommand.COMMAND_HELP);
-        }
-        if (HistoryCommand.COMMAND_WORD.contains(array[0])) {
-            result.add(HistoryCommand.COMMAND_HELP);
-        }
-        if (HelpCommand.COMMAND_WORD.contains(array[0])) {
-            result.add(HelpCommand.COMMAND_HELP);
-        }
-        if (UndoCommand.COMMAND_WORD.contains(array[0])) {
-            result.add(UndoCommand.COMMAND_HELP);
-        }
-        if (ExitCommand.COMMAND_WORD.contains(array[0])) {
-            result.add(ExitCommand.COMMAND_HELP);
-        }
-        if (SendCommand.COMMAND_WORD.contains(array[0])) {
-            result.add(SendCommand.COMMAND_HELP);
-        }
-        if (RedoCommand.COMMAND_WORD.contains(array[0])) {
-            result.add(RedoCommand.COMMAND_HELP);
-        }
-        if (SelectCommand.COMMAND_WORD.contains(array[0])) {
-            result.add(SelectCommand.COMMAND_HELP);
-        }
-        if (ChangeThemeCommand.COMMAND_WORD.contains(array[0])) {
-            result.add(ChangeThemeCommand.COMMAND_HELP);
+        HashMap<String, String> commandList= new HashMap<String, String>();
+        commandList.put(AddCommand.COMMAND_WORD, AddCommand.COMMAND_HELP);
+        commandList.put(ChangePwdCommand.COMMAND_WORD, ChangePwdCommand.COMMAND_HELP);
+        commandList.put(EditCommand.COMMAND_WORD, EditCommand.COMMAND_HELP);
+        commandList.put(DeleteCommand.COMMAND_WORD, DeleteCommand.COMMAND_HELP);
+        commandList.put(FavCommand.COMMAND_WORD, FavCommand.COMMAND_HELP);
+        commandList.put(ClearCommand.COMMAND_WORD, ClearCommand.COMMAND_HELP);
+        commandList.put(FindCommand.COMMAND_WORD, FindCommand.COMMAND_HELP);
+        commandList.put(FindTagCommand.COMMAND_WORD, FindTagCommand.COMMAND_HELP);
+        commandList.put(FindEmailCommand.COMMAND_WORD, FindEmailCommand.COMMAND_HELP);
+        commandList.put(ListCommand.COMMAND_WORD, ListCommand.COMMAND_HELP);
+        commandList.put(HistoryCommand.COMMAND_WORD, HistoryCommand.COMMAND_HELP);
+        commandList.put(HelpCommand.COMMAND_WORD, HelpCommand.COMMAND_HELP);
+        commandList.put(UndoCommand.COMMAND_WORD, UndoCommand.COMMAND_HELP);
+        commandList.put(ExitCommand.COMMAND_WORD, ExitCommand.COMMAND_HELP);
+        commandList.put(SendCommand.COMMAND_WORD, SendCommand.COMMAND_HELP);
+        commandList.put(RedoCommand.COMMAND_WORD, RedoCommand.COMMAND_HELP);
+        commandList.put(SelectCommand.COMMAND_WORD, SelectCommand.COMMAND_HELP);
+        commandList.put(ChangeThemeCommand.COMMAND_WORD, ChangeThemeCommand.COMMAND_HELP);
+        for (HashMap.Entry<String, String> entry : commandList.entrySet()) {
+            if (isExact) {
+                if (entry.getKey().equals(array[0])) {
+                    result.add(entry.getKey());
+                }
+            } else {
+                if (entry.getKey().contains(array[0])) {
+                    result.add(entry.getValue());
+                }
+            }
         }
         return result;
     }
