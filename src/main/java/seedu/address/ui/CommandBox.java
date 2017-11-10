@@ -2,8 +2,10 @@ package seedu.address.ui;
 
 import java.util.logging.Logger;
 
+import com.google.common.eventbus.Subscribe;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -32,6 +34,9 @@ public class CommandBox extends UiPart<Region> {
     @FXML
     private TextField commandTextField;
 
+    @FXML
+    private Button commandWord;
+
     public CommandBox(Logic logic) {
         super(FXML);
         this.logic = logic;
@@ -58,14 +63,22 @@ public class CommandBox extends UiPart<Region> {
             break;
         default:
             if (keyEvent.getCode() == KeyCode.ENTER) {
+                commandWord.setVisible(true);
                 break;
+            } else if (keyEvent.getCode() == KeyCode.SPACE || keyEvent.getCode() == KeyCode.BACK_SPACE) {
+                String commandText = logic.getCommandWord(commandTextField.getText());
+                if (commandText.equals("nil")) {
+                    commandWord.setVisible(false);
+                } else {
+                    commandWord.setVisible(true);
+                    commandWord.setText(commandText);
+                }
             }
             if (commandTextField.getText().equals("")) {
                 raise(new NewResultAvailableEvent("", false));
                 break;
             }
             raise(new NewResultAvailableEvent(logic.liveHelp(commandTextField.getText()), false));
-
         }
     }
 
