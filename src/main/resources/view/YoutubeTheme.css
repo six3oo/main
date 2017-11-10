@@ -1,6 +1,6 @@
 .background {
-    -fx-background-color: #eeede6;
-    background-color: #eeede6; /* Used in the default.html file */
+    -fx-background-color: #e9ebee;
+    background-color: #e9ebee; /* Used in the default.html file */
 }
 
 
@@ -41,9 +41,9 @@
 }
 
 .table-view {
-    -fx-base: #eeede6;
-    -fx-control-inner-background: #eeede6;
-    -fx-background-color: #eeede6;
+    -fx-base: #e9ebee;
+    -fx-control-inner-background: #e9ebee;
+    -fx-background-color: #e9ebee;
     -fx-table-cell-border-color: transparent;
     -fx-table-header-border-color: transparent;
     -fx-padding: 5;
@@ -78,14 +78,17 @@
 }
 
 .split-pane:horizontal .split-pane-divider {
-    -fx-background-color: #eeede6;
-    -fx-border-color: transparent transparent transparent #ebebeb;
+    -fx-background-color: #e9ebee;
 }
 
 .split-pane {
     -fx-border-radius: 1;
-    -fx-border-width: 1;
-    -fx-background-color: #eeede6;
+    -fx-border-width: 0;
+    -fx-background-color: #e9ebee;
+}
+
+#bottomPlaceholder {
+    -fx-border-width: 0;
 }
 
 .list-view {
@@ -96,13 +99,13 @@
 .cell_big_label {
     -fx-font-family: "Segoe UI Semibold";
     -fx-font-size: 20px;
-    -fx-text-fill: #2e2e2e;
+    -fx-text-fill: #656f77;
 }
 
 .cell_small_label {
     -fx-font-family: "Segoe UI";
     -fx-font-size: 14px;
-    -fx-text-fill: #2e2e2e;
+    -fx-text-fill: #656f77;
 }
 
 .list-cell {
@@ -114,15 +117,15 @@
 }
 
 .list-cell .label {
-    -fx-text-fill: #2e2e2e;
+    -fx-text-fill: #595a5b;
 }
 
 .list-cell:filled:even {
-    -fx-background-color: #eeede6;
+    -fx-background-color: #FFFFFF;
 }
 
 .list-cell:filled:odd {
-    -fx-background-color: #eeede6;
+    -fx-background-color: #FFFFFF;
 }
 
 .list-cell:filled:selected {
@@ -139,12 +142,12 @@
 }
 
 .anchor-pane {
-     -fx-background-color: #eeede6;
+     -fx-background-color: #FFFFFF;
 }
 
 .pane-with-border {
-     -fx-background-color: #eeede6;
-     -fx-border-color: #eeede6;
+     -fx-background-color: #FFFFFF;
+     -fx-border-color: #FFFFFF;
      -fx-border-top-width: 1px;
 }
 
@@ -153,7 +156,7 @@
 }
 
 .pwd-field {
-    -fx-background-color: #eeede6;
+    -fx-background-color: #FFFFFF;
     -fx-padding: 20px;
 }
 
@@ -163,13 +166,14 @@
 }
 
 .result-display {
-    -fx-background-color: #eeede6;
+    -fx-background-color: #FFFFFF;
     -fx-font-family: "Segoe UI Light";
-    -fx-font-size: 13pt;
-    -fx-text-fill: #c3c3c3;
-    -fx-border-color: #eeede6;
-    -fx-border-width: 2px;
-    -fx-border-insets: 0px 10px 10px 10px;
+    -fx-font-size: 12pt;
+    -fx-text-fill: #595a5b;
+    -fx-border-color: #FFFFFF;
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-color: #dadada;
+    -fx-padding: 0 10 0 10;
     -fx-background-radius: 0px;
 }
 
@@ -211,7 +215,7 @@
 }
 
 .menu-bar {
-    -fx-background-color: #eeede6;
+    -fx-background-color: #FFFFFF;
 }
 
 .menu-bar .label {
@@ -300,7 +304,7 @@
 }
 
 .scroll-bar {
-    -fx-background-color: #eeede6;
+    -fx-background-color: #e9ebee;
 }
 
 .scroll-bar .thumb {
@@ -335,15 +339,21 @@
     -fx-text-fill: #FFFFFF;
 }
 
+#commandBoxPlaceholder {
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #e8e5ea;
+}
+
 #commandTextField {
-    -fx-background-color: #61594a;
+    -fx-background-color: #FFFFFF;
     -fx-background-insets: 0;
-    -fx-border-color: #383838 #383838 #ffffff #383838;
+    -fx-border-color: #d0d0d0;
+    -fx-border-radius: 3px;
     -fx-border-insets: 0;
-    -fx-border-width: 0;
+    -fx-border-width: 1px;
     -fx-font-family: "Segoe UI Light";
     -fx-font-size: 13pt;
-    -fx-text-fill: white;
+    -fx-text-fill: #2e2e2e;
 }
 
 #filterField, #personListPanel, #personWebpage {
@@ -351,8 +361,9 @@
 }
 
 #resultDisplay .content {
-    -fx-background-color: #61594a;
+    -fx-background-color: #FFFFFF;
     -fx-background-radius: 3px;
+    -fx-line-spacing: 2em;
 }
 
 #tags {
@@ -367,4 +378,13 @@
     -fx-border-radius: 2;
     -fx-background-radius: 2;
     -fx-font-size: 11;
+}
+
+#commandWord {
+    -fx-background-color: #ec2828;
+    -fx-background-radius: 3px;
+    -fx-border-width: 0px;
+    -fx-padding: 0 5 0 10;
+    -fx-font-size: 13pt;
+    -fx-text-fill: #FFFFFF;
 }
