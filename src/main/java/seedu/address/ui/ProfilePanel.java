@@ -59,7 +59,7 @@ public class ProfilePanel extends UiPart<Region> {
      * @throws IOException
      */
 
-    private void loadPersonPage(ReadOnlyPerson person) throws IOException {
+    private void loadPersonProfile(ReadOnlyPerson person) throws IOException {
 
         String personChannelId = person.getChannelId().toString();
 
@@ -176,6 +176,6 @@ public class ProfilePanel extends UiPart<Region> {
     @Subscribe
     private void handlePersonPanelSelectionChangedEvent(PersonPanelSelectionChangedEvent event) throws IOException {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
-        loadPersonPage(event.getNewSelection().person);
+        loadPersonProfile(event.getNewSelection().person);
     }
 }
