@@ -1,0 +1,47 @@
+= Testscript
+
+:sectnums:
+
+== Loading the sample data
+
+*Instructions*
+
+1. Create a folder called `data` in the same folder as the `TABCC.jar` file.
+2. Move the `SampleData.xml` file into the `data` folder and rename it as `addressbook.xml`.
+2. Open the `TABCC.jar` file and the GUI should load the sample data.
+
+== Commands
+
+FORMAT REMOVE AFTER +
+*Command:* `THING TO TYPE`
+
+*Result:*
+
+****
+* Result display box shows:
+* RESULT 2
+* RESULT 3
+****
+
+=== Add command
+
+*Command:* `add n/Ryan Higa p/98765432 e/ryanhiga@example.com a/2009 Terrace Dr Sacramento, CA 95825 USA c/UCSAUGyc_xA8uYzaIVG6MESQ t/Comedy`
+
+*Result:*
+
+****
+* Result display box shows: New person added: Ryan Higa Phone: 98765432 Email: ryanhiga@example.com Address: 2009 Terrace Dr Sacramento, CA 95825 USA ChannelId: UCSAUGyc_xA8uYzaIVG6MESQ Tags: [Comedy]
+* Ryan Higa person card added to the bottom of the person list
+****
+
+=== Edit command
+
+=== Delete command
+
+=== Select command
+
+=== Send command
+
+=== Clear command
+
+=== Undo command
