@@ -24,9 +24,9 @@ import seedu.address.model.person.ReadOnlyPerson;
 /**
  * The Browser Panel of the App.
  */
-public class BrowserPanel extends UiPart<Region> {
+public class ProfilePanel extends UiPart<Region> {
 
-    private static final String FXML = "BrowserPanel.fxml";
+    private static final String FXML = "ProfilePanel.fxml";
 
     private final Logger logger = LogsCenter.getLogger(this.getClass());
 
@@ -46,7 +46,7 @@ public class BrowserPanel extends UiPart<Region> {
     private TextFlow videoCount;
 
 
-    public BrowserPanel() {
+    public ProfilePanel() {
         super(FXML);
 
         registerAsAnEventHandler(this);
