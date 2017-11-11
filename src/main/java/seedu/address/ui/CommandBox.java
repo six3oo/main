@@ -44,6 +44,7 @@ public class CommandBox extends UiPart<Region> {
         historySnapshot = logic.getHistorySnapshot();
     }
 
+    //@@author moomeowroar
     /**
      * Handles the key press event, {@code keyEvent}.
      */
@@ -81,6 +82,7 @@ public class CommandBox extends UiPart<Region> {
         }
     }
 
+    //@@author
     /**
      * Updates the text field with the previous input in {@code historySnapshot},
      * if there exists a previous input in {@code historySnapshot}
