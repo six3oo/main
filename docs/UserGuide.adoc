@@ -12,7 +12,7 @@ ifdef::env-github[]
 endif::[]
 :repoURL: https://github.com/se-edu/addressbook-level4
 
-By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
+By: `Team T15-B1`      Since: `Sep 2017`      Licence: `MIT`
 
 == Introduction
 TABCC (The Address Book for Content Creators) is an address book application for YouTubers to store contact information of other YouTubers. TABCC makes those contact information accessible and easy to refer to. +
