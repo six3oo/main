@@ -3,10 +3,10 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 :imagesDir: ../images
 :stylesDir: ../stylesheets
 
-== Project: AddressBook - Level 4
-AddressBook - Level 4 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 6 kLoC.
-
-*Code contributed*: [https://github.com/CS2103AUG2017-T15-B1/main/blob/master/collated/main/moomeowroar.md[Functional code]] [https://github.com[Test code]] {give links to collated code files}
+== Project: TABCC
+The Address Book for Content Creators (TABCC) is a desktop address book application targeted at content creators. This software aims to help content creators efficiently manage their network of contacts. In the first version, our application specifically targets YouTubers, providing YouTube integration through YouTube's API.
+In future versions we plan to integrate other social media services like Twitch and Facebook. The user interacts with it using a CLI, and it has a GUI created with JavaFX. This software is written in Java, and has about 9 kLoC.
+*Code contributed*: [https://github.com/CS2103AUG2017-T15-B1/main/blob/master/collated/main/moomeowroar.md[Functional code]] [https://github.com/CS2103AUG2017-T15-B1/main/blob/master/collated/test/moomeowroar.md[Test code]] {give links to collated code files}
 
 === Enhancement Added: Lock Screen
 
@@ -45,6 +45,3 @@ include::../DeveloperGuide.adoc[tag=lock]
 * Updated the GUI color scheme (Pull requests https://github.com[#33], https://github.com[#34])
 * Wrote additional tests to increase coverage from 88% to 92% (Pull requests https://github.com[#36], https://github.com[#38])
 
-== Project: PowerPointLabs
-
-{Optionally (not graded), you may include other projects in your portfolio.}
