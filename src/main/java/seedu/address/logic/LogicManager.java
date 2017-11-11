@@ -50,6 +50,7 @@ public class LogicManager extends ComponentManager implements Logic {
         }
     }
 
+    //@@author moomeowroar
     /**
      * Retrieves all available commands according to user input
      * @param commandText
@@ -92,6 +93,7 @@ public class LogicManager extends ComponentManager implements Logic {
     public boolean isAddressBookLock() {
         return isLock;
     }
+    //@@author
 
     @Override
     public ObservableList<ReadOnlyPerson> getFilteredPersonList() {
