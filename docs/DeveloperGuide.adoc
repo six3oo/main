@@ -493,6 +493,7 @@ Dynamic information is information retrieved from the YouTube servers every time
 . Channel description
 . Subscriber count
 . Total view count
+. Video count
 
 ==== Profile GUI
 Displayed in the profile are the dynamic information about the channel, that the contact is affiliated with, as stated above. (Figure 3.3.2.1). +
