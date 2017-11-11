@@ -54,13 +54,16 @@ public class BrowserPanel extends UiPart<Region> {
 
     /**
      * Calls helper methods to get Channel title, description, subscriber count, view count
-     * and create date
+     * and video count
      * @param person target person to be selected
      * @throws IOException
      */
 
     private void loadPersonPage(ReadOnlyPerson person) throws IOException {
 
+        String personChannelId = person.getChannelId().toString();
+
+        assert personChannelId != null : "personChannelId should not be null";
         channel = YouTubeAuthorizer.getYouTubeChannel(person.getChannelId().toString(), "statistics,snippet");
 
         Text title = new Text(getChannelTitle());
