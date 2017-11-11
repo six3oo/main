@@ -139,6 +139,10 @@
     -fx-text-fill: #FFFFFF;
 }
 
+.list-cell:empty {
+    -fx-border-width: 0px;
+}
+
 .anchor-pane {
      -fx-background-color: #eeede6;
 }
