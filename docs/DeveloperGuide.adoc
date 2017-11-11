@@ -241,6 +241,20 @@ Suppose that the user uses the application for the first time, there will be no 
 Using the same `changepwd` command the user can set the password by leaving the [old_password] field empty.
 
 Upon successful unlocking of the application, the lock screen will call `loadMainWindow()` which creates a new `MainWindow` and loads it into the `Stage`, replacing the existing `LockScreen`.
+
+==== Design Considerations
+
+**Aspect:** Implementation of LockScreen +
+**Alternative 1 (current choice):** Create a `LockScreen` class to display the lock screen. +
+**Pros:** Easy to create a custom lock screen window with its own elements. Height, width and elements inside the lock screen window (e.g. password field) can be set isolated from the `MainWindow`. +
+**Cons:** Hard for new developers to understand the template pattern. +
+
+---
+
+**Alternative 2:** Just load a lock screen over the main window. +
+**Pros:** Do not need to create a entire class. +
+**Cons:** Elements in the main window have to be hardcoded to appear or disappear when necessary. For example, the password field have to be removed after login and the other main window elements (e.g. CommandBox) have to appear. +
+There will also be restrictions to the arrangement of the elements as the FXML placeholder have to be initialised despite not being used. For example, the CommandBoxPlaceholder have to be initialised in the lock screen despite not being used.
 // end::lock[]
 
 // tag::FindEmailCommand[]
