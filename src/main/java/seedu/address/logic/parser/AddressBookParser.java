@@ -151,7 +151,7 @@ public class AddressBookParser {
     public ArrayList<String> filterCommand(String text, boolean isExact) throws IllegalValueException {
         String[] array = ParserUtil.parseByDelimiter(text, " ");
         ArrayList<String> result = new ArrayList<String>();
-        HashMap<String, String> commandList= new HashMap<String, String>();
+        HashMap<String, String> commandList = new HashMap<String, String>();
         commandList.put(AddCommand.COMMAND_WORD, AddCommand.COMMAND_HELP);
         commandList.put(ChangePwdCommand.COMMAND_WORD, ChangePwdCommand.COMMAND_HELP);
         commandList.put(EditCommand.COMMAND_WORD, EditCommand.COMMAND_HELP);

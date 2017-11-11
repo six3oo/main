@@ -31,7 +31,7 @@ public class ChangeThemeCommandParser implements Parser<ChangeThemeCommand> {
                 case "youtube":
                     return new ChangeThemeCommand("YoutubeTheme");
                 default:
-                        break;
+                    break;
                 }
             }
             throw new ParseException(
