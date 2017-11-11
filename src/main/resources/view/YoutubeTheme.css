@@ -1,6 +1,6 @@
 .background {
-    -fx-background-color: #e9ebee;
-    background-color: #e9ebee; /* Used in the default.html file */
+    -fx-background-color: #FFFFFF;
+    background-color: #FFFFFF; /* Used in the default.html file */
 }
 
 
@@ -78,13 +78,13 @@
 }
 
 .split-pane:horizontal .split-pane-divider {
-    -fx-background-color: #e9ebee;
+    -fx-background-color: #FFFFFF;
 }
 
 .split-pane {
     -fx-border-radius: 1;
     -fx-border-width: 0;
-    -fx-background-color: #e9ebee;
+    -fx-background-color: #FFFFFF;
 }
 
 #bottomPlaceholder {
@@ -319,7 +319,7 @@
 }
 
 .scroll-bar .thumb {
-    -fx-background-color: #e9ebee;
+    -fx-background-color: #FFFFFF;
     -fx-background-insets: 3;
 }
 
@@ -360,10 +360,10 @@
     -fx-background-insets: 0;
     -fx-border-color: #d0d0d0;
     -fx-border-radius: 3px;
-    -fx-border-insets: 0;
-    -fx-border-width: 1px;
-    -fx-font-family: "Segoe UI Light";
-    -fx-font-size: 13pt;
+    -fx-border-insets: 0 10px 0 10px ;
+    -fx-border-width: 0 0 1px 0;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-size: 14pt;
     -fx-text-fill: #2e2e2e;
 }
 
@@ -374,7 +374,10 @@
 #resultDisplay .content {
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 3px;
-    -fx-line-spacing: 2em;
+}
+
+#resultDisplayPlaceholder {
+    -fx-effect: dropshadow(gaussian, #dadada, 10, 0, 0, 5);
 }
 
 #tags {
@@ -392,10 +395,13 @@
 }
 
 #commandWord {
-    -fx-background-color: #b8c975;
+    -fx-background-color: #FFFFFF;
+    -fx-background-insets: 0px 20px 2px 2px;
     -fx-background-radius: 3px;
-    -fx-border-width: 0px;
-    -fx-padding: 0 5 0 10;
-    -fx-font-size: 13pt;
-    -fx-text-fill: #FFFFFF;
+    -fx-border-insets: 0 0px 0 0px;
+    -fx-border-width: 0 0 0 0;
+    -fx-border-color: #d0d0d0;
+    -fx-font-size: 14pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: #4f7df6;
 }
