@@ -420,3 +420,9 @@ e.g.`send 2`
 e.g. `theme light`
 * *Undo* : `undo`
 
+== Features to be implemented in V2.0
+
+1. Send messages through WhatsApp
+2. Multiple channels for each YouTuber
+3. Multiple YouTubers for each Channel
+
