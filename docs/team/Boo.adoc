@@ -80,7 +80,7 @@ _Figure 4.12.2 : After sorting_
 --------------
 `Find Email Command`: Some user may have very special email but their name may be difficult for a user to remember. +
 
-For example, an English speaking user wants to collaborate with a Japanese YouTuber named Yukiko Ogawa, the name may be difficult for him to remember as Japanese is not be his/her native language. However, the Japanese YouTuber has the email catiscute@example.com, which is a lot easier for the user to remember.
+For example, an English speaking user wants to collaborate with a Japanese YouTuber named Yukiko Ogawa, the name may be difficult for him to remember as Japanese is not be his/her native language. However, the Japanese YouTuber has the email cat_is_cute@example.com, which is a lot easier for the user to remember.
  +
  +
  +
