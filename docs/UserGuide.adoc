@@ -203,6 +203,7 @@ Adds the 2nd person in the address book to the favourites list.
 * `find Betsy` +
 `fave 1 false` +
 Removes the 1st person in the results of the `find` command from the favourites list.
+// end::favourites
 
 // tag::selectcommand[]
 === Selecting a person : `select`

@@ -42,4 +42,5 @@ A star will be displayed next to the contact's name if he/she is a Favourite con
 
 === Other contributions
 
-* Non-functional requirements in the Developer Guide
+* Non-functional requirements in the Developer Guide link:https://github.com/CS2103AUG2017-T15-B1/main/pull/35[Link]
+* Add implementation of deleteTag(Tag) in ModelManager link:https://github.com/CS2103AUG2017-T15-B1/main/pull/39[Link]
