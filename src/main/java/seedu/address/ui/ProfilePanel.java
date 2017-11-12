@@ -66,8 +66,9 @@ public class ProfilePanel extends UiPart<Region> {
         assert personChannelId != null : "personChannelId should not be null";
         channel = YouTubeAuthorizer.getYouTubeChannel(person.getChannelId().toString(), "statistics,snippet");
 
-        Text title = new Text(getChannelTitle());
-        title.setFont(Font.font("Calibri", 40));
+        String tempTitle = getChannelTitle();
+        Text title = new Text(tempTitle);
+        title.setFont(Font.font("Calibri", formatTitleSize(tempTitle)));
         title.setFill(Color.WHITE);
         channelTitle.getChildren().clear();
         channelTitle.getChildren().add(title);
@@ -171,6 +172,23 @@ public class ProfilePanel extends UiPart<Region> {
         } else {
             return number + "";
         }
+    }
+
+    private int formatTitleSize(String title) {
+        int titleLength = title.length();
+        int fontSize;
+
+        if (titleLength >= 48) {
+            fontSize = 20;
+        } else if (titleLength >= 36) {
+            fontSize = 23;
+        } else if(titleLength >= 25) {
+            fontSize = 30;
+        } else {
+            fontSize = 40;
+        }
+
+        return fontSize;
     }
 
     @Subscribe
