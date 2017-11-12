@@ -3,7 +3,7 @@ package seedu.address.logic.commands;
 import seedu.address.commons.core.EventsCenter;
 import seedu.address.commons.events.ui.ChangeThemeEvent;
 import seedu.address.logic.commands.exceptions.CommandException;
-//@@ author moomeowroar
+//@@author moomeowroar
 /**
  * Change theme
  */

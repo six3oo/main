@@ -1,5 +1,5 @@
 # jhchia7
-###### \java\seedu\address\logic\commands\SendCommand.java
+###### /java/seedu/address/logic/commands/SendCommand.java
 ``` java
 
 /**
@@ -58,7 +58,7 @@ public class SendCommand extends Command {
 
 }
 ```
-###### \java\seedu\address\logic\parser\SendCommandParser.java
+###### /java/seedu/address/logic/parser/SendCommandParser.java
 ``` java
 
 /**
@@ -82,7 +82,7 @@ public class SendCommandParser implements Parser<SendCommand> {
     }
 }
 ```
-###### \java\seedu\address\model\person\ChannelId.java
+###### /java/seedu/address/model/person/ChannelId.java
 ``` java
 
 /**
@@ -137,7 +137,7 @@ public class ChannelId {
 
 }
 ```
-###### \java\seedu\address\ui\BrowserPanel.java
+###### /java/seedu/address/ui/BrowserPanel.java
 ``` java
 
 /**
@@ -296,7 +296,7 @@ public class BrowserPanel extends UiPart<Region> {
     }
 }
 ```
-###### \resources\view\BrowserPanel.fxml
+###### /resources/view/BrowserPanel.fxml
 ``` fxml
 
 <StackPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">

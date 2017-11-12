@@ -1,14 +1,30 @@
 # moomeowroar
 ###### /java/systemtests/ChangePwdCommandSystemTest.java
 ``` java
+public class ChangePwdCommandSystemTest extends AddressBookSystemTest {
+
     @Test
     public void changePwd() {
         /* Case: Set password without password
          * -> Password set
          */
-        String command = ChangePwdCommand.COMMAND_WORD + " "+ "password";
+        String command = ChangePwdCommand.COMMAND_WORD +
+                " " + "password";
         Model expectedModel = getModel();
         assertCommandSuccess(command, expectedModel);
+
+        /* Case: Change password after setting
+         * -> Password updated
+         */
+        command = ChangePwdCommand.COMMAND_WORD + " " + "password1" + " " + "password";
+        expectedModel = getModel();
+        assertCommandSuccess(command, expectedModel);
+
+        /* Case: Entering wrong password
+         * -> Rejected
+         */
+        command = ChangePwdCommand.COMMAND_WORD + " " + "password3" + " " + "password2";
+        assertCommandFailure(command, "Wrong password.");
     }
 
     /**
@@ -22,7 +38,7 @@
      * @see AddressBookSystemTest#assertApplicationDisplaysExpected(String, String, Model)
      */
     private void assertCommandSuccess(String command, Model expectedModel) {
-        String expectedResultMessage = "Settings changed successfully.";
+        String expectedResultMessage = "Password changed successfully.";
 
         executeCommand(command);
         assertApplicationDisplaysExpected("", expectedResultMessage, expectedModel);

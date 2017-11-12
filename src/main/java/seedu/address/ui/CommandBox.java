@@ -29,6 +29,7 @@ public class CommandBox extends UiPart<Region> {
     private final Logger logger = LogsCenter.getLogger(CommandBox.class);
     private final Logic logic;
     private ListElementPointer historySnapshot;
+    private String commandText = "";
 
     @FXML
     private TextField commandTextField;
@@ -44,6 +45,7 @@ public class CommandBox extends UiPart<Region> {
         historySnapshot = logic.getHistorySnapshot();
     }
 
+    //@@author moomeowroar
     /**
      * Handles the key press event, {@code keyEvent}.
      */
@@ -63,24 +65,31 @@ public class CommandBox extends UiPart<Region> {
         default:
             if (keyEvent.getCode() == KeyCode.ENTER) {
                 commandWord.setVisible(false);
-                break;
-            } else if (keyEvent.getCode() == KeyCode.SPACE || keyEvent.getCode() == KeyCode.BACK_SPACE) {
-                String commandText = logic.getCommandWord(commandTextField.getText());
-                if (commandText.equals("nil")) {
-                    commandWord.setVisible(false);
+            } else {
+                if (commandText.equals("find") || commandText.equals("findemail") || commandText.equals("findtag")) {
+                    handleCommandInputChanged();
+                    raise(new NewResultAvailableEvent("", false));
                 } else {
-                    commandWord.setVisible(true);
-                    commandWord.setText(commandText);
+                    raise(new NewResultAvailableEvent(logic.liveHelp(commandTextField.getText()), false));
+                }
+                if (keyEvent.getCode() == KeyCode.SPACE || keyEvent.getCode() == KeyCode.BACK_SPACE) {
+                    commandText = logic.getCommandWord(commandTextField.getText());
+                    if (commandText.equals("nil")) {
+                        commandWord.setVisible(false);
+                    } else {
+                        commandWord.setVisible(true);
+                        commandWord.setText(commandText);
+                    }
+                    if (commandTextField.getText().equals("")) {
+                        raise(new NewResultAvailableEvent("", false));
+                    }
                 }
             }
-            if (commandTextField.getText().equals("")) {
-                raise(new NewResultAvailableEvent("", false));
-                break;
-            }
-            raise(new NewResultAvailableEvent(logic.liveHelp(commandTextField.getText()), false));
+            break;
         }
     }
 
+    //@@author
     /**
      * Updates the text field with the previous input in {@code historySnapshot},
      * if there exists a previous input in {@code historySnapshot}
@@ -126,7 +135,9 @@ public class CommandBox extends UiPart<Region> {
             initHistory();
             historySnapshot.next();
             // process result of the command
-            commandTextField.setText("");
+            if (!(commandText.equals("find") || commandText.equals("findemail") || commandText.equals("findtag"))) {
+                commandTextField.setText("");
+            }
             logger.info("Result: " + commandResult.feedbackToUser);
             raise(new NewResultAvailableEvent(commandResult.feedbackToUser, false)); //fixed
 

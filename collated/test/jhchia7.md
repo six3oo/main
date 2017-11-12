@@ -1,5 +1,5 @@
 # jhchia7
-###### \java\seedu\address\logic\commands\SendCommandTest.java
+###### /java/seedu/address/logic/commands/SendCommandTest.java
 ``` java
 
 public class SendCommandTest {
@@ -50,7 +50,7 @@ public class SendCommandTest {
 
 }
 ```
-###### \java\systemtests\SendCommandSystemTest.java
+###### /java/systemtests/SendCommandSystemTest.java
 ``` java
 
 public class SendCommandSystemTest extends AddressBookSystemTest {
