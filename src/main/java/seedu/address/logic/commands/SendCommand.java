@@ -52,10 +52,10 @@ public class SendCommand extends Command {
         String emailOfPerson = personToCommunicate.getEmail().toString();
 
         //Open Windows 10 Mail app
+        assert emailOfPerson != null : "emailOfPerson should not be null";
         try {
             Process p = Runtime.getRuntime().exec("cmd /c start mailto:" + emailOfPerson);
             p.waitFor();
-            System.out.println("Mail launched!");
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (IOException e) {

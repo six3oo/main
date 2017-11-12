@@ -12,7 +12,7 @@ endif::[]
 ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 :repoURL: https://github.com/CS2103AUG2017-T15-B1/main/tree/master
 
-By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
+By: `Team T15-B1`      Since: `Sep 2017`      Licence: `MIT`
 
 == Setting up
 
@@ -482,32 +482,71 @@ image::UndoRedoActivityDiagram.png[width="200"]
 // tag::selectcommand[]
 === Select command
 
-In its initial form, the select command shows the Google results of the contact’s name. With the application targeting a more specific group of users, YouTubers, the team believes that the select command can be better used to display the profile of the YouTuber instead. The select command opens the profile of the contact selected. The profile of the contacts displays various link:#dynamic-information[dynamic information] which is updated automatically by the application using the YouTube Data API.
+The select command opens up the selected contact's profile GUI, which is implemented in the `ProfilePanel.java` class.
+
+The method `handlePersonPanelSelectionChangedEvent` listens for the event triggered by the select command and passes the person object of the selected contact to the `loadPersonProfile` method.
+
+----
+@Subscribe
+private void handlePersonPanelSelectionChangedEvent(PersonPanelSelectionChangedEvent event) throws IOException {
+    logger.info(LogsCenter.getEventHandlingLogMessage(event));
+    loadPersonPage(event.getNewSelection().person);
+}
+----
+
+With the person object, `YouTubeAuthorizer.getYouTubeChannel` is called with the channel ID of the person and the needed channel resources as arguments.
+
+----
+String personChannelId = person.getChannelId().toString();
+
+assert personChannelId != null : "personChannelId should not be null";
+channel = YouTubeAuthorizer.getYouTubeChannel(person.getChannelId().toString(), "statistics,snippet");
+----
 
 ==== Dynamic information:
-Dynamic information is information retrieved from the YouTube servers every time the user views the profile of the contact. +
+link:#dynamic-information[Dynamic information] is information retrieved from the YouTube servers every time the user views the profile of the contact. +
+
 *Categories included in current version:*
 
-. Channel title
-. Channel thumbnail
-. Channel description
-. Subscriber count
-. Total view count
+. Channel title (snippet)
+. Channel thumbnail (snippet)
+. Channel description (snippet)
+. Subscriber count (statistics)
+. Total view count (statistics)
+. Video count (statistics)
+
+Some of the dynamic information, such as subscriber count, grabbed from the YouTube Servers are not very easy to read due to the large number of digits that each category might be presented in (eg. 190601150). +
+
+To tackle this problem, the `formatNumber` method is implemented to reduce the number of digits to 1 decimal place with the order of magnitude suffix placed behind the number. +
+
+Currently the `formatNumber` method supports up to the billion suffix. Suffix representing larger order of magnitudes will be added when the need arises. The result can be seen in the views categories in Figure 3.5.2.1 below.
+
+----
+private String formatNumber(long number) {
+    final long thousand = 1000L;
+    final long million = 1000000L;
+    final long billion = 1000000000L;
+
+    if (number >= billion) {
+        return String.format("%.1f%c", (double) number / billion, 'b');
+    } else if (number >= million) {
+        return String.format("%.1f%c", (double) number / million, 'm');
+    } else if (number >= thousand) {
+        return String.format("%.1f%c", (double) number / thousand, 'k');
+    } else {
+        return number + "";
+    }
+}
+----
 
 ==== Profile GUI
-Displayed in the profile are the dynamic information about the channel, that the contact is affiliated with, as stated above. (Figure 3.3.2.1). +
+Displayed in the profile are the dynamic information about the channel, that the contact is affiliated with, as stated above. (Figure 3.5.2.1). +
 
 
 image::profile_ui.png[width="600"]
 _Figure 3.5.2.1 : Graphical User interface for profile_
 
-==== Planned extensions for the feature
-The ability for the user to choose which data to display for their contacts would be implemented in future updates to increase customisability. Until then, the team has chosen what we believe are categories which YouTubers place emphasis on. +
 
-Another future addition to the profile would be the inclusion of information of other YouTubers of the channel (if channel is maintained by more than 1 YouTuber). This could be done by the implementation of a new Channel Model as seen below.
-
-image::class-diagram-channel.png[width="500"]
-_Figure 3.5.3.2 : Profile graphical user interface_
 
 ==== Design Considerations
 
@@ -517,7 +556,7 @@ _Figure 3.5.3.2 : Profile graphical user interface_
 **Cons:** User would need to copy and paste the uniquely generated channel ID as it would be very inconvenient to type in each individual character. +
 **Alternative 2:** Use YouTube Username. +
 **Pros:** Might be more intuitive for the user and easier to type in. +
-**Cons:** There are so many channels with the same highly sought after names (sans the bigger channels). Although it will be easier to type in for the user as most channel names are easy to read, the users might mistake the channel title for the channel username, resulting in the wrong channel being saved. +
+**Cons:** There are so many channels with the same highly sought after names (sans the bigger channels). Although it will be easier for the user to type in as most channel names are easy to read, the user might confuse the channel title with the channel username (both are often mistaken as the same thing), resulting in the wrong channel being saved. +
 // end::selectcommand[]
 
 

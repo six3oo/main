@@ -24,9 +24,9 @@ import seedu.address.model.person.ReadOnlyPerson;
 /**
  * The Browser Panel of the App.
  */
-public class BrowserPanel extends UiPart<Region> {
+public class ProfilePanel extends UiPart<Region> {
 
-    private static final String FXML = "BrowserPanel.fxml";
+    private static final String FXML = "ProfilePanel.fxml";
 
     private final Logger logger = LogsCenter.getLogger(this.getClass());
 
@@ -46,7 +46,7 @@ public class BrowserPanel extends UiPart<Region> {
     private TextFlow videoCount;
 
 
-    public BrowserPanel() {
+    public ProfilePanel() {
         super(FXML);
 
         registerAsAnEventHandler(this);
@@ -54,17 +54,21 @@ public class BrowserPanel extends UiPart<Region> {
 
     /**
      * Calls helper methods to get Channel title, description, subscriber count, view count
-     * and create date
+     * and video count
      * @param person target person to be selected
      * @throws IOException
      */
 
-    private void loadPersonPage(ReadOnlyPerson person) throws IOException {
+    private void loadPersonProfile(ReadOnlyPerson person) throws IOException {
 
+        String personChannelId = person.getChannelId().toString();
+
+        assert personChannelId != null : "personChannelId should not be null";
         channel = YouTubeAuthorizer.getYouTubeChannel(person.getChannelId().toString(), "statistics,snippet");
 
-        Text title = new Text(getChannelTitle());
-        title.setFont(Font.font("Calibri", 40));
+        String tempTitle = getChannelTitle();
+        Text title = new Text(tempTitle);
+        title.setFont(Font.font("Calibri", formatTitleSize(tempTitle)));
         title.setFill(Color.WHITE);
         channelTitle.getChildren().clear();
         channelTitle.getChildren().add(title);
@@ -170,9 +174,32 @@ public class BrowserPanel extends UiPart<Region> {
         }
     }
 
+    /**
+     * Formats the channel title by changing the font size to avoide text wrapping
+     * and overlapping with the date on TextFlow below
+     * @param title of the channel
+     * @return font size to use for the channelTitle TextFlow
+     */
+    private int formatTitleSize(String title) {
+        int titleLength = title.length();
+        int fontSize;
+
+        if (titleLength >= 48) {
+            fontSize = 20;
+        } else if (titleLength >= 36) {
+            fontSize = 23;
+        } else if (titleLength >= 25) {
+            fontSize = 30;
+        } else {
+            fontSize = 40;
+        }
+
+        return fontSize;
+    }
+
     @Subscribe
     private void handlePersonPanelSelectionChangedEvent(PersonPanelSelectionChangedEvent event) throws IOException {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
-        loadPersonPage(event.getNewSelection().person);
+        loadPersonProfile(event.getNewSelection().person);
     }
 }
