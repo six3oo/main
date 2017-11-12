@@ -29,8 +29,7 @@ public class ChangePwdCommandSystemTest extends AddressBookSystemTest {
          * -> Rejected
          */
         command = ChangePwdCommand.COMMAND_WORD + " " + "password3" + " " + "password2";
-        assertCommandFailure(command, "Wrong password." +
-                "");
+        assertCommandFailure(command, "Wrong password.");
     }
 
     /**
