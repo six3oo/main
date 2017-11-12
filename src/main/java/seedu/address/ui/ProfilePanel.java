@@ -174,6 +174,12 @@ public class ProfilePanel extends UiPart<Region> {
         }
     }
 
+    /**
+     * Formats the channel title by changing the font size to avoide text wrapping
+     * and overlapping with the date on TextFlow below
+     * @param title of the channel
+     * @return font size to use for the channelTitle TextFlow
+     */
     private int formatTitleSize(String title) {
         int titleLength = title.length();
         int fontSize;
@@ -182,7 +188,7 @@ public class ProfilePanel extends UiPart<Region> {
             fontSize = 20;
         } else if (titleLength >= 36) {
             fontSize = 23;
-        } else if(titleLength >= 25) {
+        } else if (titleLength >= 25) {
             fontSize = 30;
         } else {
             fontSize = 40;
