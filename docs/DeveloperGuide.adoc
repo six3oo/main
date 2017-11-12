@@ -505,6 +505,7 @@ channel = YouTubeAuthorizer.getYouTubeChannel(person.getChannelId().toString(), 
 
 ==== Dynamic information:
 link:#dynamic-information[Dynamic information] is information retrieved from the YouTube servers every time the user views the profile of the contact. +
+
 *Categories included in current version:*
 
 . Channel title (snippet)
@@ -515,7 +516,10 @@ link:#dynamic-information[Dynamic information] is information retrieved from the
 . Video count (statistics)
 
 Some of the dynamic information, such as subscriber count, grabbed from the YouTube Servers are not very easy to read due to the large number of digits that each category might be presented in (eg. 190601150). +
-To tackle this problem, the `formatNumber` method is implemented to reduce the number of digits to 1 decimal place with the order of magnitude suffix placed behind the number. The result can be seen in the views categories in Figure 3.5.2.1 below.
+
+To tackle this problem, the `formatNumber` method is implemented to reduce the number of digits to 1 decimal place with the order of magnitude suffix placed behind the number. +
+
+Currently the `formatNumber` method supports up to the billion suffix. Suffix representing larger order of magnitudes will be added when the need arises. The result can be seen in the views categories in Figure 3.5.2.1 below.
 
 ----
 private String formatNumber(long number) {
