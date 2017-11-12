@@ -37,7 +37,7 @@ Responsibilities: Logic
 '''
 
 === Cheng Wei Hong
-image::moomeowroar.jpg[width="150", align="left"]
+image::moomeowroar.png[width="150", align="left"]
 {empty}[http://github.com/moomeowroar[github]] [<<johndoe#, portfolio>>]
 
 Role: Developer +

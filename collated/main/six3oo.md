@@ -1,5 +1,5 @@
 # six3oo
-###### \java\seedu\address\logic\commands\FavCommand.java
+###### /java/seedu/address/logic/commands/FavCommand.java
 ``` java
 /**
  * Adds a person identified using it's last displayed index from the address book to the favourites list.
@@ -82,7 +82,7 @@ public class FavCommand extends UndoableCommand {
     }
 }
 ```
-###### \java\seedu\address\logic\commands\FindFavCommand.java
+###### /java/seedu/address/logic/commands/FindFavCommand.java
 ``` java
 /**
  * Finds and lists all persons who are favourites.
@@ -112,7 +112,7 @@ public class FindFavCommand extends Command {
     }
 }
 ```
-###### \java\seedu\address\model\person\Favourite.java
+###### /java/seedu/address/model/person/Favourite.java
 ``` java
 /**
  * Represents a Person's favourites status.
@@ -136,7 +136,7 @@ public class Favourite {
     }
 }
 ```
-###### \java\seedu\address\model\person\FavouritePredicate.java
+###### /java/seedu/address/model/person/FavouritePredicate.java
 ``` java
 /**
  * Tests if a {@code ReadOnlyPerson}'s {@code Favourite} is true.

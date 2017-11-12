@@ -59,9 +59,17 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 * Parameters can be in any order e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 ====
 
+// tag::liveHelp[]
 === Viewing help : `help`
 
 Format: `help`
+
+An integrated live help system has also been added. A list of possible commands matching the entered words will appear as you type into the command box.
+
+image::livehelpSS.png[width = "800"]
+_Figure 4.6.1: Live Help_
+
+// end::liveHelp[]
 
 === Adding a person: `add`
 
@@ -355,13 +363,13 @@ Format: `clear`
 === Change Password : `changepwd`
 
 Changes the password required to access the address book. +
-Format: `changepwd [old_password] [new_password]`
+Format: `changepwd OLD_PASSWORD NEW_PASSWORD`
 // end::lock[]
 
 === Change Theme : `theme`
 
-Changes the theme. Currently only has `light` or `dark` themes +
-Format: `theme [theme_name]`
+Changes the theme. Currently you can choose between `light`, `dark` or `youtube` themes +
+Format: `theme THEME_NAME`
 
 === Exiting the program : `exit`
 

@@ -1,3 +1,4 @@
+/* @@author moomeowroar */
 .background {
     -fx-background-color: #eeede6;
     background-color: #eeede6; /* Used in the default.html file */
@@ -138,6 +139,10 @@
     -fx-text-fill: #FFFFFF;
 }
 
+.list-cell:empty {
+    -fx-border-width: 0px;
+}
+
 .anchor-pane {
      -fx-background-color: #eeede6;
 }
@@ -203,7 +208,7 @@
 }
 
 .context-menu {
-    -fx-background-color: #6c6454;
+    -fx-background-color: #eeede6;
 }
 
 .context-menu .label {
@@ -217,7 +222,7 @@
 .menu-bar .label {
     -fx-font-size: 14pt;
     -fx-font-family: "Segoe UI Light";
-    -fx-text-fill: #e2e2e2;
+    -fx-text-fill: #2e2e2e;
     -fx-opacity: 0.9;
 }
 
@@ -339,10 +344,10 @@
     -fx-background-color: #61594a;
     -fx-background-insets: 0;
     -fx-border-color: #383838 #383838 #ffffff #383838;
-    -fx-border-insets: 0;
+    -fx-border-insets: 0 10px 0 10px ;
     -fx-border-width: 0;
     -fx-font-family: "Segoe UI Light";
-    -fx-font-size: 13pt;
+    -fx-font-size: 14pt;
     -fx-text-fill: white;
 }
 
@@ -367,4 +372,21 @@
     -fx-border-radius: 2;
     -fx-background-radius: 2;
     -fx-font-size: 11;
+}
+
+<<<<<<< HEAD
+/* @@author moomeowroar */
+
+=======
+>>>>>>> 0b017471050e7991b58b69d6445b714a742d0f4c
+#commandWord {
+    -fx-background-color: #61594a;
+    -fx-background-insets: 0px 20px 2px 2px;
+    -fx-background-radius: 3px;
+    -fx-border-insets: 0 0px 0 0px;
+    -fx-border-width: 0 0 0 0;
+    -fx-border-color: #d0d0d0;
+    -fx-font-size: 14pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: #b8c975;
 }
