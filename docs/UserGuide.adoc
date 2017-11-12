@@ -190,6 +190,7 @@ Deletes the 2nd person in the address book.
 `delete 1` +
 Deletes the 1st person in the results of the `find` command.
 
+// tag::favourites
 === Adding or removing a person to/from your favourites list : `fave`
 
 Adds or removes the specified person from the address book to the favourites list. +
@@ -210,6 +211,7 @@ Adds the 2nd person in the address book to the favourites list.
 * `find Betsy` +
 `fave 1 false` +
 Removes the 1st person in the results of the `find` command from the favourites list.
+// end::favourites
 
 // tag::selectcommand[]
 === Selecting a person : `select`
