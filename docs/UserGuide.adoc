@@ -12,7 +12,7 @@ ifdef::env-github[]
 endif::[]
 :repoURL: https://github.com/se-edu/addressbook-level4
 
-By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
+By: `Team T15-B1`      Since: `Sep 2017`      Licence: `MIT`
 
 == Introduction
 TABCC (The Address Book for Content Creators) is an address book application for YouTubers to store contact information of other YouTubers. TABCC makes those contact information accessible and easy to refer to. +
@@ -59,14 +59,22 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 * Parameters can be in any order e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 ====
 
+// tag::liveHelp[]
 === Viewing help : `help`
 
 Format: `help`
 
+An integrated live help system has also been added. A list of possible commands matching the entered words will appear as you type into the command box.
+
+image::livehelpSS.png[width = "800"]
+_Figure 4.6.1: Live Help_
+
+// end::liveHelp[]
+
 === Adding a person: `add`
 
 Adds a person to the address book +
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS c/UC-lHJZR3Gqxm24_Vd_AJ5Yw [t/TAG]...`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS c/CHANNEL_ID [t/TAG]...`
 
 [TIP]
 A person can have any number of tags (including 0) +
@@ -74,8 +82,8 @@ Check out the FAQs section on link:#get-channel-id[obtaining a YouTuber's Channe
 
 Examples:
 
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+* `add add n/Ryan Higa p/98765432 e/ryanhiga@example.com a/2009 Terrace Dr Sacramento, CA 95825 USA c/UCSAUGyc_xA8uYzaIVG6MESQ t/Comedy`
+* `add n/Juan Mata p/87654128 e/juanmata@example.com a/30 Sandy Ln, Stretford, Manchester M32 9DA, UK c/UC_WoyWJ6cx9LEhGohfPi-3g t/Sports`
 
 === Listing all persons : `list`
 
@@ -99,8 +107,8 @@ Examples:
 
 * `edit 1 p/91234567 e/johndoe@example.com` +
 Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-* `edit 2 n/Betsy Crower t/` +
-Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+* `edit 2 c/UC38IQsAvIsxxjztdMZQtwHA t/` +
+Edits the channel ID of the second person and clears all existing tags.
 
 === Locating persons by name: `find`
 
@@ -209,6 +217,7 @@ Removes the 1st person in the results of the `find` command from the favourites 
 === Selecting a person : `select`
 
 Selects the person identified by the index number used in the last person listing and shows the YouTube profile of the person (Figure 2.10.1). +
+
 Format: `select INDEX`
 
 image::Ui.png[width=600]
@@ -225,7 +234,7 @@ Examples:
 * `list` +
 `select 2` +
 Selects the 2nd person in the address book.
-* `find Betsy` +
+* `find Felix` +
 `select 1` +
 Selects the 1st person in the results of the `find` command. +
 // end::selectcommand[]
@@ -236,6 +245,7 @@ Selects the 1st person in the results of the `find` command. +
 === Sending a message to a person : `send`
 
 This command will redirect you to third-party communication applications like Windows Mail and WhatsApp (to-be-implemented). This command will automatically fill up the information of your contact in the third party application for you. +
+
 Format: `send INDEX`
 
 ===== Steps:
@@ -353,15 +363,17 @@ The `redo` command fails as there are no `undo` commands executed previously.
 Clears all entries from the address book. +
 Format: `clear`
 
+// tag::lock[]
 === Change Password : `changepwd`
 
 Changes the password required to access the address book. +
-Format: `changepwd [old_password] [new_password]`
+Format: `changepwd OLD_PASSWORD NEW_PASSWORD`
+// end::lock[]
 
 === Change Theme : `theme`
 
-Changes the theme. Currently only has `light` or `dark` themes +
-Format: `theme [theme_name]`
+Changes the theme. Currently you can choose between `light`, `dark` or `youtube` themes +
+Format: `theme THEME_NAME`
 
 === Exiting the program : `exit`
 
@@ -385,6 +397,7 @@ There is no need to save manually.
 If the URL of the homepage of a YouTube channel you visit looks like "https://www.youtube.com/channel/UCLMtDePlMyiqv2XC_ByNEVQ", simply copy the characters after "channel/" and you'll get the Channel ID. Otherwise, follow the steps below.
 
 Step 1. Go to the page of any video of the target YouTube channel. +
+
 Step 2. Click on the channel name below the video player as seen from Figure 3.1 and you should be redirected to the homepage of the YouTube channel. (You can also see the channel ID from the URL preview at the bottom of Figure 3.1.)
 
 image::get-channel-id-video.png[width=500]
@@ -419,4 +432,11 @@ e.g.`send 2`
 * *Theme* : `theme THEME_NAME` +
 e.g. `theme light`
 * *Undo* : `undo`
+
+== Features to be implemented in V2.0
+
+. Integration with other content creation platforms like Twitch, Twitter, Instagram and Facebook.
+. Integration with other messaging services like WhatsApp, Twitter direct message and Facebook direct message.
+. Channel Model
+. Ability to customise which data to grab and display from the YouTube Server
 

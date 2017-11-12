@@ -3,7 +3,7 @@ package seedu.address.logic.commands;
 import seedu.address.commons.core.EventsCenter;
 import seedu.address.commons.events.ui.ChangeThemeEvent;
 import seedu.address.logic.commands.exceptions.CommandException;
-//@@ author moomeowroar
+//@@author moomeowroar
 /**
  * Change theme
  */
@@ -15,7 +15,7 @@ public class ChangeThemeCommand extends Command {
     public static final String COMMAND_HELP = "theme THEME_NAME";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Changes theme. \n"
-            + COMMAND_WORD + " <THEME_NAME>";
+            + COMMAND_WORD + " <dark/light/youtube>";
 
 
     public static final String MESSAGE_NO_THEME = "Invalid theme.";

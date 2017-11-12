@@ -5,11 +5,14 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.ChangeThemeCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+
 //@@author moomeowroar
 /**
  * Parses input arguments and creates a new ChangePwdCommand object
  */
 public class ChangeThemeCommandParser implements Parser<ChangeThemeCommand> {
+
+    public static final int NUM_OF_PARAM = 2; //Inclusive of command word
 
     /**
      * Parses the given {@code String} of arguments in the context of the DeleteCommand
@@ -19,11 +22,16 @@ public class ChangeThemeCommandParser implements Parser<ChangeThemeCommand> {
     public ChangeThemeCommand parse(String args) throws ParseException {
         try {
             String[] array = ParserUtil.parseByDelimiter(args, " ");
-            if (array.length == 2) {
-                if (array[1].equals("light")) {
+            if (array.length == NUM_OF_PARAM) {
+                switch (array[1]) {
+                case "light":
                     return new ChangeThemeCommand("LightTheme");
-                } else if (array[1].equals("dark")) {
+                case "dark":
                     return new ChangeThemeCommand("DarkTheme");
+                case "youtube":
+                    return new ChangeThemeCommand("YoutubeTheme");
+                default:
+                    break;
                 }
             }
             throw new ParseException(

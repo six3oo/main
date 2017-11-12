@@ -1,0 +1,142 @@
+= Testscript
+
+:sectnums:
+
+== Loading the sample data
+
+*Instructions*
+
+1. Create a folder called `data` in the same folder as the `TABCC.jar` file.
+2. Move the `SampleData.xml` file into the `data` folder and rename it as `addressbook.xml`.
+2. Open the `TABCC.jar` file and the GUI should load the sample data.
+
+== Commands
+
+FORMAT REMOVE AFTER +
+*Command:* `THING TO TYPE`
+
+*Result:*
+
+****
+* Result display box shows:
+* RESULT 2
+* RESULT 3
+****
+
+=== Add command
+
+*Command:* `add n/Ryan Higa p/98765432 e/ryanhiga@example.com a/2009 Terrace Dr Sacramento, CA 95825 USA c/UCSAUGyc_xA8uYzaIVG6MESQ t/Comedy`
+
+*Result:*
+
+****
+* Result display box shows: New person added: Ryan Higa Phone: 98765432 Email: ryanhiga@example.com Address: 2009 Terrace Dr Sacramento, CA 95825 USA ChannelId: UCSAUGyc_xA8uYzaIVG6MESQ Tags: [Comedy]
+* Ryan Higa person card added to the bottom of the person list
+****
+
+=== Edit command
+
+*Command:* `edit 1 p/9123456`
+
+*Result:*
+
+****
+* Result display box shows: Edited Person: Felix Arvid Ulf Kjellberg Phone: 9123456 Email: pewdiepie@example.com Address: 5 Bedford Pl, Brighton BN1 2PT, UK ChannelId: UC-lHJZR3Gqxm24_Vd_AJ5Yw Tags: [Comedy][Gaming]
+****
+
+=== Delete command
+
+*Command:* `delete 3`
+
+*Result:*
+****
+* Result display box shows: 1 person deleted!
+* `Naomi Neo` is removed from the person list, her contact will no longer be available.
+****
+
+=== Find Command
+
+*Command:* `find naomi`
+
+*Result:*
+****
+* Result display box shows: 1 person listed!
+* Person list shows Naomi Neo.
+****
+
+=== Find email command
+
+*Command:* `findemail namewee@example.com`
+
+*Result:*
+****
+* Result display box shows: 1 person listed!
+* Person list shows NameWee.
+****
+
+=== Find tag command
+
+*Command:* `findtag music`
+
+*Result:*
+****
+* Result display box shows: 4 persons listed!
+* Person list shows `Kurt Hugo Schneider`, `Rob Chapman`, `Paul Davids` and `NameWee`.
+****
+=== Select command
+
+=== Send command
+
+=== Sort by name(ascending) command
+
+*Command:* `sortAscend`
+
+*Result:*
+****
+* Result display box shows: List is now arranged in ascending order!
+* Person list is now arrange in lexicographical order according to the person's name, starting from Z all the way to A.
+****
+
+=== Clear command
+
+=== Undo command
+
+=== Change Password command
+Assume that the user does not have any password set +
+*Command:* `changepwd password1`
+
+*Result:*
+
+****
+* Password is now set to password1
+****
+Assume that the password is set to password1 +
+*Command:* `changepwd password2 password1`
+****
+* Password is now set to password2
+****
+
+=== Change Theme command
+*Command:* `theme light`
+
+*Result:*
+
+****
+* The theme is now set to light
+****
+
+*Command:* `theme dark`
+
+*Result:*
+
+****
+* The theme is now set to dark
+****
+
+*Command:* `theme youtube`
+
+*Result:*
+
+****
+* The theme is now set to youtube
+****
