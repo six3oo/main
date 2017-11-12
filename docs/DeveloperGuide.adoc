@@ -251,8 +251,6 @@ Upon successful unlocking of the application, the lock screen will call `loadMai
 **Pros:** Easy to create a custom lock screen window with its own elements. Height, width and elements inside the lock screen window (e.g. password field) can be set isolated from the `MainWindow`. +
 **Cons:** Hard for new developers to understand the template pattern. +
 
----
-
 **Alternative 2:** Create a lock screen stackpane inside the `MainWndow` class. +
 **Pros:** Do not need to create a entire class. +
 **Cons:** Elements in the main window have to be hardcoded to appear or disappear when necessary. For example, the password field have to be removed after login and the other main window elements (e.g. CommandBox) have to appear. +
@@ -636,6 +634,7 @@ public ArrayList<String> filterCommand(String text, boolean isExact) throws Ille
 **Alternative 1 (current choice):** Store all the commands in a HashMap and iterate through the HashMap to compare each command word with the entered string. +
 **Pros:** This implementation provides a cleaner code. Hence it is easier read and to add additional search functionality. For instance, only 1 if else is required to switch between finding if the command word is equals to the entered word or if the command contains the entered word +
 **Cons:** None. +
+
 **Alternative 2:** Use switch case statements to code the logic for each command. +
 **Pros:** Straightforward. Easy to implement if there are only a few commands. +
 **Cons:** Tedious and time consuming. Having additional conditions like `isExact` means having to duplicate the entire switch case. +
