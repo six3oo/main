@@ -36,6 +36,14 @@ FORMAT REMOVE AFTER +
 
 === Edit command
 
+*Command:* `edit 1 p/9123456`
+
+*Result:*
+
+****
+* Result display box shows: Edited Person: Felix Arvid Ulf Kjellberg Phone: 9123456 Email: pewdiepie@example.com Address: 5 Bedford Pl, Brighton BN1 2PT, UK ChannelId: UC-lHJZR3Gqxm24_Vd_AJ5Yw Tags: [Comedy][Gaming]
+****
+
 === Delete command
 
 === Select command
@@ -45,3 +53,43 @@ FORMAT REMOVE AFTER +
 === Clear command
 
 === Undo command
+
+=== Change Password command
+Assume that the user does not have any password set +
+*Command:* `changepwd password1`
+
+*Result:*
+
+****
+* Password is now set to password1
+****
+Assume that the password is set to password1 +
+*Command:* `changepwd password2 password1`
+****
+* Password is now set to password2
+****
+
+=== Change Theme command
+*Command:* `theme light`
+
+*Result:*
+
+****
+* The theme is now set to light
+****
+
+*Command:* `theme dark`
+
+*Result:*
+
+****
+* The theme is now set to dark
+****
+
+*Command:* `theme youtube`
+
+*Result:*
+
+****
+* The theme is now set to youtube
+****
