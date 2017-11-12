@@ -65,23 +65,25 @@ public class CommandBox extends UiPart<Region> {
         default:
             if (keyEvent.getCode() == KeyCode.ENTER) {
                 commandWord.setVisible(false);
-            } else if (keyEvent.getCode() == KeyCode.SPACE || keyEvent.getCode() == KeyCode.BACK_SPACE) {
-                commandText = logic.getCommandWord(commandTextField.getText());
-                if (commandText.equals("nil")) {
-                    commandWord.setVisible(false);
-                } else {
-                    commandWord.setVisible(true);
-                    commandWord.setText(commandText);
-                }
-            }
-            if (commandText.equals("find") || commandText.equals("findemail") || commandText.equals("findtag")) {
-                handleCommandInputChanged();
-                raise(new NewResultAvailableEvent("", false));
             } else {
-                raise(new NewResultAvailableEvent(logic.liveHelp(commandTextField.getText()), false));
-            }
-            if (commandTextField.getText().equals("")) {
-                raise(new NewResultAvailableEvent("", false));
+                if (commandText.equals("find") || commandText.equals("findemail") || commandText.equals("findtag")) {
+                    handleCommandInputChanged();
+                    raise(new NewResultAvailableEvent("", false));
+                } else {
+                    raise(new NewResultAvailableEvent(logic.liveHelp(commandTextField.getText()), false));
+                }
+                if (keyEvent.getCode() == KeyCode.SPACE || keyEvent.getCode() == KeyCode.BACK_SPACE) {
+                    commandText = logic.getCommandWord(commandTextField.getText());
+                    if (commandText.equals("nil")) {
+                        commandWord.setVisible(false);
+                    } else {
+                        commandWord.setVisible(true);
+                        commandWord.setText(commandText);
+                    }
+                    if (commandTextField.getText().equals("")) {
+                        raise(new NewResultAvailableEvent("", false));
+                    }
+                }
             }
             break;
         }
