@@ -91,7 +91,7 @@ FORMAT REMOVE AFTER +
 
 *Command:* `sortAscend`
 
-*Result:* 
+*Result:*
 ****
 * Result display box shows: List is now arranged in ascending order!
 * Person list is now arrange in lexicographical order according to the person's name, starting from Z all the way to A.
