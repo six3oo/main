@@ -370,7 +370,8 @@
 /* @@author moomeowroar */
 #commandWord {
     -fx-background-color: #383838;
-    -fx-background-insets: 0px 22px 2px 0px;
+    -fx-padding: 0 0 0 21px;
+    -fx-background-insets: 2px 0 2px 0;
     -fx-background-radius: 3px;
     -fx-border-insets: 0 0px 0 0px;
     -fx-border-width: 0 0 0 0;
