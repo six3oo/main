@@ -12,8 +12,14 @@ using CLI, and it has a GUI created using JavaFX. +
 *Code contributed*: [https://github.com/CS2103AUG2017-T15-B1/main/blob/master/collated/main/Minghui94.md[Functional code]]
  [https://github.com/CS2103AUG2017-T15-B1/main/blob/master/collated/test/Minghui94.md[Test code]]
 
-`Find Email Command`
--------------------
+Enhancement added: `Find Email Command`
+--------------------------------------
+---
+#Start of Extract [from: User Guide]#
+
+
+include::../UserGuide.adoc[tag=selectcommand]
+
 === Locating persons by Email: `findemail`
 
 Finds persons whose email contain any of the given keywords. +
@@ -34,8 +40,8 @@ image::findemail.png[width = "800"]
 _Figure 1: Find email_
  +
 
-`Find Tag Command`
------------------
+Enhancement added: `Find Tag Command`
+------------------------------------
 === Locating persons by tag: `findtag`
 
 Finds persons whose tag contain any of the given keywords. +
@@ -57,8 +63,8 @@ image::findtag.png[width = "800"]
 _Figure 2 : Find tag_
  +
 
-`Sort by Name Command (Ascending)`
----------------------------------
+Enhancement added: `Sort by Name Command (Ascending)`
+-----------------------------------------------------
 === Sorting the contacts by name (ascending order) : `sortascend`
 This command allows the user to sort the contacts by name, lexicographically ascending. +
 Format `sortascend` +
@@ -71,7 +77,10 @@ _Figure 3.1 : Before sorting_
 image::aftersort.png[width="800"]
 _Figure 3.2 : After sorting_
 
-'''
+
+#End of Extract#
+
+---
 `Justification`
 --------------
 `Find Email Command`: Some user may have very special email but their name may be difficult for a user to remember. +
@@ -99,6 +108,11 @@ able to know exactly where the contact is located in the list.
 '''
 `Implementation`
 ---------------
+---
+#Start of Extract [from: Developer Guide]#
+
+include::../DeveloperGuide.adoc[tag=selectcommand]
+
 // tag::FindEmailCommand[]
 === FindEmailCommand
 This enhancement is aiming to make the searches more powerful. +
@@ -150,8 +164,10 @@ public class FindEmailCommandParser {
     }
 }
 ----
+#End of Extract#
 
-'''
+---
+
 `Enhancement Proposed: Collab Command`
 -------------------------------------
 ==== Automatically send an pre-wrote email to a person in the contact list: `collab`. +
