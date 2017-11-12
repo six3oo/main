@@ -46,9 +46,56 @@ FORMAT REMOVE AFTER +
 
 === Delete command
 
+*Command:* `delete 3`
+
+*Result:*
+****
+* Result display box shows: 1 person deleted!
+* `Naomi Neo` is removed from the person list, her contact will no longer be available.
+****
+
+=== Find Command
+
+*Command:* `find naomi`
+
+*Result:*
+****
+* Result display box shows: 1 person listed!
+* Person list shows Naomi Neo.
+****
+
+=== Find email command
+
+*Command:* `findemail namewee@example.com`
+
+*Result:*
+****
+* Result display box shows: 1 person listed!
+* Person list shows NameWee.
+****
+
+=== Find tag command
+
+*Command:* `findtag music`
+
+*Result:*
+****
+* Result display box shows: 4 persons listed!
+* Person list shows `Kurt Hugo Schneider`, `Rob Chapman`, `Paul Davids` and `NameWee`.
+****
 === Select command
 
 === Send command
+
+=== Sort by name(ascending) command
+
+*Command:* `sortAscend`
+
+*Result:* 
+****
+* Result display box shows: List is now arranged in ascending order!
+* Person list is now arrange in lexicographical order according to the person's name, starting from Z all the way to A.
+****
 
 === Clear command
 
