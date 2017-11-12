@@ -207,6 +207,7 @@ Removes the 1st person in the results of the `find` command from the favourites 
 === Selecting a person : `select`
 
 Selects the person identified by the index number used in the last person listing and shows the YouTube profile of the person (Figure 2.10.1). +
+
 Format: `select INDEX`
 
 image::Ui.png[width=600]
@@ -223,7 +224,7 @@ Examples:
 * `list` +
 `select 2` +
 Selects the 2nd person in the address book.
-* `find Betsy` +
+* `find Felix` +
 `select 1` +
 Selects the 1st person in the results of the `find` command. +
 // end::selectcommand[]
@@ -234,6 +235,7 @@ Selects the 1st person in the results of the `find` command. +
 === Sending a message to a person : `send`
 
 This command will redirect you to third-party communication applications like Windows Mail and WhatsApp (to-be-implemented). This command will automatically fill up the information of your contact in the third party application for you. +
+
 Format: `send INDEX`
 
 ===== Steps:
@@ -385,6 +387,7 @@ There is no need to save manually.
 If the URL of the homepage of a YouTube channel you visit looks like "https://www.youtube.com/channel/UCLMtDePlMyiqv2XC_ByNEVQ", simply copy the characters after "channel/" and you'll get the Channel ID. Otherwise, follow the steps below.
 
 Step 1. Go to the page of any video of the target YouTube channel. +
+
 Step 2. Click on the channel name below the video player as seen from Figure 3.1 and you should be redirected to the homepage of the YouTube channel. (You can also see the channel ID from the URL preview at the bottom of Figure 3.1.)
 
 image::get-channel-id-video.png[width=500]
@@ -422,7 +425,8 @@ e.g. `theme light`
 
 == Features to be implemented in V2.0
 
-1. Send messages through WhatsApp
-2. Multiple channels for each YouTuber
-3. Multiple YouTubers for each Channel
+. Integration with other content creation platforms like Twitch, Twitter, Instagram and Facebook.
+. Integration with other messaging services like WhatsApp, Twitter direct message and Facebook direct message.
+. Channel Model
+. Ability to customise which data to grab and display from the YouTube Server
 
