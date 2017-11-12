@@ -355,13 +355,13 @@ Format: `clear`
 === Change Password : `changepwd`
 
 Changes the password required to access the address book. +
-Format: `changepwd [old_password] [new_password]`
+Format: `changepwd OLD_PASSWORD NEW_PASSWORD`
 // end::lock[]
 
 === Change Theme : `theme`
 
-Changes the theme. Currently only has `light` or `dark` themes +
-Format: `theme [theme_name]`
+Changes the theme. Currently you can choose between `light`, `dark` or `youtube` themes +
+Format: `theme THEME_NAME`
 
 === Exiting the program : `exit`
 

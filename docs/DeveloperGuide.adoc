@@ -153,7 +153,7 @@ _Figure 2.2.1 : Structure of the UI Component_
 
 *API* : link:{repoURL}/src/main/java/seedu/address/ui/Ui.java[`Ui.java`]
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter`, `BrowserPanel` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
+The UI consists of a `LockScreen` which contains `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter`, `BrowserPanel` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
 
 The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the link:{repoURL}/src/main/java/seedu/address/ui/MainWindow.java[`MainWindow`] is specified in link:{repoURL}/src/main/resources/view/MainWindow.fxml[`MainWindow.fxml`]
 
@@ -235,8 +235,10 @@ Similarly, a password will be converted to MD5 hash string before storing in the
 
 In order to change the password, a new command `changepwd` is implemented.
 ----
-changepwd [new_password] [old_password]
+changepwd NEW_PASSWORD OLD_PASSWORD
 ----
+
+[NOTE]
 Suppose that the user uses the application for the first time, there will be no password set in the preference file.
 Using the same `changepwd` command the user can set the password by leaving the [old_password] field empty.
 
@@ -251,7 +253,7 @@ Upon successful unlocking of the application, the lock screen will call `loadMai
 
 ---
 
-**Alternative 2:** Just load a lock screen over the main window. +
+**Alternative 2:** Create a lock screen stackpane inside the `MainWndow` class. +
 **Pros:** Do not need to create a entire class. +
 **Cons:** Elements in the main window have to be hardcoded to appear or disappear when necessary. For example, the password field have to be removed after login and the other main window elements (e.g. CommandBox) have to appear. +
 There will also be restrictions to the arrangement of the elements as the FXML placeholder have to be initialised despite not being used. For example, the CommandBoxPlaceholder have to be initialised in the lock screen despite not being used.
@@ -593,6 +595,52 @@ FavCommand is an UndoableCommand.
 **Cons:** Much longer command will need to be entered to revert any mistake.
 // end::favCommand[]
 
+// tag::liveHelp[]
+=== Live Help
+The live help feature aims to provide an alternative form of help window to the user. As the user types into the `CommandBox`, a possible list of commands with its usage is displayed in the `ResultDisplay`. +
+
+This feature works by searching across all the commands to find possible commands that the user might be using. For example, typing `find` will result in the `ResultDisplay` showing help for `find`, `findtag` and `findemail` commands. +
+
+The `liveHelp` method resides in `LogicManager` which retrieves the entered text from the `CommandBox` and passes the text into the `filterCommand` inside `AddressBookParser`. The `filterCommand` retrieves all possible commands that the user might be finding by checking if any `COMMAND_WORD` contains the entered word. The array of possible results is returned to the `liveHelp` method and is concatenated into a string which is displayed in the `ResultDisplay`.+
+The following sequence diagram illustrates the flow of the live help feature.
+
+image::LiveHelpDiagram.png[width="800"]
+_Figure 3.7.1: Sequence Diagram for Live Help feature_
+
+The `filterCommand` inside `AddressBookParser` employs the use of HashMap to store all the command words and the help for each command. This allows for a cleaner code as it removes the long if else statements by using a `for` loop to iterate through the entire list of commands.
+----
+for (HashMap.Entry<String, String> entry : commandList.entrySet()) {
+    if (isExact) {
+        if (entry.getKey().equals(array[0])) {
+            result.add(entry.getKey());
+        }
+    } else {
+        if (entry.getKey().contains(array[0])) {
+            result.add(entry.getValue());
+        }
+    }
+}
+----
+Furthermore, creating a boolean `isExact` allows for this method to also be used to check if a string is exactly a command word. +
+By setting `isExact` to false, this method will return all command words that contains the entered text. +
+By setting `isExact` to true, this method will return all command words that is equals to the entered text.
+Hence, this reduces the need for another method.
+----
+public ArrayList<String> filterCommand(String text, boolean isExact) throws IllegalValueException {
+    //Code
+}
+----
+
+==== Design Considerations
+**Aspect:** Parsing the entered string +
+**Alternative 1 (current choice):** Store all the commands in a HashMap and iterate through the HashMap to compare each command word with the entered string. +
+**Pros:** This implementation provides a cleaner code. Hence it is easier read and to add additional search functionality. For instance, only 1 if else is required to switch between finding if the command word is equals to the entered word or if the command contains the entered word +
+**Cons:** None. +
+**Alternative 2:** Use switch case statements to code the logic for each command. +
+**Pros:** Straightforward. Easy to implement if there are only a few commands. +
+**Cons:** Tedious and time consuming. Having additional conditions like `isExact` means having to duplicate the entire switch case. +
+
+// end::liveHelp[]
 === Logging
 
 We are using `java.util.logging` package for logging. The `LogsCenter` class is used to manage the logging levels and logging destinations.
