@@ -13,8 +13,7 @@ public class ChangePwdCommandSystemTest extends AddressBookSystemTest {
         /* Case: Set password without password
          * -> Password set
          */
-        String command = ChangePwdCommand.COMMAND_WORD +
-                " " + "password";
+        String command = ChangePwdCommand.COMMAND_WORD + " " + "password";
         Model expectedModel = getModel();
         assertCommandSuccess(command, expectedModel);
 
