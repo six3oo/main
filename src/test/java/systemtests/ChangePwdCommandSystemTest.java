@@ -5,8 +5,9 @@ import org.junit.Test;
 import seedu.address.logic.commands.ChangePwdCommand;
 import seedu.address.model.Model;
 
+//@@author moomeowroar
 public class ChangePwdCommandSystemTest extends AddressBookSystemTest {
-    //@@author moomeowroar
+
     @Test
     public void changePwd() {
         /* Case: Set password without password
@@ -15,6 +16,19 @@ public class ChangePwdCommandSystemTest extends AddressBookSystemTest {
         String command = ChangePwdCommand.COMMAND_WORD + " " + "password";
         Model expectedModel = getModel();
         assertCommandSuccess(command, expectedModel);
+
+        /* Case: Change password after setting
+         * -> Password updated
+         */
+        command = ChangePwdCommand.COMMAND_WORD + " " + "password1" + " " + "password";
+        expectedModel = getModel();
+        assertCommandSuccess(command, expectedModel);
+
+        /* Case: Entering wrong password
+         * -> Rejected
+         */
+        command = ChangePwdCommand.COMMAND_WORD + " " + "password3" + " " + "password2";
+        assertCommandFailure(command, "Wrong password.");
     }
 
     /**
@@ -28,7 +42,7 @@ public class ChangePwdCommandSystemTest extends AddressBookSystemTest {
      * @see AddressBookSystemTest#assertApplicationDisplaysExpected(String, String, Model)
      */
     private void assertCommandSuccess(String command, Model expectedModel) {
-        String expectedResultMessage = "Settings changed successfully.";
+        String expectedResultMessage = "Password changed successfully.";
 
         executeCommand(command);
         assertApplicationDisplaysExpected("", expectedResultMessage, expectedModel);

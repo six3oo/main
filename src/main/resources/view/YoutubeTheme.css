@@ -88,11 +88,6 @@
     -fx-background-color: #FFFFFF;
 }
 
-#bottomPlaceholder {
-    -fx-background-color: transparent;
-    -fx-border-width: 0;
-}
-
 .list-view {
     -fx-background-color: #FFFFFF;
     -fx-background-insets: 0;
@@ -109,10 +104,6 @@
     -fx-font-family: "Segoe UI";
     -fx-font-size: 14px;
     -fx-text-fill: #656f77;
-}
-
-#personListView {
-    -fx-background-color: #FFFFFF;
 }
 
 .list-cell {
@@ -377,10 +368,6 @@
     -fx-background-radius: 3px;
 }
 
-#resultDisplayPlaceholder {
-    -fx-effect: dropshadow(three-pass-box, #dadada, 5, 0, 0, 2);
-}
-
 #tags {
     -fx-hgap: 7;
     -fx-vgap: 3;
@@ -396,10 +383,9 @@
 }
 
 /* @@author moomeowroar */
-
 #commandWord {
     -fx-background-color: #FFFFFF;
-    -fx-background-insets: 0px 20px 2px 2px;
+    -fx-background-insets: 0px 20px 2px 0px;
     -fx-background-radius: 3px;
     -fx-border-insets: 0 0px 0 0px;
     -fx-border-width: 0 0 0 0;
@@ -407,4 +393,17 @@
     -fx-font-size: 14pt;
     -fx-font-family: "Segoe UI Semibold";
     -fx-text-fill: #4f7df6;
+}
+
+#resultDisplayPlaceholder {
+    -fx-effect: dropshadow(three-pass-box, #dadada, 5, 0, 0, 2);
+}
+
+#personListView {
+    -fx-background-color: #FFFFFF;
+}
+
+#bottomPlaceholder {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
 }

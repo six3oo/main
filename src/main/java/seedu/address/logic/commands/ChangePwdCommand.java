@@ -17,8 +17,8 @@ public class ChangePwdCommand extends Command {
             + COMMAND_WORD + " <new_password> <old_password>";
 
 
-    public static final String MESSAGE_NO_SETTINGS = "No available settings.";
-    public static final String MESSAGE_CHANGE_SUCCESS = "Settings changed successfully.";
+    public static final String MESSAGE_CHANGE_FAILURE = "Wrong password.";
+    public static final String MESSAGE_CHANGE_SUCCESS = "Password changed successfully.";
 
     private final String oldPwd;
     private final String newPwd;
@@ -35,8 +35,9 @@ public class ChangePwdCommand extends Command {
     public CommandResult execute() throws CommandException {
         if (model.getUserPrefs().changePwd(oldPwd, newPwd)) {
             return new CommandResult(MESSAGE_CHANGE_SUCCESS);
+        } else {
+            throw new CommandException(MESSAGE_CHANGE_FAILURE);
         }
-        return new CommandResult(MESSAGE_NO_SETTINGS);
     }
 
 
