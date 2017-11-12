@@ -1,9 +1,10 @@
+= Boo Ming Hui - Project Portfolio
+ifdef::env-github,env-browser[:outfilesuffix: .adoc]
+:imagesDir: ../images
+:stylesDir: ../stylesheets
 
+== Project: TABCC (AddressBook - level 4)
 
-Ming Hui Project Portfolio
----------------------------
-`Project: TABCC`
------------------
 TABCC is an desktop address book application designed mainly for YouTubers. The user interacts with it +
 using CLI, and it has a GUI created using JavaFX. +
  +
@@ -35,7 +36,7 @@ Examples:
 Returns contact with the email `bob@example.com` +
 
 image::findemail.png[width = "800"]
-_Figure 4.6.1: Find email_
+_Figure 1: Find email_
  +
 
 `Find Tag Command`
@@ -58,7 +59,7 @@ Examples:
 Return contact(s) with the 'friends' tag. +
 
 image::findtag.png[width = "800"]
-_Figure 4.7.1 : Find tag_
+_Figure 2 : Find tag_
  +
 
 `Sort by Name Command (Ascending)`
@@ -69,18 +70,18 @@ Format `sortascend` +
 Examples: +
 
 image::beforesort.png[width="800"]
-_Figure 4.12.1 : Before sorting_
+_Figure 3.1 : Before sorting_
 
 
 image::aftersort.png[width="800"]
-_Figure 4.12.2 : After sorting_
+_Figure 3.2 : After sorting_
 
 '''
 `Justification`
 --------------
 `Find Email Command`: Some user may have very special email but their name may be difficult for a user to remember. +
 
-For example, an English speaking user wants to collaborate with a Japanese YouTuber named Yukiko Ogawa, the name may be difficult for him to remember as Japanese is not be his/her native language. However, the Japanese YouTuber has the email catiscute@example.com, which is a lot easier for the user to remember.
+For example, an English speaking user wants to collaborate with a Japanese YouTuber named Yukiko Ogawa, the name may be difficult for him to remember as Japanese is not be his/her native language. However, the Japanese YouTuber has the email cat_is_cute@example.com, which is a lot easier for the user to remember.
  +
  +
  +
@@ -112,7 +113,7 @@ To use this command, user just need to type in `“findemail”` follow by a whi
 The implementation of the find email command consist of 3 new classes, namely `FindEmailCommand.java`, `EmailContainsKeywordsPredicate.java` and `FindEmailCommandParser.java.` `FindEmailCommand.java` and `FindEmailCommandParser.java` resides in the logic component, while `EmailsContainKeywordsPredicate.java` resides in the model component. +
 
 image::FindEmailDiagram.png[width="800"]
-Figure 3.1.1 +
+Figure 4 +
 
 **Functions of classes in FindEmailCommand** +
 

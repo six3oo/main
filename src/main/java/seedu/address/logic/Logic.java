@@ -22,6 +22,8 @@ public interface Logic {
 
     String liveHelp(String commandText) throws IllegalValueException;
 
+    String getCommandWord(String commandText) throws IllegalValueException;
+
     /** Returns an unmodifiable view of the filtered list of persons */
     ObservableList<ReadOnlyPerson> getFilteredPersonList();
 

@@ -12,7 +12,7 @@ endif::[]
 ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 :repoURL: https://github.com/CS2103AUG2017-T15-B1/main/tree/master
 
-By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
+By: `Team T15-B1`      Since: `Sep 2017`      Licence: `MIT`
 
 == Setting up
 
@@ -153,7 +153,7 @@ _Figure 2.2.1 : Structure of the UI Component_
 
 *API* : link:{repoURL}/src/main/java/seedu/address/ui/Ui.java[`Ui.java`]
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter`, `BrowserPanel` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
+The UI consists of a `LockScreen` which contains `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter`, `BrowserPanel` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
 
 The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the link:{repoURL}/src/main/java/seedu/address/ui/MainWindow.java[`MainWindow`] is specified in link:{repoURL}/src/main/resources/view/MainWindow.fxml[`MainWindow.fxml`]
 
@@ -218,7 +218,7 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
-// tag::Lock Screen[]
+// tag::lock[]
 === Lock Screen
 The Lock Screen loads first before the Main Window. The status and logic of unlocking the application resides inside `LogicManager`.
 
@@ -235,12 +235,27 @@ Similarly, a password will be converted to MD5 hash string before storing in the
 
 In order to change the password, a new command `changepwd` is implemented.
 ----
-changepwd [new_password] [old_password]
+changepwd NEW_PASSWORD OLD_PASSWORD
 ----
+
+[NOTE]
 Suppose that the user uses the application for the first time, there will be no password set in the preference file.
 Using the same `changepwd` command the user can set the password by leaving the [old_password] field empty.
 
 Upon successful unlocking of the application, the lock screen will call `loadMainWindow()` which creates a new `MainWindow` and loads it into the `Stage`, replacing the existing `LockScreen`.
+
+==== Design Considerations
+
+**Aspect:** Implementation of LockScreen +
+**Alternative 1 (current choice):** Create a `LockScreen` class to display the lock screen. +
+**Pros:** Easy to create a custom lock screen window with its own elements. Height, width and elements inside the lock screen window (e.g. password field) can be set isolated from the `MainWindow`. +
+**Cons:** Hard for new developers to understand the template pattern. +
+
+**Alternative 2:** Create a lock screen stackpane inside the `MainWndow` class. +
+**Pros:** Do not need to create a entire class. +
+**Cons:** Elements in the main window have to be hardcoded to appear or disappear when necessary. For example, the password field have to be removed after login and the other main window elements (e.g. CommandBox) have to appear. +
+There will also be restrictions to the arrangement of the elements as the FXML placeholder have to be initialised despite not being used. For example, the CommandBoxPlaceholder have to be initialised in the lock screen despite not being used.
+// end::lock[]
 
 // tag::FindEmailCommand[]
 === FindEmailCommand
@@ -468,32 +483,71 @@ image::UndoRedoActivityDiagram.png[width="200"]
 // tag::selectcommand[]
 === Select command
 
-In its initial form, the select command shows the Google results of the contact’s name. With the application targeting a more specific group of users, YouTubers, the team believes that the select command can be better used to display the profile of the YouTuber instead. The select command opens the profile of the contact selected. The profile of the contacts displays various link:#dynamic-information[dynamic information] which is updated automatically by the application using the YouTube Data API.
+The select command opens up the selected contact's profile GUI, which is implemented in the `ProfilePanel.java` class.
+
+The method `handlePersonPanelSelectionChangedEvent` listens for the event triggered by the select command and passes the person object of the selected contact to the `loadPersonProfile` method.
+
+----
+@Subscribe
+private void handlePersonPanelSelectionChangedEvent(PersonPanelSelectionChangedEvent event) throws IOException {
+    logger.info(LogsCenter.getEventHandlingLogMessage(event));
+    loadPersonPage(event.getNewSelection().person);
+}
+----
+
+With the person object, `YouTubeAuthorizer.getYouTubeChannel` is called with the channel ID of the person and the needed channel resources as arguments.
+
+----
+String personChannelId = person.getChannelId().toString();
+
+assert personChannelId != null : "personChannelId should not be null";
+channel = YouTubeAuthorizer.getYouTubeChannel(person.getChannelId().toString(), "statistics,snippet");
+----
 
 ==== Dynamic information:
-Dynamic information is information retrieved from the YouTube servers every time the user views the profile of the contact. +
+link:#dynamic-information[Dynamic information] is information retrieved from the YouTube servers every time the user views the profile of the contact. +
+
 *Categories included in current version:*
 
-. Channel title
-. Channel thumbnail
-. Channel description
-. Subscriber count
-. Total view count
+. Channel title (snippet)
+. Channel thumbnail (snippet)
+. Channel description (snippet)
+. Subscriber count (statistics)
+. Total view count (statistics)
+. Video count (statistics)
+
+Some of the dynamic information, such as subscriber count, grabbed from the YouTube Servers are not very easy to read due to the large number of digits that each category might be presented in (eg. 190601150). +
+
+To tackle this problem, the `formatNumber` method is implemented to reduce the number of digits to 1 decimal place with the order of magnitude suffix placed behind the number. +
+
+Currently the `formatNumber` method supports up to the billion suffix. Suffix representing larger order of magnitudes will be added when the need arises. The result can be seen in the views categories in Figure 3.5.2.1 below.
+
+----
+private String formatNumber(long number) {
+    final long thousand = 1000L;
+    final long million = 1000000L;
+    final long billion = 1000000000L;
+
+    if (number >= billion) {
+        return String.format("%.1f%c", (double) number / billion, 'b');
+    } else if (number >= million) {
+        return String.format("%.1f%c", (double) number / million, 'm');
+    } else if (number >= thousand) {
+        return String.format("%.1f%c", (double) number / thousand, 'k');
+    } else {
+        return number + "";
+    }
+}
+----
 
 ==== Profile GUI
-Displayed in the profile are the dynamic information about the channel, that the contact is affiliated with, as stated above. (Figure 3.3.2.1). +
+Displayed in the profile are the dynamic information about the channel, that the contact is affiliated with, as stated above. (Figure 3.5.2.1). +
 
 
 image::profile_ui.png[width="600"]
 _Figure 3.5.2.1 : Graphical User interface for profile_
 
-==== Planned extensions for the feature
-The ability for the user to choose which data to display for their contacts would be implemented in future updates to increase customisability. Until then, the team has chosen what we believe are categories which YouTubers place emphasis on. +
 
-Another future addition to the profile would be the inclusion of information of other YouTubers of the channel (if channel is maintained by more than 1 YouTuber). This could be done by the implementation of a new Channel Model as seen below.
-
-image::class-diagram-channel.png[width="500"]
-_Figure 3.5.3.2 : Profile graphical user interface_
 
 ==== Design Considerations
 
@@ -503,7 +557,7 @@ _Figure 3.5.3.2 : Profile graphical user interface_
 **Cons:** User would need to copy and paste the uniquely generated channel ID as it would be very inconvenient to type in each individual character. +
 **Alternative 2:** Use YouTube Username. +
 **Pros:** Might be more intuitive for the user and easier to type in. +
-**Cons:** There are so many channels with the same highly sought after names (sans the bigger channels). Although it will be easier to type in for the user as most channel names are easy to read, the users might mistake the channel title for the channel username, resulting in the wrong channel being saved. +
+**Cons:** There are so many channels with the same highly sought after names (sans the bigger channels). Although it will be easier for the user to type in as most channel names are easy to read, the user might confuse the channel title with the channel username (both are often mistaken as the same thing), resulting in the wrong channel being saved. +
 // end::selectcommand[]
 
 
@@ -579,6 +633,53 @@ FavCommand is an UndoableCommand.
 **Cons:** Much longer command will need to be entered to revert any mistake.
 // end::favCommand[]
 
+// tag::liveHelp[]
+=== Live Help
+The live help feature aims to provide an alternative form of help window to the user. As the user types into the `CommandBox`, a possible list of commands with its usage is displayed in the `ResultDisplay`. +
+
+This feature works by searching across all the commands to find possible commands that the user might be using. For example, typing `find` will result in the `ResultDisplay` showing help for `find`, `findtag` and `findemail` commands. +
+
+The `liveHelp` method resides in `LogicManager` which retrieves the entered text from the `CommandBox` and passes the text into the `filterCommand` inside `AddressBookParser`. The `filterCommand` retrieves all possible commands that the user might be finding by checking if any `COMMAND_WORD` contains the entered word. The array of possible results is returned to the `liveHelp` method and is concatenated into a string which is displayed in the `ResultDisplay`.+
+The following sequence diagram illustrates the flow of the live help feature.
+
+image::LiveHelpDiagram.png[width="800"]
+_Figure 3.7.1: Sequence Diagram for Live Help feature_
+
+The `filterCommand` inside `AddressBookParser` employs the use of HashMap to store all the command words and the help for each command. This allows for a cleaner code as it removes the long if else statements by using a `for` loop to iterate through the entire list of commands.
+----
+for (HashMap.Entry<String, String> entry : commandList.entrySet()) {
+    if (isExact) {
+        if (entry.getKey().equals(array[0])) {
+            result.add(entry.getKey());
+        }
+    } else {
+        if (entry.getKey().contains(array[0])) {
+            result.add(entry.getValue());
+        }
+    }
+}
+----
+Furthermore, creating a boolean `isExact` allows for this method to also be used to check if a string is exactly a command word. +
+By setting `isExact` to false, this method will return all command words that contains the entered text. +
+By setting `isExact` to true, this method will return all command words that is equals to the entered text.
+Hence, this reduces the need for another method.
+----
+public ArrayList<String> filterCommand(String text, boolean isExact) throws IllegalValueException {
+    //Code
+}
+----
+
+==== Design Considerations
+**Aspect:** Parsing the entered string +
+**Alternative 1 (current choice):** Store all the commands in a HashMap and iterate through the HashMap to compare each command word with the entered string. +
+**Pros:** This implementation provides a cleaner code. Hence it is easier read and to add additional search functionality. For instance, only 1 if else is required to switch between finding if the command word is equals to the entered word or if the command contains the entered word +
+**Cons:** None. +
+
+**Alternative 2:** Use switch case statements to code the logic for each command. +
+**Pros:** Straightforward. Easy to implement if there are only a few commands. +
+**Cons:** Tedious and time consuming. Having additional conditions like `isExact` means having to duplicate the entire switch case. +
+
+// end::liveHelp[]
 === Logging
 
 We are using `java.util.logging` package for logging. The `LogsCenter` class is used to manage the logging levels and logging destinations.

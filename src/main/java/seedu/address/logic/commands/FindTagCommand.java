@@ -11,7 +11,7 @@ import seedu.address.model.tag.TagContainsKeywordsPredicate;
 public class FindTagCommand extends Command {
 
     public static final String COMMAND_WORD = "findtag";
-    public static final String COMMAND_HELP = "find [TAG]";
+    public static final String COMMAND_HELP = "findtag [TAG]";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + "Find all persons whose tags contain any of "
             + "the specific keyword (case-sensitive) and display them as a list with index numbers.\n"

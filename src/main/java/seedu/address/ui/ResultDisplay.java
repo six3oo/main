@@ -30,7 +30,7 @@ public class ResultDisplay extends UiPart<Region> {
     private TextArea resultDisplay;
 
     @FXML
-    private StackPane placeHolder;
+    private StackPane resultDisplayPlaceholder;
 
     public ResultDisplay() {
         super(FXML);
@@ -59,7 +59,7 @@ public class ResultDisplay extends UiPart<Region> {
 
     private void toggleResultDisplay(boolean visible) {
         resultDisplay.setVisible(visible);
-        placeHolder.setMouseTransparent(!visible);
+        resultDisplayPlaceholder.setMouseTransparent(!visible);
     }
 
     private void setStyleToDefault() {
