@@ -1,9 +1,10 @@
+= Boo Ming Hui - Project Portfolio
+ifdef::env-github,env-browser[:outfilesuffix: .adoc]
+:imagesDir: ../images
+:stylesDir: ../stylesheets
 
+== Project: TABCC (AddressBook - level 4)
 
-Ming Hui Project Portfolio
----------------------------
-`Project: TABCC`
------------------
 TABCC is an desktop address book application designed mainly for YouTubers. The user interacts with it +
 using CLI, and it has a GUI created using JavaFX. +
  +
