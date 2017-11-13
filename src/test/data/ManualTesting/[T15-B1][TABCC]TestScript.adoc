@@ -46,6 +46,26 @@ FORMAT REMOVE AFTER +
 * Result display box shows: Opened help window.
 ****
 
+=== Change Password command
+Assume that the user does not have any password set +
+*Command:* `changepwd password1`
+
+*Result:*
+
+****
+* Password is now set to password1
+****
+Assume that the password is set to password1 +
+*Command:* `changepwd password2 password1`
+****
+* Password is now set to password2
+****
+
+[NOTE]
+====
+Restarting the app now requires you to input the password set.
+====
+
 === Add command
 
 *Command:* `add n/Ryan Higa p/98765432 e/ryanhiga@example.com a/2009 Terrace Dr Sacramento, CA 95825 USA c/UCSAUGyc_xA8uYzaIVG6MESQ t/Comedy`
@@ -228,23 +248,16 @@ send: Opens up third-party communication application with the information of the
 ****
 
 === Clear command
-
-=== Undo command
-
-=== Change Password command
-Assume that the user does not have any password set +
-*Command:* `changepwd password1`
+*Command:* clear
 
 *Result:*
+****
+* Address book has been cleared!
+****
 
-****
-* Password is now set to password1
-****
-Assume that the password is set to password1 +
-*Command:* `changepwd password2 password1`
-****
-* Password is now set to password2
-****
+=== Undo command
+*Command:* undo +
+This command has been demonstrated throughout the TestScript.
 
 === Change Theme command
 *Command:* `theme light`
@@ -270,3 +283,8 @@ Assume that the password is set to password1 +
 ****
 * The theme is now set to youtube
 ****
+
+[NOTE]
+====
+The theme settings will be saved even if you restart the app.
+====
