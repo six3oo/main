@@ -309,7 +309,8 @@ public class FindEmailCommandParser {
     }
 }
 ----
-// end::FindEmailCommand
+// end::FindEmailCommand[]
+
 // tag::FavCommand[]
 === FavCommand
 This enhancement allows users to add or remove people to and fro a favourites list. +
