@@ -10,7 +10,7 @@ ifdef::env-github[]
 :tip-caption: :bulb:
 :note-caption: :information_source:
 endif::[]
-:repoURL: https://github.com/se-edu/addressbook-level4
+:repoURL: https://github.com/CS2103AUG2017-T15-B1/main
 
 By: `Team T15-B1`      Since: `Sep 2017`      Licence: `MIT`
 
@@ -195,7 +195,7 @@ Deletes the 2nd person in the address book.
 `delete 1` +
 Deletes the 1st person in the results of the `find` command.
 
-// tag::favourites
+// tag::favcommand[]
 === Adding or removing a person to/from your favourites list : `fave`
 
 Adds or removes the specified person from the address book to the favourites list. +
@@ -216,7 +216,7 @@ Adds the 2nd person in the address book to the favourites list.
 * `find Betsy` +
 `fave 1 false` +
 Removes the 1st person in the results of the `find` command from the favourites list.
-// end::favourites
+// end::favcommand[]
 
 // tag::selectcommand[]
 === Selecting a person : `select`
@@ -446,4 +446,4 @@ e.g. `theme light`
 . Integration with other messaging services like WhatsApp, Twitter direct message and Facebook direct message.
 . Channel Model
 . Ability to customise which data to grab and display from the YouTube Server
-
+. Display stars next to the names of favourite contacts and optionally display them at the top of the persons list.
