@@ -1270,7 +1270,6 @@ Use case resumes at step 2.
 +
 Use case resumes at step 2.
 
-{More to be added}
 
 [appendix]
 == Non Functional Requirements
