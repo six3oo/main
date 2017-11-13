@@ -82,7 +82,6 @@ able to know exactly where the contact is located in the list.
 '''
 `Implementation`
 ----------------
-=== FindEmailCommand
 // tag::FindEmailCommand[]
 #Start of Extract [from: Developer Guide]#
 
