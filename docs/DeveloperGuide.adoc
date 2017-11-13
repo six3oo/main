@@ -483,9 +483,9 @@ image::UndoRedoActivityDiagram.png[width="200"]
 // tag::selectcommand[]
 === Select command
 
-The select command opens up the selected contact's profile GUI, which is implemented in the `ProfilePanel.java` class.
+The select command opens up the selected contact's profile GUI, which is implemented in the `ProfilePanel.java` class. This command makes use of the YouTube Data API to retrieve information from the YouTube servers.
 
-The method `handlePersonPanelSelectionChangedEvent` listens for the event triggered by the select command and passes the person object of the selected contact to the `loadPersonProfile` method.
+The method `handlePersonPanelSelectionChangedEvent()` listens for the event triggered by the select command and passes the person object of the selected contact to the `loadPersonProfile()` method.
 
 ----
 @Subscribe
@@ -495,7 +495,7 @@ private void handlePersonPanelSelectionChangedEvent(PersonPanelSelectionChangedE
 }
 ----
 
-With the person object, `YouTubeAuthorizer.getYouTubeChannel` is called with the channel ID of the person and the needed channel resources as arguments.
+With the person object, `YouTubeAuthorizer.getYouTubeChannel()` is called with the channel ID of the person and the needed channel resources as arguments.
 
 ----
 String personChannelId = person.getChannelId().toString();
@@ -505,7 +505,7 @@ channel = YouTubeAuthorizer.getYouTubeChannel(person.getChannelId().toString(), 
 ----
 
 ==== Dynamic information:
-link:#dynamic-information[Dynamic information] is information retrieved from the YouTube servers every time the user views the profile of the contact. +
+link:#dynamic-information[Dynamic information] is information retrieved from the YouTube servers every time the user views the profile of the contact. In the list below, the channel resource associated with the category of dynamic information is put in brackets.
 
 *Categories included in current version:*
 
@@ -516,11 +516,11 @@ link:#dynamic-information[Dynamic information] is information retrieved from the
 . Total view count (statistics)
 . Video count (statistics)
 
-Some of the dynamic information, such as subscriber count, grabbed from the YouTube Servers are not very easy to read due to the large number of digits that each category might be presented in (eg. 190601150). +
+Some of the dynamic information, such as view count, grabbed from the YouTube Servers are difficult to read due to the long chain of digits that each category might be presented in (eg. 190601150). +
 
-To tackle this problem, the `formatNumber` method is implemented to reduce the number of digits to 1 decimal place with the order of magnitude suffix placed behind the number. +
+To tackle this problem, the `formatNumber()` method is implemented to reduce the number of digits with the order of magnitude suffix placed behind the number. The result from formatting the number '190601150' can be seen in the views categories in Figure 3.5.2.1 below. +
 
-Currently the `formatNumber` method supports up to the billion suffix. Suffix representing larger order of magnitudes will be added when the need arises. The result can be seen in the views categories in Figure 3.5.2.1 below.
+Currently the `formatNumber()` method supports up to the billion suffix. Suffix representing larger order of magnitudes will be added when the need arises.
 
 ----
 private String formatNumber(long number) {
