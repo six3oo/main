@@ -410,11 +410,11 @@ send: Opens up third-party communication application with the information of the
 ****
 
 === Undo command
-*Command:* undo +
+*Command:* `undo` +
 This command has been demonstrated throughout the TestScript.
 
 === Redo command
-*Command:* redo +
+*Command:* `redo` +
 This command has been demonstrated throughout the TestScript.
 
 === Change Theme command
