@@ -59,9 +59,9 @@ The Windows Mail App is chosen due to its support for many email services such a
 
 === Enhancement Proposed: Channel model
 
-A future addition to the profile would be the inclusion of information of other YouTubers of the channel (if channel is maintained by more than 1 YouTuber). This could be done by the implementation of a new Channel Model as seen below.
+A future addition to the profile would be the inclusion of information of other YouTubers of the channel (if channel is maintained by more than 1 YouTuber). This could be done by the implementation of a new Channel Model as seen below (Figure 1).
 
-image::class-diagram-channel.png[width="500"]
+image::class-diagram-channel.png[width="600"]
 _Figure 1: Class diagram with new Channel model_
 
 === Enhancement Proposed: Integration with other and messaging services

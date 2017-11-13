@@ -219,6 +219,13 @@ Restarting the app now requires you to input the password set.
 * Person list is empty.
 ****
 
+*Command:* `redo`
+
+*Result:*
+****
+* Result display box shows: No more commands to redo!
+****
+
 *Command:* `fave 3`
 
 *Result:*
@@ -461,3 +468,13 @@ theme <dark/light/youtube>
 ====
 The theme settings will be saved even if you restart the app.
 ====
+
+=== Exit command
+
+*Command:* `exit`
+
+*Result:*
+
+****
+* Exits the application
+****
