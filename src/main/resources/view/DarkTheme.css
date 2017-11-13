@@ -367,6 +367,10 @@
     -fx-font-size: 11;
 }
 
+#profile {
+    -fx-background: #383838;
+}
+
 /* @@author moomeowroar */
 #commandWord {
     -fx-background-color: #383838;
