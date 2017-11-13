@@ -441,8 +441,14 @@ e.g. `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 123466
 e.g. `delete 3`
 * *Edit* : `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]...` +
 e.g. `edit 2 n/James Lee e/jameslee@example.com`
+* *Exit* : `exit`
 * *Find* : `find KEYWORD [MORE_KEYWORDS]` +
 e.g. `find James Jake`
+* *Find Email* : `findemail` +
+e.g. `findemail bob@example.com`
+* *Find Favourite* : `findfav`
+* *Find Tag* : `findtag TAG` +
+e.g. `findtag gaming`
 * *Help* : `help`
 * *History* : `history`
 * *List* : `list`
@@ -451,6 +457,7 @@ e.g. `find James Jake`
 e.g.`select 2`
 * *Send* : `Send INDEX` +
 e.g.`send 2`
+* *Sort Ascend* : `sortAscend`
 * *Theme* : `theme THEME_NAME` +
 e.g. `theme light`
 * *Undo* : `undo`
