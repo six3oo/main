@@ -35,10 +35,10 @@ public class ChangeThemeCommandParser implements Parser<ChangeThemeCommand> {
                 }
             }
             throw new ParseException(
-                    String.format(ChangeThemeCommand.MESSAGE_NO_THEME, ChangeThemeCommand.MESSAGE_USAGE));
+                    ChangeThemeCommand.MESSAGE_NO_THEME + "\n" +ChangeThemeCommand.MESSAGE_USAGE);
         } catch (IllegalValueException ive) {
             throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, ChangeThemeCommand.MESSAGE_USAGE));
+                    ChangeThemeCommand.MESSAGE_NO_THEME + "\n" +ChangeThemeCommand.MESSAGE_USAGE);
         }
     }
 

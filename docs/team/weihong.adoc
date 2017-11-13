@@ -1,12 +1,12 @@
-= Wei Hong - Project Portfolio
+= Cheng Wei Hong - Project Portfolio
 ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 :imagesDir: ../images
 :stylesDir: ../stylesheets
 
 == Project: TABCC
 The Address Book for Content Creators (TABCC) is a desktop address book application targeted at content creators. This software aims to help content creators efficiently manage their network of contacts. In the first version, our application specifically targets YouTubers, providing YouTube integration through YouTube's API.
-In future versions we plan to integrate other social media services like Twitch and Facebook. The user interacts with it using a CLI, and it has a GUI created with JavaFX. This software is written in Java, and has about 9 kLoC.
-*Code contributed*: [https://github.com/CS2103AUG2017-T15-B1/main/blob/master/collated/main/moomeowroar.md[Functional code]] [https://github.com/CS2103AUG2017-T15-B1/main/blob/master/collated/test/moomeowroar.md[Test code]] {give links to collated code files}
+In future versions we plan to integrate other social media services like Twitch and Facebook. The user interacts with it using a CLI, and it has a GUI created with JavaFX. This software is written in Java, and has about 9 kLoC. +
+*Code contributed*: [https://github.com/CS2103AUG2017-T15-B1/main/blob/master/collated/main/moomeowroar.md[Functional code]] [https://github.com/CS2103AUG2017-T15-B1/main/blob/master/collated/test/moomeowroar.md[Test code]]
 
 === Enhancement Added: Lock Screen
 
@@ -73,5 +73,5 @@ include::../DeveloperGuide.adoc[tag=liveHelp]
 
 * Added change theme command (Pull requests https://github.com/CS2103AUG2017-T15-B1/main/pull/89[#89])
 * Added and updated GUI color schemes (Pull requests https://github.com/CS2103AUG2017-T15-B1/main/pull/89[#89], https://github.com/CS2103AUG2017-T15-B1/main/pull/125[#125])
-* Wrote additional tests to increase coverage from 88% to 92% (Pull requests https://github.com[#36], https://github.com[#38])
+* Wrote additional tests to increase coverage (+1.1%) to 82.359% (Pull requests https://github.com/CS2103AUG2017-T15-B1/main/pull/117[#117], https://github.com/CS2103AUG2017-T15-B1/main/pull/138[#138])
 * Added a new UI feature which changes the color of the command word upon verification that the command exist. (Pull requests https://github.com/CS2103AUG2017-T15-B1/main/pull/125[#125])
