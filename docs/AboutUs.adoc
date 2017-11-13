@@ -4,7 +4,7 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 :imagesDir: images
 :stylesDir: stylesheets
 
-AddressBook is being developed by T15-B1. It is a address book application for Youtubers to store contact information of other Youtubers, with the aim of faciliting communication.
+TABCC is being developed by T15-B1. It is a address book application for Youtubers to store contact information of other Youtubers, with the aim of faciliting communication.
 We are a team based in the [School of Computing, National University of Singapore].
 
 == Project Team
