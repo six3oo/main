@@ -347,8 +347,10 @@ send: Opens up third-party communication application with the information of the
 * Windows Mail App should open up
 * Email typed in "To:" field should be "kurtschneider@example.com"
 * Result display box shows: Opened Mail App...
-* (Don't close Mail App yet, switch back to TABCC)
 ****
+
+[NOTE]
+Don't close Mail App yet, switch back to TABCC
 
 *Command:* `send 2`
 
@@ -358,8 +360,10 @@ send: Opens up third-party communication application with the information of the
 * Windows Mail App should open up again
 * Email typed in "To:" field should be changed to "robchapman@example.com"
 * Result display box shows: Opened Mail App...
-* (Can close mail app)
 ****
+
+[NOTE]
+Can close mail app.
 
 === Sort by name(ascending) command
 
