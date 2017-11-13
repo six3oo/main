@@ -58,9 +58,6 @@ public class UiManager extends ComponentManager implements Ui {
             lockScreen.fillInnerParts();
             if (!logic.isAddressBookLock()) {
                 lockScreen.loadMainWindow();
-                /*mainWindow = new MainWindow(primaryStage, config, prefs, logic);
-                mainWindow.show(); //This should be called before creating other UI parts
-                mainWindow.fillInnerParts();*/
             }
 
         } catch (Throwable e) {

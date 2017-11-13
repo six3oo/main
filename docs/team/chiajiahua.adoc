@@ -8,6 +8,9 @@ TABCC (The Address Book for Content Creators) is an address book application for
 
 *Code contributed*: [https://github.com/CS2103AUG2017-T15-B1/main/blob/master/collated/main/jhchia7.md[Functional code]] [https://github.com/CS2103AUG2017-T15-B1/main/blob/master/collated/test/jhchia7.md[Test code]]
 
+=== Purpose of portfolio
+The purpose of this portfolio is to showcase the work I contributed to my team's TABCC software in the CS2103T and CS2101 twin modules.
+
 === Enhancement Added: Select Command
 
 ==== External behavior
@@ -25,8 +28,7 @@ include::../UserGuide.adoc[tag=selectcommand]
 
 ==== Justification
 
-In its initial form, the select command shows the Google results of the contact’s name. With the application targeting a more specific group of users, YouTubers, the team believes that the select command can be better used to display the profile of the YouTuber instead. The select command opens the profile of the contact selected. The profile of the contacts displays various dynamic information which is updated automatically by the application using the YouTube Data API.
-
+In its initial form, the select command shows the Google results of the contact’s name. With the application targeting a more specific group of users namely Youtubers, the team believes that the select command can be better used to display the profile of the YouTuber instead. The select command opens the profile which displays various dynamic information obtained using the YouTube Data API. The dynamic information is updated every time the contact is selected.
 
 ==== Implementation
 
@@ -57,10 +59,10 @@ The Windows Mail App is chosen due to its support for many email services such a
 
 === Enhancement Proposed: Channel model
 
-A future addition to the profile would be the inclusion of information of other YouTubers of the channel (if channel is maintained by more than 1 YouTuber). This could be done by the implementation of a new Channel Model as seen below.
+A future addition to the profile would be the inclusion of information of other YouTubers of the channel (if channel is maintained by more than 1 YouTuber). This could be done by the implementation of a new Channel Model as seen below (Figure 1).
 
-image::class-diagram-channel.png[width="500"]
-_Figure 1 Class diagram with new Channel model_
+image::class-diagram-channel.png[width="600"]
+_Figure 1: Class diagram with new Channel model_
 
 === Enhancement Proposed: Integration with other and messaging services
 
@@ -85,10 +87,14 @@ The ability for the user to choose which data to display for their contacts woul
 
 ==== Contributed to FAQs for user guide
 
+---
+
 #Start of Extract [from: User Guide]#
 include::../UserGuide.adoc[tag=channelidfaq]
 
 #End of Extract#
+
+---
 
 ==== Helped test the software of another team
 

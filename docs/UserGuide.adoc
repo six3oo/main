@@ -21,7 +21,7 @@ At the current stage of development, TABCC is only fully compatible with the Win
 == About
 This document provides both an in-depth guide to each individual command and a summary of commands you can use. +
 
-If you run into any trouble regarding the usage of this user guide and/or the application, refer to the FAQs section. In the event that the FAQs section does not have a solution to your problem, feel free to post your questions in the forums where the team and other users would be able to help you.
+If you run into any trouble regarding the usage of this user guide and/or the application, refer to the FAQs section. In the event that the FAQs section does not have a solution to your problem, feel free to contact through the various communication channels listed on our link:https://github.com/CS2103AUG2017-T15-B1/main/blob/master/docs/ContactUs.adoc[Contact Us] page and we will get back to you.
 
 == Quick Start
 
@@ -35,7 +35,7 @@ This app will not work with earlier versions of Java 8.
 .  Copy the file to the folder you want to use as the home folder for your Address Book.
 .  Double-click the file to start the app. The GUI (Figure 3.1) should appear in a few seconds.
 +
-image::Ui.png[width="790"]
+image::Ui.png[width="967"]
 _Figure 3.1: GUI of application_
 +
 .  Type the command in the command box and press kbd:[Enter] to execute it. +
@@ -236,12 +236,12 @@ Lists all persons in the favourites list.
 // tag::selectcommand[]
 === Selecting a person : `select`
 
-Selects the person identified by the index number used in the last person listing and shows the YouTube profile of the person (Figure 2.10.1). +
+Selects the person identified by the index number used in the last person listing and shows the YouTube profile of the person (Figure 4.10.1). +
 
 Format: `select INDEX`
 
-image::Ui.png[width=600]
-_Figure 4.10.1 : Profile GUI_
+image::Ui.png[width=967]
+_Figure 4.10.1 : Profile GUI shown on the right side_
 
 ****
 * Selects the person and shows the profile of the person at the specified `INDEX`.
@@ -264,29 +264,29 @@ Selects the 1st person in the results of the `find` command. +
 // tag::sendcommand[]
 === Sending a message to a person : `send`
 
-This command will redirect you to third-party communication applications like Windows Mail and WhatsApp (to-be-implemented). This command will automatically fill up the information of your contact in the third party application for you. +
+This command will redirect you to third-party communication applications like Windows Mail. This command will automatically fill up the information of your contact in the third party application for you. +
 
 Format: `send INDEX`
 
 ===== Steps:
 
-*Step 1.* Type `list` to display the list of contacts in TABCC.
+*Step 1.* Type `list` to display the list of contacts in TABCC. (Figure 4.11.1)
 
 image::listCommand.png[width="400"]
 _Figure 4.11.1 : List of contacts_
 
-*Step 2.* Type `send 2` to send an email to the second contact in the list. If you have entered the command in the correct format, you should see the Windows Mail application open.
+*Step 2.* Type `send 2` to send an email to the second contact in the list. If you have entered the command in the correct format, you should see the Windows Mail application open. (Figure 4.11.2)
 
 image::windows-mail-welcome.png[width="400"]
 _Figure 4.11.2 : List of contacts_
 
 *Step 3.* If you have already signed in to your email account, skip this step.
-If you have not signed in, click on the "Get Started" button (Figure 2.9.1.2) and add your email account. (Figure 2.9.1.3)
+If you have not signed in, click on the "Get Started" button (Figure 4.11.2) and add your email account. (Figure 4.11.3)
 
 image::windows-mail-add.png[width="300"]
 _Figure 4.11.3 : Add an account_
 
-*Step 4.* If you have reached this step, congratulations! You should be able to see your inbox and an empty mail template with the email of your contact automatically filled out for you. (Figure 2.9.1.4)
+*Step 4.* If you have reached this step, congratulations! You should be able to see your inbox and an empty mail template with the email of your contact automatically filled out for you. (Figure 4.11.4)
 Close or minimise the mail application when done to return to AddressBook.
 
 image::windows-mail-send.png[width="800"]
@@ -416,18 +416,18 @@ There is no need to save manually.
 [[get-channel-id]]
 *Q*: How do I find the Channel ID of a YouTube channel? +
 *A*: YouTube allows a channel to have link:https://support.google.com/youtube/answer/6180214?hl=en[multiple URLs].
-If the URL of the homepage of a YouTube channel you visit looks like "https://www.youtube.com/channel/UCLMtDePlMyiqv2XC_ByNEVQ", simply copy the characters after "channel/" and you'll get the Channel ID. Otherwise, follow the steps below.
+If the URL of the homepage of a YouTube channel you visit looks like "https://www.youtube.com/channel/UCLMtDePlMyiqv2XC_ByNEVQ", simply copy the characters after "channel/" and you'll get the Channel ID. Otherwise, if the URL of the homepage looks different, follow the steps below.
 
 Step 1. Go to the page of any video of the target YouTube channel. +
 
 Step 2. Click on the channel name below the video player as seen from Figure 3.1 and you should be redirected to the homepage of the YouTube channel. (You can also see the channel ID from the URL preview at the bottom of Figure 3.1.)
 
-image::get-channel-id-video.png[width=500]
+image::get-channel-id-video.png[width=600]
 _Figure 5.1 : Random video page of the target channel_
 
 Step 3. Copy the channel ID from the URL of the page.
 
-image::get-channel-id-copy.png[width=500]
+image::get-channel-id-copy.png[width=600]
 _Figure 5.1 : Random video page of the target channel_
 // end::channelidfaq[]
 
@@ -462,3 +462,5 @@ e.g. `theme light`
 . Channel Model
 . Ability to customise which data to grab and display from the YouTube Server
 . Display stars next to the names of favourite contacts and optionally display them at the top of the persons list.
+. Implement a Collab comand to allow user to instantly go to the email browswer with a pre-crafted email.
+. Display latest uploads of the YouTuber you clicked.
