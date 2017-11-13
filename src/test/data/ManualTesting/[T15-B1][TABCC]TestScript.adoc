@@ -55,10 +55,17 @@ Assume that the user does not have any password set +
 ****
 * Password is now set to password1
 ****
+
 Assume that the password is set to password1 +
 *Command:* `changepwd password2 password1`
 ****
 * Password is now set to password2
+****
+
+Assume that the password is set to password2 +
+*Command:* `changepwd password3 password1`
+****
+* Result display shows: Wrong password.
 ****
 
 [NOTE]
@@ -282,6 +289,17 @@ This command has been demonstrated throughout the TestScript.
 
 ****
 * The theme is now set to youtube
+****
+
+*Command:* `theme nosuchtheme`
+
+*Result:*
+
+****
+* Result display shows: +
+Invalid theme. +
+theme: Changes theme. +
+theme <dark/light/youtube>
 ****
 
 [NOTE]
