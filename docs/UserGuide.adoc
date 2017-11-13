@@ -68,7 +68,7 @@ Format: `help`
 An integrated live help system has also been added. A list of possible commands matching the entered words will appear as you type into the command box.
 
 image::livehelpSS.png[width = "800"]
-_Figure 4.6.1: Live Help_
+_Figure 4.1.1: Live Help_
 
 // end::liveHelp[]
 
