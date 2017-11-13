@@ -13,7 +13,6 @@ using CLI, and it has a GUI created using JavaFX. +
 
 `Find Email Command`
 -------------------
-=== Locating persons by Email: `findemail`
 ---
 #Start of Extract [from: User Guide]#
 
@@ -27,8 +26,6 @@ include::../UserGuide.adoc[tag=findemail]
 
 `Find Tag Command`
 -----------------
-=== Locating persons by tag: `findtag`
-
 ---
 #Start of Extract [from: User Guide]#
 
@@ -42,8 +39,6 @@ include::../UserGuide.adoc[tag=findtag]
 
 `Sort by Name Command (Ascending)`
 ---------------------------------
-=== Sorting the contacts by name (ascending order) : `sortascend`
-
 ---
 #Start of Extract [from: User Guide]#
 
