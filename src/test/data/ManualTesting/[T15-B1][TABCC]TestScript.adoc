@@ -1,6 +1,9 @@
 = Testscript
 
 :sectnums:
+:imagesDir: images
+:stylesDir: stylesheets
+:experimental:
 
 == Loading the sample data
 
@@ -23,6 +26,26 @@ FORMAT REMOVE AFTER +
 * RESULT 3
 ****
 
+=== Help command
+
+*Command:* `help`
+
+*Result:*
+
+****
+* Help Window opens
+* Result display box shows: Opened help window.
+****
+
+*Command:* Press kbd:[F1] key
+
+*Result:*
+
+****
+* Help Window opens
+* Result display box shows: Opened help window.
+****
+
 === Add command
 
 *Command:* `add n/Ryan Higa p/98765432 e/ryanhiga@example.com a/2009 Terrace Dr Sacramento, CA 95825 USA c/UCSAUGyc_xA8uYzaIVG6MESQ t/Comedy`
@@ -32,6 +55,58 @@ FORMAT REMOVE AFTER +
 ****
 * Result display box shows: New person added: Ryan Higa Phone: 98765432 Email: ryanhiga@example.com Address: 2009 Terrace Dr Sacramento, CA 95825 USA ChannelId: UCSAUGyc_xA8uYzaIVG6MESQ Tags: [Comedy]
 * Ryan Higa person card added to the bottom of the person list
+****
+
+*Command:* `undo`
+
+*Result:*
+
+****
+* Result display box shows: Undo success!
+* Ryan Higa person card is removed from the bottom of the person list
+****
+
+*Command:* `add n/Ryan Higa p/98765432 e/ryanhiga@example.com a/2009 Terrace Dr Sacramento, CA 95825 USA c/UCSAUGyc_xA8uYzaIVG6MBSq t/Comedy`
+(last letter 'Q' is changed to 'q')
+
+*Result:*
+
+****
+* Result display box shows: Person's Channel ID is invalid.
+* Command box shows: Typed command in red.
+
+****
+
+*Command:* `add n/Juan Mata p/90463851 e/juanmata@example.com a/20 Dalton Ave Stretford Manchester M32 9TN UK c/ t/Sports` (Channel ID is blank)
+
+*Result:*
+
+****
+* Result display box shows: Person's Channel ID is invalid.
+* Command box shows: Typed command in red.
+
+****
+
+*Command:* `add n/Juan Mata e/juanmata@example.com a/20 Dalton Ave Stretford Manchester M32 9TN UK c/UC_WoyWJ6cx9LEhGohfPi-3g t/Sports` (Phone number is missing)
+
+*Result:*
+
+****
+* Result display box shows: +
+  Invalid command format! +
+  add: Adds a person to the address book. Parameters: n/NAME p/PHONE e/EMAIL a/ADDRESS c/CHANNEL ID [t/TAG]...
+  Example: add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 c/UC-lHJZR3Gqxm24_Vd_AJ5Yw t/friends t/owesMoney
+* Command box shows: Typed command in red.
+
+****
+
+*Command:* `add n/Juan Mata p/90463851 e/juanmata@example.com a/20 Dalton Ave Stretford Manchester M32 9TN UK c/UC_WoyWJ6cx9LEhGohfPi-3g t/Sports` (Correct command)
+
+*Result:*
+
+****
+* Result display box shows: New person added: Juan Mata Phone: 90463851 Email: juanmata@example.com Address: 20 Dalton Ave Stretford Manchester M32 9TN UK ChannelId: UC_WoyWJ6cx9LEhGohfPi-3g Tags: [Sports]
+* Juan Mata person card is added to the bottom of the person list
 ****
 
 === Edit command
@@ -137,7 +212,62 @@ FORMAT REMOVE AFTER +
 ****
 === Select command
 
+*Command:* `select 1` then press the kbd:[Backspace] key
+
+*Result:*
+
+****
+* Result display box shows: Selected Person: 1
+* Person card for Kurt Hugo Schneider selected on the person list panel on the left
+* Profile GUI for Kurt Hugo Schneider appears on the profile panel on the right
+****
+
+*Command:* `select 5`
+
+*Result:*
+
+****
+* Result display box shows: The person index provided is invalid
+* Command box shows: Typed command in red.
+* Person card selected and profile GUI shown is unchanged (still shows Kurt Hugo Schneider)
+****
+
 === Send command
+
+*Command:* `send 0`
+
+*Result:*
+
+****
+* Result display box shows: +
+Invalid command format!
+send: Opens up third-party communication application with the information of the person identified by the index number used in the last person listing.
+
+* Command box shows: Typed command in red.
+
+****
+
+*Command:* `send 1`
+
+*Result:*
+
+****
+* Windows Mail App should open up
+* Email typed in "To:" field should be "kurtschneider@example.com"
+* Result display box shows: Opened Mail App...
+* (Don't close Mail App yet, switch back to TABCC)
+****
+
+*Command:* `send 2`
+
+*Result:*
+
+****
+* Windows Mail App should open up again
+* Email typed in "To:" field should be changed to "robchapman@example.com"
+* Result display box shows: Opened Mail App...
+* (Can close mail app)
+****
 
 === Sort by name(ascending) command
 
