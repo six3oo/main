@@ -224,7 +224,8 @@ Restarting the app now requires you to input the password set.
 ****
 * Result display box shows: Listed favourite persons
 * Person list shows all persons marked as favourites.
-=======
+****
+
 *Command:* `delete 21` (assuming only 20 contacts in the person list)
 
 *Result:*
