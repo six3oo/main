@@ -448,3 +448,5 @@ e.g. `theme light`
 . Channel Model
 . Ability to customise which data to grab and display from the YouTube Server
 . Display stars next to the names of favourite contacts and optionally display them at the top of the persons list.
+. Implement a Collab comand to allow user to instantly go to the email browswer with a pre-crafted email.
+. Display latest uploads of the YouTuber you clicked.
