@@ -158,6 +158,8 @@ public class AddressBookParser {
         commandList.put(EditCommand.COMMAND_WORD, EditCommand.COMMAND_HELP);
         commandList.put(DeleteCommand.COMMAND_WORD, DeleteCommand.COMMAND_HELP);
         commandList.put(FavCommand.COMMAND_WORD, FavCommand.COMMAND_HELP);
+        commandList.put(FindFavCommand.COMMAND_WORD, FindFavCommand.COMMAND_HELP);
+        commandList.put(FindFavCommand.COMMAND_ALIAS, FindFavCommand.COMMAND_HELP);
         commandList.put(ClearCommand.COMMAND_WORD, ClearCommand.COMMAND_HELP);
         commandList.put(FindCommand.COMMAND_WORD, FindCommand.COMMAND_HELP);
         commandList.put(FindTagCommand.COMMAND_WORD, FindTagCommand.COMMAND_HELP);
