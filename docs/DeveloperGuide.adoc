@@ -569,9 +569,9 @@ link:#dynamic-information[Dynamic information] is information retrieved from the
 . Total view count (statistics)
 . Video count (statistics)
 
-Some of the dynamic information, such as view count, grabbed from the YouTube Servers are difficult to read due to the long chain of digits that each category might be presented in (eg. 190601150). +
+Some of the dynamic information, such as view count, grabbed from the YouTube Servers are difficult to read due to the long chain of digits that each category might be presented in (eg. 191929603). +
 
-To tackle this problem, the `formatNumber()` method is implemented to reduce the number of digits with the order of magnitude suffix placed behind the number. The result from formatting the number '190601150' can be seen in the views categories in Figure 3.5.2.1 below. +
+To tackle this problem, the `formatNumber()` method is implemented to reduce the number of digits with the order of magnitude suffix placed behind the simplified number. The result from formatting the number '191929603' can be seen in the views categories in Figure 3.5.2.1 below. +
 
 Currently the `formatNumber()` method supports up to the billion suffix. Suffix representing larger order of magnitudes will be added when the need arises.
 
