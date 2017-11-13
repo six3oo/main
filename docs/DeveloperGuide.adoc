@@ -270,9 +270,9 @@ Figure 3.1.1 +
 
 **Functions of classes in FindEmailCommand** +
 
-**1)**	FindEmailCommand.java: This class search and list the persons in address book whose email contains any of the argument keyword. This class extends the abstract class Command. +
+**1)**	FindEmailCommand.java: This class searches and lists the persons in address book whose email contains any of the argument keyword. This class extends the abstract class Command. +
 
-**2)**	EmailContainsKeyWordsPredicate.java: This class test that a person’s email matches any of the keyword given. This class implements Predicate<ReadOnlyPerson> interface. +
+**2)**	EmailContainsKeyWordsPredicate.java: This class tests that a person’s email matches any of the keyword given. This class implements Predicate<ReadOnlyPerson> interface. +
 
 **3)**	FindEmailCommandParser.java: This class parses input arguments and creates a new FindEmailCommand object. +
 
@@ -309,17 +309,18 @@ public class FindEmailCommandParser {
     }
 }
 ----
+// end::FindEmailCommand[]
 
 // tag::FavCommand[]
 === FavCommand
 This enhancement allows users to add or remove people to and fro a favourites list. +
-To use this command, user just need to type in `fave <index of targeted person> <true/false>`. +
+To use this command, users just need to type in `fave <index of targeted person> <true/false>`. +
 `true` will add the targeted person to the favourites, while `false` removes the person. +
 The favourites state is a boolean variable saved in the addressbook.xml file. +
 The implementation of the fave command consists of 2 new classes, namely `FavCommand.java`, `FavCommandParser.java.` +
 Both these classes reside in the Logic component.
 
-image::FavCommand.png[width="800"] +
+image:FavCommand.png[width=800] +
 Figure 3.3.1 +
 
 **Functions of classes in FavCommand** +
@@ -352,6 +353,58 @@ public class FavCommandParser {
 }
 ----
 // end::FavCommand[]
+// tag::FindFavCommand[]
+=== FindFavCommand
+This enhancement allows users to view the favourites list. +
+To use this command, users just need to type in `findfav` or `ffav`. +
+The implementation of the fave command consists of 3 new classes, namely `FindFavCommand.java`, `FindFavCommandParser.java` and `FavouritePredicate.java`. +
+The first two class reside in the Logic component, and the latter class resides in the Model component.
+
+**Functions of classes in FindFavCommand** +
+
+**1)**	FavCommand.java: This class searches and lists the persons in address book who are marked as favourites. This class extends the abstract class Command.
+
+**2)**	FavouritePredicate.java: This class tests that a person is marked as a favourite. This class implements Predicate<ReadOnlyPerson> interface. +
+
+**3)**	FindEmailCommandParser.java: This class parses input arguments and creates a new FindFavCommand object. +
+
+**Implementations of FindFavCommand**
+
+The `FindFavCommand` is implemented this way:
+[source,java]
+----
+public class FindFavCommand extends Command{
+    @Override
+    public CommandResult execute() {
+	//command logic
+    }
+}
+
+----
+
+The `FindFavCommandParser.java` is implemented this way:
+[source,java]
+----
+public class FindFavCommandParser {
+
+    public FindEmailCommand parse(String args) throws ParseException {
+        //parser logic
+    }
+}
+----
+The `FavouritePredicate.java` is implemented this way:
+[source,java]
+----
+public class FavouritePredicate extends Predicate<ReadOnlyPerson> {
+
+    @Override
+    public boolean test(ReadOnlyPerson) {
+        //predicate logic
+    }
+}
+----
+
+// end::FindFavCommand[]
 
 // tag::undoredo[]
 === Undo/Redo mechanism
