@@ -35,7 +35,7 @@ This app will not work with earlier versions of Java 8.
 .  Copy the file to the folder you want to use as the home folder for your Address Book.
 .  Double-click the file to start the app. The GUI (Figure 3.1) should appear in a few seconds.
 +
-image::Ui.png[width="790"]
+image::Ui.png[width="967"]
 _Figure 3.1: GUI of application_
 +
 .  Type the command in the command box and press kbd:[Enter] to execute it. +
@@ -240,7 +240,7 @@ Selects the person identified by the index number used in the last person listin
 
 Format: `select INDEX`
 
-image::Ui.png[width=600]
+image::Ui.png[width=967]
 _Figure 4.10.1 : Profile GUI shown on the right side_
 
 ****
@@ -422,12 +422,12 @@ Step 1. Go to the page of any video of the target YouTube channel. +
 
 Step 2. Click on the channel name below the video player as seen from Figure 3.1 and you should be redirected to the homepage of the YouTube channel. (You can also see the channel ID from the URL preview at the bottom of Figure 3.1.)
 
-image::get-channel-id-video.png[width=500]
+image::get-channel-id-video.png[width=600]
 _Figure 5.1 : Random video page of the target channel_
 
 Step 3. Copy the channel ID from the URL of the page.
 
-image::get-channel-id-copy.png[width=500]
+image::get-channel-id-copy.png[width=600]
 _Figure 5.1 : Random video page of the target channel_
 // end::channelidfaq[]
 
