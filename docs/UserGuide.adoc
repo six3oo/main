@@ -130,6 +130,7 @@ Returns `john` and `John Doe`
 * `find Betsy Tim John` +
 Returns any person having names `Betsy`, `Tim`, or `John`
 
+// tag::findemail[]
 === Locating persons by Email: `findemail`
 
 Finds persons whose email contain any of the given keywords. +
@@ -149,7 +150,9 @@ Returns contact with the email `bob@example.com` +
 image::findemail.png[width = "800"]
 _Figure 4.6.1: Find email_
 
+// end::findemail[]
 
+// tag::findtag[]
 === Locating persons by tag: `findtag`
 
 Finds persons whose tag contain any of the given keywords. +
@@ -169,6 +172,8 @@ Return contact(s) with the 'friends' tag. +
 
 image::findtag.png[width = "800"]
 _Figure 4.7.1 : Find tag_
+
+// end::findtag[]
 
 === Deleting a person : `delete`
 
@@ -285,6 +290,7 @@ _Figure 4.11.4 : New email_
 ====
 // end::sendcommand[]
 
+// tag::sortascend[]
 === Sorting the contacts by name (ascending order) : `sortascend`
 This command allows the user to sort the contacts by name, lexicographically ascending. +
 Format `sortascend` +
@@ -297,6 +303,7 @@ _Figure 4.12.1 : Before sorting_
 image::aftersort.png[width="800"]
 _Figure 4.12.2 : After sorting_
 
+// end::sortascend[]
 
 === Listing entered commands : `history`
 
