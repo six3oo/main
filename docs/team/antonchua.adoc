@@ -19,6 +19,7 @@ include::../UserGuide.adoc[tag=favcommand]
 
 include::../UserGuide.adoc[tag=findfavcommand]
 
+=======
 #End of Extract#
 
 ---
@@ -36,6 +37,7 @@ include::../DeveloperGuide.adoc[tag=FavCommand]
 
 include::../DeveloperGuide.adoc[tag=FindFavCommand]
 
+=======
 #End of Extract#
 
 ---

@@ -388,7 +388,7 @@ Format: `clear`
 === Change Password : `changepwd`
 
 Changes the password required to access the address book. +
-Format: `changepwd OLD_PASSWORD NEW_PASSWORD`
+Format: `changepwd NEW_PASSWORD OLD_PASSWORD`
 // end::lock[]
 
 === Change Theme : `theme`
