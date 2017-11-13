@@ -20,6 +20,7 @@ At the current stage of development, TABCC is only fully compatible with the Win
 
 == About
 This document provides both an in-depth guide to each individual command and a summary of commands you can use. +
+
 If you run into any trouble regarding the usage of this user guide and/or the application, refer to the FAQs section. In the event that the FAQs section does not have a solution to your problem, feel free to post your questions in the forums where the team and other users would be able to help you.
 
 == Quick Start
