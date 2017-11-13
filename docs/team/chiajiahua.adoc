@@ -8,6 +8,9 @@ TABCC (The Address Book for Content Creators) is an address book application for
 
 *Code contributed*: [https://github.com/CS2103AUG2017-T15-B1/main/blob/master/collated/main/jhchia7.md[Functional code]] [https://github.com/CS2103AUG2017-T15-B1/main/blob/master/collated/test/jhchia7.md[Test code]]
 
+== Purpose of portfolio
+The purpose of this portfolio is to showcase the work I contributed to my team's TABCC software in the CS2103T and CS2101 twin modules.
+
 === Enhancement Added: Select Command
 
 ==== External behavior
