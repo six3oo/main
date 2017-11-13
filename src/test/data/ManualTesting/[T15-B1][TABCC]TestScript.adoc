@@ -15,17 +15,6 @@
 
 == Commands
 
-FORMAT REMOVE AFTER +
-*Command:* `THING TO TYPE`
-
-*Result:*
-
-****
-* Result display box shows:
-* RESULT 2
-* RESULT 3
-****
-
 === Help command
 
 *Command:* `help`
