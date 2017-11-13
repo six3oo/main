@@ -3,6 +3,12 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 :imagesDir: ../images
 :stylesDir: ../stylesheets
 
+== Purpose
+
+This Project Portfolio Page introduces the software, TABCC, as well as displays the
+contributions that Chua Zhenyu, Anton has made towards TABCC. The contributions include
+enhancements added, enhancements proposed, and other additional contributions.
+
 == Project: TABCC
 TABCC is a desktop address book application for YouTubers to keep track of, and connect with other YouTubers for easy collaboration. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 6 kLoC.
 
@@ -13,13 +19,10 @@ TABCC is a desktop address book application for YouTubers to keep track of, and 
 ==== External behavior
 
 ---
-#Start of Extract [from: User Guide]#
 
 include::../UserGuide.adoc[tag=favcommand]
 
 include::../UserGuide.adoc[tag=findfavcommand]
-
-#End of Extract#
 
 ---
 
@@ -30,21 +33,25 @@ This feature enables our users to quickly access and identify a subset of their 
 ==== Implementation
 
 ---
-#Start of Extract [from: Developer Guide]#
 
 include::../DeveloperGuide.adoc[tag=FavCommand]
 
 include::../DeveloperGuide.adoc[tag=FindFavCommand]
 
-#End of Extract#
-
 ---
 
 === Enhancement Proposed: Add favourites starring
 
-A star will be displayed next to the contact's name if he/she is a Favourite contact, and he/she will always appear at the top of the main contact list. This will further ease identification of the user's most-used contacts.
+==== External behavior
+
+A star will be displayed next to the contact's name if he/she is a favourite contact, and he/she will always appear at the top of the main contact list.
+
+==== Justification
+
+This will further ease identification of the user's most-used contacts.
 
 === Other contributions
 
 * Non-functional requirements in the Developer Guide link:https://github.com/CS2103AUG2017-T15-B1/main/pull/35[Link]
 * Add implementation of deleteTag(Tag) in ModelManager link:https://github.com/CS2103AUG2017-T15-B1/main/pull/39[Link]
+* Added a custom app title and icon link:https://github.com/CS2103AUG2017-T15-B1/main/pull/120[Link]
