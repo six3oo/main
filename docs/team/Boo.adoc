@@ -1,91 +1,70 @@
-= Boo Ming Hui - Project Portfolio
-ifdef::env-github,env-browser[:outfilesuffix: .adoc]
-:imagesDir: ../images
-:stylesDir: ../stylesheets
 
-== Project: TABCC (AddressBook - level 4)
 
+Ming Hui Project Portfolio
+---------------------------
+`Project: TABCC`
+-----------------
 TABCC is an desktop address book application designed mainly for YouTubers. The user interacts with it +
 using CLI, and it has a GUI created using JavaFX. +
  +
 
-*Code contributed*: [https://github.com/CS2103AUG2017-T15-B1/main/blob/master/collated/main/Minghui94.md[Functional code]]
- [https://github.com/CS2103AUG2017-T15-B1/main/blob/master/collated/test/Minghui94.md[Test code]]
+*Code contributed*: +
+https://github.com/minghui94/main/blob/master/src/main/java/seedu/address/logic/commands/FindEmailCommand.java/[Find Email Command] +
+https://github.com/CS2103AUG2017-T15-B1/main/blob/master/src/main/java/seedu/address/model/person/EmailContainsKeywordsPredicate.java/[Email contains keyword predicate] +
+https://github.com/minghui94/main/blob/master/src/main/java/seedu/address/logic/commands/FindTagCommand.java/[Find tag command] +
+https://github.com/CS2103AUG2017-T15-B1/main/blob/master/src/main/java/seedu/address/model/tag/TagContainsKeywordsPredicate.java/[Tags contain keyword predicate] +
+https://github.com/CS2103AUG2017-T15-B1/main/blob/master/src/main/java/seedu/address/logic/commands/SortAscendingCommand.java/[Sort Command (ascending)] +
+ +
 
-Enhancement added: `Find Email Command`
---------------------------------------
+`Find Email Command`
+-------------------
+=== Locating persons by Email: `findemail`
 ---
 #Start of Extract [from: User Guide]#
 
 
-include::../UserGuide.adoc[tag=selectcommand]
-
-=== Locating persons by Email: `findemail`
-
-Finds persons whose email contain any of the given keywords. +
-Format: `findemail KEYWORD@[domain].com`
-
-****
-* The search is case sensitive.
-* Only the email is search.
-* Only the full email will be matched.
-****
-
-Examples:
-
-* `findemail` `bob@example.com` +
-Returns contact with the email `bob@example.com` +
-
-image::findemail.png[width = "800"]
-_Figure 1: Find email_
- +
-
-Enhancement added: `Find Tag Command`
-------------------------------------
-=== Locating persons by tag: `findtag`
-
-Finds persons whose tag contain any of the given keywords. +
-Format: `findtag KEYWORD`
-
-****
-* The search is case insensitive.
-* Only the tag is search.
-* Only full words will be matched.
-* Contacts with similar tag will be shown on the list.
-****
-
-Examples:
-
-* `findtag friends` +
-Return contact(s) with the 'friends' tag. +
-
-image::findtag.png[width = "800"]
-_Figure 2 : Find tag_
- +
-
-Enhancement added: `Sort by Name Command (Ascending)`
------------------------------------------------------
-=== Sorting the contacts by name (ascending order) : `sortascend`
-This command allows the user to sort the contacts by name, lexicographically ascending. +
-Format `sortascend` +
-Examples: +
-
-image::beforesort.png[width="800"]
-_Figure 3.1 : Before sorting_
-
-
-image::aftersort.png[width="800"]
-_Figure 3.2 : After sorting_
+include::../UserGuide.adoc[tag=findemail]
 
 
 #End of Extract#
 
 ---
+
+`Find Tag Command`
+-----------------
+=== Locating persons by tag: `findtag`
+
+---
+#Start of Extract [from: User Guide]#
+
+
+include::../UserGuide.adoc[tag=findtag]
+
+
+#End of Extract#
+
+---
+
+`Sort by Name Command (Ascending)`
+---------------------------------
+=== Sorting the contacts by name (ascending order) : `sortascend`
+
+---
+#Start of Extract [from: User Guide]#
+
+
+include::../UserGuide.adoc[tag=sortascend]
+
+
+#End of Extract#
+
+---
+
 `Justification`
 --------------
 `Find Email Command`: Some user may have very special email but their name may be difficult for a user to remember. +
 
-For example, an English speaking user wants to collaborate with a Japanese YouTuber named Yukiko Ogawa, the name may be difficult for him to remember as Japanese is not be his/her native language. However, the Japanese YouTuber has the email cat_is_cute@example.com, which is a lot easier for the user to remember.
+For example, an English speaking user wants to collaborate with a Japanese YouTuber named Yukiko Ogawa, the name may be difficult for him to remember as Japanese is not be his/her native language. However, the Japanese YouTuber has the email catiscute@example.com, which is a lot easier for the user to remember.
  +
  +
  +
@@ -108,11 +87,6 @@ able to know exactly where the contact is located in the list.
 '''
 `Implementation`
 ---------------
----
-#Start of Extract [from: Developer Guide]#
-
-include::../DeveloperGuide.adoc[tag=selectcommand]
-
 // tag::FindEmailCommand[]
 === FindEmailCommand
 This enhancement is aiming to make the searches more powerful. +
@@ -122,7 +96,7 @@ To use this command, user just need to type in `“findemail”` follow by a whi
 The implementation of the find email command consist of 3 new classes, namely `FindEmailCommand.java`, `EmailContainsKeywordsPredicate.java` and `FindEmailCommandParser.java.` `FindEmailCommand.java` and `FindEmailCommandParser.java` resides in the logic component, while `EmailsContainKeywordsPredicate.java` resides in the model component. +
 
 image::FindEmailDiagram.png[width="800"]
-Figure 4 +
+Figure 3.1.1 +
 
 **Functions of classes in FindEmailCommand** +
 
@@ -164,10 +138,8 @@ public class FindEmailCommandParser {
     }
 }
 ----
-#End of Extract#
 
----
-
+'''
 `Enhancement Proposed: Collab Command`
 -------------------------------------
 ==== Automatically send an pre-wrote email to a person in the contact list: `collab`. +
