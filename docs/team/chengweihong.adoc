@@ -8,6 +8,9 @@ The Address Book for Content Creators (TABCC) is a desktop address book applicat
 In future versions we plan to integrate other social media services like Twitch and Facebook. The user interacts with it using a CLI, and it has a GUI created with JavaFX. This software is written in Java, and has about 9 kLoC. +
 *Code contributed*: [https://github.com/CS2103AUG2017-T15-B1/main/blob/master/collated/main/moomeowroar.md[Functional code]] [https://github.com/CS2103AUG2017-T15-B1/main/blob/master/collated/test/moomeowroar.md[Test code]]
 
+=== Purpose of portfolio
+The purpose of this portfolio is to showcase my contributions to my team's software, TABCC, for CS2103T Software Engineering module. This portfolio also encompasses the thought process and considerations behind certain programming approach. +
+
 === Enhancement Added: Lock Screen
 
 ==== External behavior
@@ -65,14 +68,24 @@ include::../DeveloperGuide.adoc[tag=liveHelp]
 
 ---
 
-=== Enhancement Proposed: Add command `remark`
+=== Enhancement Proposed: Processing events in natural language
 
-{Explain similar to the Undo/Redo feature above.}
+==== Justification
+
+To increase flexibility for commands as the user do not need to type in the specified structure. +
+To aid the user in processing commands from a paragraph of text. +
+For instance, the software will be able to extract event details from a chunk of text.
+
+==== Implementation
+For parsing date and time in natural language, we can enlist the help of natural language libraries like Natty.
+We can then extract the remaining text after removing the date and time portion to do further analysis of the event's name and location.
+Location can be identified through use of keywords like "at", "where", "place" or "location".
 
 === Other contributions
-
-* Added change theme command (Pull requests https://github.com/CS2103AUG2017-T15-B1/main/pull/89[#89])
+* Designed the icon
+* Added change theme command (Pull request https://github.com/CS2103AUG2017-T15-B1/main/pull/89[#89])
 * Added and updated GUI color schemes (Pull requests https://github.com/CS2103AUG2017-T15-B1/main/pull/89[#89], https://github.com/CS2103AUG2017-T15-B1/main/pull/125[#125])
-* Wrote additional tests to increase coverage (+1.1%) to 82.359% (Pull requests https://github.com/CS2103AUG2017-T15-B1/main/pull/117[#117])
-* Wrote additional tests to increase coverage (+1.2%) to 84.329% (Pull requests https://github.com/CS2103AUG2017-T15-B1/main/pull/147[#147])
-* Added a new UI feature which changes the color of the command word upon verification that the command exist. (Pull requests https://github.com/CS2103AUG2017-T15-B1/main/pull/125[#125])
+* Wrote additional tests to increase coverage (+1.1%) to 82.359% (Pull request https://github.com/CS2103AUG2017-T15-B1/main/pull/117[#117])
+* Wrote additional tests to increase coverage (+1.2%) to 84.329% (Pull request https://github.com/CS2103AUG2017-T15-B1/main/pull/147[#147])
+* Added a new UI feature which changes the color of the command word upon verification that the command exist. (Pull request https://github.com/CS2103AUG2017-T15-B1/main/pull/125[#125])
+* Made the colors for the tags non-randomized so that colors for the tags will not be repeated until all colors have already been used. (Pull request https://github.com/CS2103AUG2017-T15-B1/main/pull/163[#163])
