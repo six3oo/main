@@ -219,6 +219,20 @@ Adds the 2nd person in the address book to the favourites list.
 Removes the 1st person in the results of the `find` command from the favourites list.
 // end::favcommand[]
 
+// tag::findfavcommand[]
+=== Viewing your favourites list : `findfav`
+
+Displays the favourites list. +
+Format: `findfav` or `ffav`
+
+Examples:
+
+* `findfav` +
+Lists all persons in the favourites list.
+* `ffav` +
+Lists all persons in the favourites list.
+// end::findfavcommand[]
+
 // tag::selectcommand[]
 === Selecting a person : `select`
 

@@ -17,6 +17,9 @@ TABCC is a desktop address book application for YouTubers to keep track of, and 
 
 include::../UserGuide.adoc[tag=favcommand]
 
+include::../UserGuide.adoc[tag=findfavcommand]
+
+=======
 #End of Extract#
 
 ---
@@ -32,6 +35,9 @@ This feature enables our users to quickly access and identify a subset of their 
 
 include::../DeveloperGuide.adoc[tag=FavCommand]
 
+include::../DeveloperGuide.adoc[tag=FindFavCommand]
+
+=======
 #End of Extract#
 
 ---
