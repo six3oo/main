@@ -54,6 +54,58 @@ FORMAT REMOVE AFTER +
 * `Naomi Neo` is removed from the person list, her contact will no longer be available.
 ****
 
+=== Favourite command
+
+*Command:* `fave 3 true`
+
+*Result:*
+****
+* Result display box shows: Added Person to Favourites: [Naomi's details]
+* `Naomi Neo` is marked as a favourite.
+****
+
+*Command:* `fave 3 false`
+
+*Result:*
+****
+* Result display box shows: Removed Person from Favourites: [Naomi's details]
+* `Naomi Neo` is unmarked as a favourite.
+****
+
+*Command:* `undo`
+
+*Result:*
+****
+* Result display box shows: Undo success!
+* `Naomi Neo` is once again marked as a favourite.
+****
+
+*Command:* `fave 3`
+
+*Result:*
+****
+* Result display box shows: Invalid command format! [Favourites command help]
+* `Naomi Neo` is unmarked as a favourite.
+****
+
+=== Find Favourites Command
+
+*Command:* `findfav`
+
+*Result:*
+****
+* Result display box shows: Listed favourite persons
+* Person list shows all persons marked as favourites.
+****
+
+*Command:* `ffav`
+
+*Result:*
+****
+* Result display box shows: Listed favourite persons
+* Person list shows all persons marked as favourites.
+****
+
 === Find Command
 
 *Command:* `find naomi`
