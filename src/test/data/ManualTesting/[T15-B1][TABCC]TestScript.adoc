@@ -155,6 +155,29 @@ Restarting the app now requires you to input the password set.
 * `Naomi Neo` is removed from the person list, her contact will no longer be available.
 ****
 
+*Command:* `undo`
+
+*Result:*
+****
+* Result display box shows: Undo success!
+* `Naomi Neo` is added back to the address book and the contact detail can be viewed the person list.
+****
+
+*Command:* `delete 21` (assuming only 20 contacts in the person list)
+
+*Result:*
+****
+* Result display box shows: The person index provided is invalid.
+****
+
+*Command:* `delete -1` (negative index)
+
+*Result:*
+****
+* Result display box shows: Invalid command format.
+* Parameter has to be a positive integer.
+****
+
 === Favourite command
 
 *Command:* `fave 3 true`
@@ -165,12 +188,19 @@ Restarting the app now requires you to input the password set.
 * `Naomi Neo` is marked as a favourite.
 ****
 
+*Command:* `ffav`
+
+*Result:*
+****
+* Result display box shows: 1 persons listed!
+* `Naomi Neo` is listed in the person list.
+****
+
 *Command:* `fave 3 false`
 
 *Result:*
 ****
-* Result display box shows: Removed Person from Favourites: [Naomi's details]
-* `Naomi Neo` is unmarked as a favourite.
+* Result display box shows: The person index provided is invalid
 ****
 
 *Command:* `undo`
@@ -178,15 +208,15 @@ Restarting the app now requires you to input the password set.
 *Result:*
 ****
 * Result display box shows: Undo success!
-* `Naomi Neo` is once again marked as a favourite.
+* `Naomi Neo` is removed from favourite.
 ****
 
-*Command:* `redo`
+*Command:* `ffav`
 
 *Result:*
 ****
-* Result display box shows: Redo success!
-* `Naomi Neo` is once again unmarked as a favourite.
+* Result display box shows: 0 persons listed!
+* Person list is empty.
 ****
 
 *Command:* `fave 3`
@@ -194,7 +224,6 @@ Restarting the app now requires you to input the password set.
 *Result:*
 ****
 * Result display box shows: Invalid command format! [Favourites command help]
-* `Naomi Neo` is unmarked as a favourite.
 ****
 
 === Find Favourites Command
@@ -213,21 +242,6 @@ Restarting the app now requires you to input the password set.
 ****
 * Result display box shows: Listed favourite persons
 * Person list shows all persons marked as favourites.
-****
-
-*Command:* `delete 21` (assuming only 20 contacts in the person list)
-
-*Result:*
-****
-* Result display box shows: The person index provided is invalid.
-****
-
-*Command:* `delete -1` (negative index)
-
-*Result:*
-****
-* Result display box shows: Invalid command format.
-* Parameter has to be a positive integer.
 ****
 
 === Find Command
@@ -287,6 +301,7 @@ Restarting the app now requires you to input the password set.
 * Result display box shows: 4 persons listed!
 * Person list shows `Kurt Hugo Schneider`, `Rob Chapman`, `Paul Davids` and `NameWee`.
 ****
+
 === Select command
 
 *Command:* `select 1` then press the kbd:[Backspace] key
@@ -354,18 +369,52 @@ send: Opens up third-party communication application with the information of the
 ****
 * Result display box shows: List is now arranged in ascending order!
 * Person list is now arrange in lexicographical order according to the person's name, starting from Z all the way to A.
+* Person list will show: +
+  [Rob Chapman's Details] +
+  [Paul Davids's Details] +
+  [Namewee's Details] +
+  [Kurt Hugo Schneider's Details]
 ****
 
 === Clear command
-*Command:* clear
+*Command:* `clear`
 
 *Result:*
 ****
 * Address book has been cleared!
+* Person list is now empty.
+****
+
+*Command:* `undo`
+
+*Result:*
+****
+* Undo success!
+* Person list is now filled with contacts again.
+****
+
+*Command:* `redo`
+
+*Result:*
+****
+* Redo success!
+* Person list is now empty.
+****
+
+*Command:* `undo`
+
+*Result:*
+****
+* Undo success!
+* Person list is now filled with contacts again.
 ****
 
 === Undo command
 *Command:* undo +
+This command has been demonstrated throughout the TestScript.
+
+=== Redo command
+*Command:* redo +
 This command has been demonstrated throughout the TestScript.
 
 === Change Theme command
