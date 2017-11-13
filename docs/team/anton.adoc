@@ -15,7 +15,7 @@ TABCC is a desktop address book application for YouTubers to keep track of, and 
 ---
 #Start of Extract [from: User Guide]#
 
-include::../UserGuide.adoc[tag=fave]
+include::../UserGuide.adoc[tag=favourites]
 
 #End of Extract#
 
@@ -30,7 +30,7 @@ This feature enables our users to quickly access and identify a subset of their 
 ---
 #Start of Extract [from: Developer Guide]#
 
-include::../DeveloperGuide.adoc[tag=Favourites mechanism]
+include::../DeveloperGuide.adoc[tag=FavCommand[]]
 
 #End of Extract#
 
@@ -42,4 +42,5 @@ A star will be displayed next to the contact's name if he/she is a Favourite con
 
 === Other contributions
 
-* Non-functional requirements in the Developer Guide
+* Non-functional requirements in the Developer Guide link:https://github.com/CS2103AUG2017-T15-B1/main/pull/35[Link]
+* Add implementation of deleteTag(Tag) in ModelManager link:https://github.com/CS2103AUG2017-T15-B1/main/pull/39[Link]
