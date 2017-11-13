@@ -319,7 +319,7 @@ The favourites state is a boolean variable saved in the addressbook.xml file. +
 The implementation of the fave command consists of 2 new classes, namely `FavCommand.java`, `FavCommandParser.java.` +
 Both these classes reside in the Logic component.
 
-image::FavCommand.png[width="800"] +
+image:FavCommand.png[width=800] +
 Figure 3.3.1 +
 
 **Functions of classes in FavCommand** +
