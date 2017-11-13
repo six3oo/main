@@ -46,6 +46,33 @@ FORMAT REMOVE AFTER +
 * Result display box shows: Opened help window.
 ****
 
+=== Change Password command
+Assume that the user does not have any password set +
+*Command:* `changepwd password1`
+
+*Result:*
+
+****
+* Password is now set to password1
+****
+
+Assume that the password is set to password1 +
+*Command:* `changepwd password2 password1`
+****
+* Password is now set to password2
+****
+
+Assume that the password is set to password2 +
+*Command:* `changepwd password3 password1`
+****
+* Result display shows: Wrong password.
+****
+
+[NOTE]
+====
+Restarting the app now requires you to input the password set.
+====
+
 === Add command
 
 *Command:* `add n/Ryan Higa p/98765432 e/ryanhiga@example.com a/2009 Terrace Dr Sacramento, CA 95825 USA c/UCSAUGyc_xA8uYzaIVG6MESQ t/Comedy`
@@ -197,6 +224,20 @@ FORMAT REMOVE AFTER +
 ****
 * Result display box shows: Listed favourite persons
 * Person list shows all persons marked as favourites.
+=======
+*Command:* `delete 21` (assuming only 20 contacts in the person list)
+
+*Result:*
+****
+* Result display box shows: The person index provided is invalid.
+****
+
+*Command:* `delete -1` (negative index)
+
+*Result:*
+****
+* Result display box shows: Invalid command format.
+* Parameter has to be a positive integer.
 ****
 
 === Find Command
@@ -209,6 +250,20 @@ FORMAT REMOVE AFTER +
 * Person list shows Naomi Neo.
 ****
 
+*Command:* `find Jay Chou` (Assuming Jay Chou is not in the person list).
+
+*Result:*
+****
+* Result display box shows: 0 person listed!
+****
+
+*Command:* `find 1` (Entering integer parameter).
+
+*Result:*
+****
+* Result display box shows: 0 person listed!
+****
+
 === Find email command
 
 *Command:* `findemail namewee@example.com`
@@ -219,7 +274,21 @@ FORMAT REMOVE AFTER +
 * Person list shows NameWee.
 ****
 
+*Command:* `findemail jaychou@email.com` (Assuming no person with such email exist in TABCC).
+
+*Result:*
+****
+* Result display box shows: 0 person listed!
+****
+
 === Find tag command
+
+*Command:* `findtag NUS` (assuming no such tag exist in TABCC).
+
+*Result:*
+****
+* Result display box shows: 0 person listed!
+****
 
 *Command:* `findtag music`
 
@@ -298,23 +367,16 @@ send: Opens up third-party communication application with the information of the
 ****
 
 === Clear command
-
-=== Undo command
-
-=== Change Password command
-Assume that the user does not have any password set +
-*Command:* `changepwd password1`
+*Command:* clear
 
 *Result:*
+****
+* Address book has been cleared!
+****
 
-****
-* Password is now set to password1
-****
-Assume that the password is set to password1 +
-*Command:* `changepwd password2 password1`
-****
-* Password is now set to password2
-****
+=== Undo command
+*Command:* undo +
+This command has been demonstrated throughout the TestScript.
 
 === Change Theme command
 *Command:* `theme light`
@@ -340,3 +402,19 @@ Assume that the password is set to password1 +
 ****
 * The theme is now set to youtube
 ****
+
+*Command:* `theme nosuchtheme`
+
+*Result:*
+
+****
+* Result display shows: +
+Invalid theme. +
+theme: Changes theme. +
+theme <dark/light/youtube>
+****
+
+[NOTE]
+====
+The theme settings will be saved even if you restart the app.
+====
