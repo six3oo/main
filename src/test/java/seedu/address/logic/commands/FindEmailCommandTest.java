@@ -21,6 +21,8 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.person.EmailContainsKeywordsPredicate;
 import seedu.address.model.person.ReadOnlyPerson;
 
+//@@author minghui94
+
 /**
  * Contains integration tests (interaction with the Model) for {@code FindEmailCommand}.
  */
