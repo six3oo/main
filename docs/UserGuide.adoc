@@ -10,7 +10,7 @@ ifdef::env-github[]
 :tip-caption: :bulb:
 :note-caption: :information_source:
 endif::[]
-:repoURL: https://github.com/se-edu/addressbook-level4
+:repoURL: https://github.com/CS2103AUG2017-T15-B1/main
 
 By: `Team T15-B1`      Since: `Sep 2017`      Licence: `MIT`
 
@@ -20,6 +20,7 @@ At the current stage of development, TABCC is only fully compatible with the Win
 
 == About
 This document provides both an in-depth guide to each individual command and a summary of commands you can use. +
+
 If you run into any trouble regarding the usage of this user guide and/or the application, refer to the FAQs section. In the event that the FAQs section does not have a solution to your problem, feel free to post your questions in the forums where the team and other users would be able to help you.
 
 == Quick Start
@@ -195,7 +196,7 @@ Deletes the 2nd person in the address book.
 `delete 1` +
 Deletes the 1st person in the results of the `find` command.
 
-// tag::favourites
+// tag::favcommand[]
 === Adding or removing a person to/from your favourites list : `fave`
 
 Adds or removes the specified person from the address book to the favourites list. +
@@ -216,7 +217,7 @@ Adds the 2nd person in the address book to the favourites list.
 * `find Betsy` +
 `fave 1 false` +
 Removes the 1st person in the results of the `find` command from the favourites list.
-// end::favourites
+// end::favcommand[]
 
 // tag::selectcommand[]
 === Selecting a person : `select`
@@ -374,7 +375,7 @@ Format: `clear`
 === Change Password : `changepwd`
 
 Changes the password required to access the address book. +
-Format: `changepwd OLD_PASSWORD NEW_PASSWORD`
+Format: `changepwd NEW_PASSWORD OLD_PASSWORD`
 // end::lock[]
 
 === Change Theme : `theme`
@@ -446,4 +447,4 @@ e.g. `theme light`
 . Integration with other messaging services like WhatsApp, Twitter direct message and Facebook direct message.
 . Channel Model
 . Ability to customise which data to grab and display from the YouTube Server
-
+. Display stars next to the names of favourite contacts and optionally display them at the top of the persons list.

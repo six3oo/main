@@ -4,14 +4,14 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 :imagesDir: images
 :stylesDir: stylesheets
 
-AddressBook is being developed by T15-B1. It is a address book application for Youtubers to store contact information of other Youtubers, with the aim of faciliting communication.
+The Address Book For Content Creators [TABCC] is being developed by T15-B1. It is a address book application for Youtubers to store contact information of other Youtubers, with the aim of faciliting communication.
 We are a team based in the [School of Computing, National University of Singapore].
 
 == Project Team
 
 === Anton Chua
 image::six3oo.jpeg[width="150", align="left"]
-{empty}[https://github.com/six3oo[github]] [<<johndoe#, portfolio>>]
+{empty}[https://github.com/six3oo[github]] [<<antonchua#, portfolio>>]
 
 Role: Team Lead +
 Responsibilities: Model
@@ -20,7 +20,7 @@ Responsibilities: Model
 
 === Boo Ming Hui
 image::minghui94.jpeg[width="150", align="left"]
-{empty}[http://github.com/minghui94[github]] [<<johndoe#, portfolio>>]
+{empty}[http://github.com/minghui94[github]] [<<boominghui#, portfolio>>]
 
 Role: Developer +
 Responsibilities: UI
@@ -29,7 +29,7 @@ Responsibilities: UI
 
 === Chia Jiahua
 image::jhchia7.jpeg[width="150", align="left"]
-{empty}[http://github.com/jhchia7[github]] [<<johndoe#, portfolio>>]
+{empty}[http://github.com/jhchia7[github]] [<<chiajiahua#, portfolio>>]
 
 Role: Developer +
 Responsibilities: Logic
@@ -38,7 +38,7 @@ Responsibilities: Logic
 
 === Cheng Wei Hong
 image::moomeowroar.png[width="150", align="left"]
-{empty}[http://github.com/moomeowroar[github]] [<<johndoe#, portfolio>>]
+{empty}[http://github.com/moomeowroar[github]] [<<chengweihong#, portfolio>>]
 
 Role: Developer +
 Responsibilities: Storage
