@@ -156,6 +156,21 @@ Restarting the app now requires you to input the password set.
 * `Naomi Neo` is removed from the person list, her contact will no longer be available.
 ****
 
+*Command:* `delete 21` (assuming only 20 contacts in the person list)
+
+*Result:*
+****
+* Result display box shows: The person index provided is invalid.
+****
+
+*Command:* `delete -1` (negative index)
+
+*Result:*
+****
+* Result display box shows: Invalid command format.
+* Parameter has to be a positive integer.
+****
+
 === Find Command
 
 *Command:* `find naomi`
@@ -164,6 +179,20 @@ Restarting the app now requires you to input the password set.
 ****
 * Result display box shows: 1 person listed!
 * Person list shows Naomi Neo.
+****
+
+*Command:* `find Jay Chou` (Assuming Jay Chou is not in the person list).
+
+*Result:*
+****
+* Result display box shows: 0 person listed!
+****
+
+*Command:* `find 1` (Entering integer parameter).
+
+*Result:*
+****
+* Result display box shows: 0 person listed!
 ****
 
 === Find email command
@@ -176,7 +205,21 @@ Restarting the app now requires you to input the password set.
 * Person list shows NameWee.
 ****
 
+*Command:* `findemail jaychou@email.com` (Assuming no person with such email exist in TABCC).
+
+*Result:*
+****
+* Result display box shows: 0 person listed!
+****
+
 === Find tag command
+
+*Command:* `findtag NUS` (assuming no such tag exist in TABCC).
+
+*Result:*
+****
+* Result display box shows: 0 person listed!
+****
 
 *Command:* `findtag music`
 
