@@ -1,5 +1,5 @@
 # jhchia7
-###### /java/seedu/address/logic/commands/SendCommandTest.java
+###### \java\seedu\address\logic\commands\SendCommandTest.java
 ``` java
 
 public class SendCommandTest {
@@ -50,7 +50,7 @@ public class SendCommandTest {
 
 }
 ```
-###### /java/systemtests/SendCommandSystemTest.java
+###### \java\systemtests\SendCommandSystemTest.java
 ``` java
 
 public class SendCommandSystemTest extends AddressBookSystemTest {
@@ -62,7 +62,7 @@ public class SendCommandSystemTest extends AddressBookSystemTest {
         String command = "   " + SendCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased() + "   ";
         assertCommandSuccess(command, INDEX_FIRST_PERSON);
 
-        /* Case: send to last person in the person list -> selected
+        /* Case: send to last person in the person list
          * -> send to field in opened mail app updated
          */
         Index personCount = Index.fromOneBased(getTypicalPersons().size());

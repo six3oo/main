@@ -4,7 +4,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 
 //@@author moomeowroar
 /**
- * Sends a message to the contact through email
+ * Command to change password
  */
 
 public class ChangePwdCommand extends Command {

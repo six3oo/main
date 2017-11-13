@@ -1,5 +1,5 @@
 # jhchia7
-###### /java/seedu/address/logic/commands/SendCommand.java
+###### \java\seedu\address\logic\commands\SendCommand.java
 ``` java
 
 /**
@@ -42,10 +42,10 @@ public class SendCommand extends Command {
         String emailOfPerson = personToCommunicate.getEmail().toString();
 
         //Open Windows 10 Mail app
+        assert emailOfPerson != null : "emailOfPerson should not be null";
         try {
             Process p = Runtime.getRuntime().exec("cmd /c start mailto:" + emailOfPerson);
             p.waitFor();
-            System.out.println("Mail launched!");
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -58,7 +58,7 @@ public class SendCommand extends Command {
 
 }
 ```
-###### /java/seedu/address/logic/parser/SendCommandParser.java
+###### \java\seedu\address\logic\parser\SendCommandParser.java
 ``` java
 
 /**
@@ -82,7 +82,7 @@ public class SendCommandParser implements Parser<SendCommand> {
     }
 }
 ```
-###### /java/seedu/address/model/person/ChannelId.java
+###### \java\seedu\address\model\person\ChannelId.java
 ``` java
 
 /**
@@ -137,15 +137,15 @@ public class ChannelId {
 
 }
 ```
-###### /java/seedu/address/ui/BrowserPanel.java
+###### \java\seedu\address\ui\ProfilePanel.java
 ``` java
 
 /**
  * The Browser Panel of the App.
  */
-public class BrowserPanel extends UiPart<Region> {
+public class ProfilePanel extends UiPart<Region> {
 
-    private static final String FXML = "BrowserPanel.fxml";
+    private static final String FXML = "ProfilePanel.fxml";
 
     private final Logger logger = LogsCenter.getLogger(this.getClass());
 
@@ -165,7 +165,7 @@ public class BrowserPanel extends UiPart<Region> {
     private TextFlow videoCount;
 
 
-    public BrowserPanel() {
+    public ProfilePanel() {
         super(FXML);
 
         registerAsAnEventHandler(this);
@@ -173,17 +173,21 @@ public class BrowserPanel extends UiPart<Region> {
 
     /**
      * Calls helper methods to get Channel title, description, subscriber count, view count
-     * and create date
+     * and video count
      * @param person target person to be selected
      * @throws IOException
      */
 
-    private void loadPersonPage(ReadOnlyPerson person) throws IOException {
+    private void loadPersonProfile(ReadOnlyPerson person) throws IOException {
 
+        String personChannelId = person.getChannelId().toString();
+
+        assert personChannelId != null : "personChannelId should not be null";
         channel = YouTubeAuthorizer.getYouTubeChannel(person.getChannelId().toString(), "statistics,snippet");
 
-        Text title = new Text(getChannelTitle());
-        title.setFont(Font.font("Calibri", 40));
+        String tempTitle = getChannelTitle();
+        Text title = new Text(tempTitle);
+        title.setFont(Font.font("Calibri", formatTitleSize(tempTitle)));
         title.setFill(Color.WHITE);
         channelTitle.getChildren().clear();
         channelTitle.getChildren().add(title);
@@ -289,19 +293,42 @@ public class BrowserPanel extends UiPart<Region> {
         }
     }
 
+    /**
+     * Formats the channel title by changing the font size to avoide text wrapping
+     * and overlapping with the date on TextFlow below
+     * @param title of the channel
+     * @return font size to use for the channelTitle TextFlow
+     */
+    private int formatTitleSize(String title) {
+        int titleLength = title.length();
+        int fontSize;
+
+        if (titleLength >= 48) {
+            fontSize = 20;
+        } else if (titleLength >= 36) {
+            fontSize = 23;
+        } else if (titleLength >= 25) {
+            fontSize = 30;
+        } else {
+            fontSize = 40;
+        }
+
+        return fontSize;
+    }
+
     @Subscribe
     private void handlePersonPanelSelectionChangedEvent(PersonPanelSelectionChangedEvent event) throws IOException {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
-        loadPersonPage(event.getNewSelection().person);
+        loadPersonProfile(event.getNewSelection().person);
     }
 }
 ```
-###### /resources/view/BrowserPanel.fxml
+###### \resources\view\ProfilePanel.fxml
 ``` fxml
 
 <StackPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <ScrollPane style="-fx-background: #383838;" fx:id="profile">
+    <ScrollPane fx:id="profile">
       <content>
         <AnchorPane prefHeight="600.0" prefWidth="800.0">
           <children>
