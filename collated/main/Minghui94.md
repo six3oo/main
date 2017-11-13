@@ -1,5 +1,5 @@
 # Minghui94
-###### /java/seedu/address/logic/commands/FindTagCommand.java
+###### \java\seedu\address\logic\commands\FindTagCommand.java
 ``` java
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.tag.TagContainsKeywordsPredicate;
@@ -38,7 +38,7 @@ public class FindTagCommand extends Command {
     }
 }
 ```
-###### /java/seedu/address/logic/commands/SortAscendingCommand.java
+###### \java\seedu\address\logic\commands\SortAscendingCommand.java
 ``` java
 /**
  * Sort and list out all the contacts in the Address Book
@@ -58,7 +58,7 @@ public class SortAscendingCommand extends Command {
     }
 }
 ```
-###### /java/seedu/address/logic/parser/FindEmailCommandParser.java
+###### \java\seedu\address\logic\parser\FindEmailCommandParser.java
 ``` java
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
@@ -91,7 +91,7 @@ public class FindEmailCommandParser {
     }
 }
 ```
-###### /java/seedu/address/logic/parser/FindTagCommandParser.java
+###### \java\seedu\address\logic\parser\FindTagCommandParser.java
 ``` java
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
@@ -124,7 +124,7 @@ public class FindTagCommandParser implements Parser<FindTagCommand> {
     }
 }
 ```
-###### /java/seedu/address/model/person/EmailContainsKeywordsPredicate.java
+###### \java\seedu\address\model\person\EmailContainsKeywordsPredicate.java
 ``` java
 /**
  * Tests that a {@code ReadOnlyPerson}'s {@code Name} matches any of the keywords given.
