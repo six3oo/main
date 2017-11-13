@@ -109,6 +109,16 @@ FORMAT REMOVE AFTER +
 * Juan Mata person card is added to the bottom of the person list
 ****
 
+=== List command
+
+*Command:* `list`
+
+*Result:*
+****
+* Result display box shows: Listed all persons
+* All persons are displayed in the person list.
+****
+
 === Edit command
 
 *Command:* `edit 1 p/9123456`
@@ -153,6 +163,14 @@ FORMAT REMOVE AFTER +
 ****
 * Result display box shows: Undo success!
 * `Naomi Neo` is once again marked as a favourite.
+****
+
+*Command:* `redo`
+
+*Result:*
+****
+* Result display box shows: Redo success!
+* `Naomi Neo` is once again unmarked as a favourite.
 ****
 
 *Command:* `fave 3`
